@@ -1,0 +1,317 @@
+# House of Graphs (HoG) deposits by Alexander Towell (queelius).
+#
+# Single source of truth for this portfolio. One record per graph deposit or
+# deposit candidate. The value-generating computations live in the sibling
+# research repo (open-problems); this repo curates the concrete witness graphs,
+# tracks their House of Graphs status, and re-verifies each witness from its
+# graph6 string with verify.py.
+#
+# status vocabulary:
+#   deposited : live on House of Graphs with a confirmed graph id (hog_id set)
+#   ready     : witness verified from scratch, both certificates in hand, not yet deposited
+#   candidate : identified as worth a deposit, pending a HoG duplicate-check
+#
+# certificates:
+#   both       : lower-bound proof (UNSAT or exhaustive enumeration or a classical
+#                formula) AND an independently re-verified witness (upper bound)
+#   upper-only : witness verified, matching lower bound not established here
+#
+# non_iso_minima: number of non-isomorphic minimum witnesses at the stated edge
+#   count, where the enumeration established it; null when not determined.
+#
+# graph6 strings can contain a literal backtick (ASCII 96). Each is mirrored
+# byte-exact in graphs/<graph_file>; verify.py re-decodes and re-checks it.
+
+author:
+  name: Alexander Towell
+  handle: queelius
+  email: lex@metafunctor.com
+  orcid: 0000-0001-6443-9897
+
+house_of_graphs: https://houseofgraphs.org
+
+source_repo:
+  open-problems: https://github.com/queelius/open-problems
+
+# Papers backing these deposits (Zenodo DOIs, cited on each HoG deposit).
+papers:
+  saturation:
+    title: "Graph saturation for C_k, P_k, K_4, K_{2,3}"
+    zenodo: 10.5281/zenodo.19985046
+  zarankiewicz:
+    title: "Three new Zarankiewicz numbers z(m,n;3,4)"
+    zenodo: 10.5281/zenodo.19985042
+
+graphs:
+
+  # ---- C6 saturation: sat(n, C6) minimum C6-saturated graphs ----
+  # Chain sat(6..10, C6) = 9, 10, 11, 12, 13. No exact formula for sat(n, C6)
+  # is known; Lan-Shi (2021/2025) give 4n/3 - 2 <= sat(n,C6) <= (4n+1)/3 for
+  # n >= 9. sat(9,C6)=12 and sat(10,C6)=13 are new exact values that continue
+  # the observed n+3 pattern and hug the Lan-Shi upper bound.
+
+  - invariant: "sat(7,C6)=10"
+    n: 7
+    edges: 10
+    graph6: "FbSko"
+    graph_file: graphs/sat7_C6_10.g6
+    hog_id: null
+    status: candidate
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      C6-free and C6-saturated (re-verified from the graph6). Value is in the
+      saturation paper but the witness was never deposited. Ranked the top
+      deposit candidate in the open-problems hunt (hog/CANDIDATES.md); needs a
+      HoG duplicate-check before any deposit.
+
+  - invariant: "sat(8,C6)=11"
+    n: 8
+    edges: 11
+    graph6: "G}`H_C"
+    graph_file: graphs/sat8_C6_11.g6
+    hog_id: 57145
+    hog_url: https://houseofgraphs.org/graphs/57145
+    status: deposited
+    certificates: both
+    non_iso_minima: 1
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      Unique minimum C6-saturated graph on 8 vertices (degrees [4,4,3,3,3,2,2,1],
+      2 triangles, non-bipartite). Deposited 2026-07-01 after a from-scratch
+      re-verification and a HoG canonical-form duplicate-check (no prior match).
+      graph6 contains a literal backtick as its 3rd character.
+
+  - invariant: "sat(9,C6)=12"
+    n: 9
+    edges: 12
+    graph6: "HyOkc?`"
+    graph_file: graphs/sat9_C6_12.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: 5
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      New exact value (9+3=12). Lower bound by complete exhaustive enumeration
+      (per-edge non-iso counts match OEIS A008406, so completeness is certified)
+      plus decision-SAT UNSAT at 11 edges on two solvers (cadical195, kissat).
+      Exactly 5 non-isomorphic minima at 12 edges. graph6 ends in a literal
+      backtick (ASCII 96); bytes 72 121 79 107 99 63 96.
+
+  - invariant: "sat(10,C6)=13"
+    n: 10
+    edges: 13
+    graph6: "I{`Q__H@?"
+    graph_file: graphs/sat10_C6_13.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: 2
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    witness: "primary (degrees [4,4,4,3,2,2,2,2,2,1], 1 triangle)"
+    notes: >-
+      New exact value (10+3=13). Lower bound by complete exhaustive enumeration
+      (per-edge counts match OEIS A008406, re-derived by Polya/Burnside as a
+      second method), so no C6-saturated graph on 10 vertices has 12 or fewer
+      edges. Upper bound by this re-verified witness. Exactly 2 non-isomorphic
+      minima at 13 edges. graph6 has a literal backtick as its 3rd character;
+      bytes 73 123 96 81 95 95 72 64 63.
+
+  - invariant: "sat(10,C6)=13"
+    n: 10
+    edges: 13
+    graph6: "I{S__OC?w"
+    graph_file: graphs/sat10_C6_13_alt.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: 2
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    witness: "alternate, near-cubic (degrees [3,3,3,3,3,3,2,2,2,2], 1 triangle)"
+    notes: >-
+      The second of the two non-isomorphic minima for sat(10,C6)=13. Its
+      near-cubic degree sequence makes it the more structurally distinctive of
+      the pair and the preferred deposit representative. C6-free and
+      C6-saturated (re-verified). bytes 73 123 83 95 95 79 67 63 119.
+
+  # ---- K_4 saturation: sat(n, K_4) minimum K_4-saturated graphs ----
+  # sat(n, K_4) = 2n - 3 (Erdos-Hajnal-Moon 1964). Witnesses computed by SAT in
+  # the saturation paper; prepared for HoG but not yet deposited.
+
+  - invariant: "sat(8,K_4)=13"
+    n: 8
+    edges: 13
+    graph6: "GzXbB?"
+    graph_file: graphs/sat8_K4_13.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      K_4-free and K_4-saturated (re-verified from the graph6). Matches the
+      Erdos-Hajnal-Moon formula sat(n,K_4)=2n-3=13. Prepared for HoG in
+      saturation-graphs.json; needs a duplicate-check before deposit.
+
+  - invariant: "sat(9,K_4)=15"
+    n: 9
+    edges: 15
+    graph6: "HFCVwcQ"
+    graph_file: graphs/sat9_K4_15.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      K_4-free and K_4-saturated (re-verified). Matches 2n-3=15. Prepared for
+      HoG; needs a duplicate-check before deposit.
+
+  - invariant: "sat(10,K_4)=17"
+    n: 10
+    edges: 17
+    graph6: "IXJxHGcH?"
+    graph_file: graphs/sat10_K4_17.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      K_4-free and K_4-saturated (re-verified). Matches 2n-3=17. Prepared for
+      HoG; needs a duplicate-check before deposit.
+
+  # ---- P_4 saturation: sat(n, P_4) minimum P_4-saturated graphs ----
+  # The P_4 series is non-monotone: sat(8,P_4)=4 < sat(7,P_4)=5. Values are
+  # computational (Kaszonyi-Tuza-type). Witnesses have low novelty (many small
+  # forests), so these are low-priority deposits.
+
+  - invariant: "sat(6,P_4)=3"
+    n: 6
+    edges: 3
+    graph6: "EOOO"
+    graph_file: graphs/sat6_P4_3.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      Three disjoint edges (a perfect matching on 6 vertices). P_4-saturation
+      certified in the saturation paper; vertex/edge/roundtrip re-verified here.
+      Low novelty; deposit only for series completeness.
+
+  - invariant: "sat(7,P_4)=5"
+    n: 7
+    edges: 5
+    graph6: "FKPA?"
+    graph_file: graphs/sat7_P4_5.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      P_4-saturation certified in the saturation paper; vertex/edge/roundtrip
+      re-verified here. Low novelty.
+
+  - invariant: "sat(8,P_4)=4"
+    n: 8
+    edges: 4
+    graph6: "G@`??C"
+    graph_file: graphs/sat8_P4_4.g6
+    hog_id: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985046
+    verified: true
+    notes: >-
+      Illustrates the P_4 series non-monotonicity, sat(8,P_4)=4 < sat(7,P_4)=5.
+      P_4-saturation certified in the saturation paper; vertex/edge/roundtrip
+      re-verified. graph6 contains a literal backtick as its 3rd character.
+
+  # ---- Zarankiewicz z(m,n;3,4) extremal bipartite graphs ----
+  # z(m,n;3,4) = max edges in an m-by-n bipartite graph whose adjacency matrix
+  # has NO 3-by-4 all-ones submatrix (no 3 row-vertices share 4 common columns).
+  # This is a one-sided (ordered) condition. House of Graphs stores graphs
+  # UNLABELED, so a witness must NOT be described as "K_(3,4)-free" unless BOTH
+  # orientations are clean: for z(10,10) and z(9,10) a K_(3,4) occurs in the
+  # permitted 4-by-3 orientation, so state the matrix condition instead. See
+  # LESSONS.md.
+
+  - invariant: "z(10,10;3,4)=66"
+    n: 20
+    edges: 66
+    graph6: "SsaCC@h?G@DrXq??laIyq[eOzP?{Q?mo?"
+    graph_file: graphs/z10_10_34.g6
+    hog_id: 56650
+    hog_url: https://houseofgraphs.org/graphs/56650
+    status: deposited
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985042
+    verified: true
+    oeis: A006615
+    parts: [10, 10]
+    k34_free: false
+    notes: >-
+      Bipartite, parts of size 10 and 10, 66 edges, adjacency matrix has no
+      3-by-4 all-ones submatrix. NOT K_(3,4)-free as an abstract graph: a
+      K_(3,4) occurs in the permitted 4-by-3 orientation (verified: 3 vertices
+      on one side share 4 common neighbours). The public HoG comment was
+      corrected on 2026-06-30 to state the matrix condition, not "K_(3,4)-free".
+
+  - invariant: "z(9,10;3,4)=60"
+    n: 19
+    edges: 60
+    graph6: "RsaCAs@?OALQ?@IilfBlSNK`wI?{s?"
+    graph_file: graphs/z9_10_34.g6
+    hog_id: 56652
+    hog_url: https://houseofgraphs.org/graphs/56652
+    status: deposited
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985042
+    verified: true
+    oeis: A006622
+    parts: [9, 10]
+    k34_free: false
+    notes: >-
+      Bipartite, parts of size 9 and 10, 60 edges, no 3-by-4 all-ones submatrix.
+      NOT K_(3,4)-free: a K_(3,4) occurs in the permitted 4-by-3 orientation
+      (verified). Comment corrected on 2026-06-30. graph6 contains a literal
+      backtick.
+
+  - invariant: "z(9,11;3,4)=66"
+    n: 20
+    edges: 66
+    graph6: "SsaCC?t?G@?CWt??ipjWqVTPy[?uq@]Y?"
+    graph_file: graphs/z9_11_34.g6
+    hog_id: 56651
+    hog_url: https://houseofgraphs.org/graphs/56651
+    status: deposited
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.19985042
+    verified: true
+    oeis: A006625
+    parts: [9, 11]
+    k34_free: true
+    notes: >-
+      Bipartite, parts of size 9 and 11, 66 edges. This one IS genuinely
+      K_(3,4)-free: no 3 vertices on either side share 4 common neighbours
+      (verified in both orientations). The only one of the three Zarankiewicz
+      witnesses for which the abstract "K_(3,4)-free" description is true.

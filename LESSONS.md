@@ -1,0 +1,90 @@
+# Lessons learned
+
+Dated entries. Read before preparing a new House of Graphs deposit. When a
+deposit is corrected, a value is found wrong, or a description is misread, add
+what happened and the rule going forward. Keep entries blunt and specific.
+
+## 2026-06-30 -- Never call a Zarankiewicz witness "K_(3,4)-free"
+
+**What:** The May 2 2026 House of Graphs deposits for the Zarankiewicz witnesses
+z(10,10;3,4)=66 (HoG #56650) and z(9,10;3,4)=60 (#56652) each described the graph
+as "K_(3,4)-free", in the comment prose and as a keyword. Both graphs DO contain
+K_(3,4) as an abstract subgraph, in the transposed 4-by-3 orientation. Only
+z(9,11;3,4)=66 (#56651) is genuinely K_(3,4)-free. Independent re-verification on
+2026-06-30 caught it; the public comments and the source repo's JSON and README
+were corrected.
+
+**Why:** z(m,n;s,t) forbids only the s-rows-by-t-columns all-ones submatrix, an
+ordered (one-sided) condition. But K_(3,4) = K_(4,3) as an abstract graph, and
+House of Graphs stores graphs unlabeled, so "K_(3,4)-free" reads as the abstract
+(both-orientation) claim, which is false for the transposed orientation. One
+comment template was applied to all three witnesses; it is true only when the
+graph also avoids the 4-by-3 block (z(9,11)).
+
+**Rule going forward:** Never call a Zarankiewicz witness "K_(s,t)-free". State
+the matrix condition ("no s-by-t all-ones submatrix") or the one-sided
+neighbour-sharing condition ("no s row-vertices share t common columns"); both
+are orientation-explicit and cannot be misread. When a claim about an ordered or
+bipartite object will appear in an unlabeled-graph context such as House of
+Graphs, re-express it so it stays true without the labels. Re-decode the graph6
+you are about to deposit and re-check BOTH orientations before deposit. This
+repo's contributions.yaml carries a `k34_free` flag per Zarankiewicz record;
+verify_witnesses.py recomputes it (triple-based) so the value is never
+hand-asserted.
+
+## 2026-06-10 -- Verify every value against ground truth before claiming
+
+**What:** A multi-agent review of prepared papers found fabricated tables and
+propagated wrong facts that an earlier "verification" had missed: distribution
+tables that did not sum to the known total, a displayed classical bound that the
+paper's own values violated, a formula in an abstract that contradicted the
+paper's own table, and a hallucinated citation. The common cause was
+hand-transcription and checking only compilation and format, not every printed
+number against the machine-verified data.
+
+**Rule going forward:** A claimed value or witness is not trusted until it is
+re-derived or re-checked from scratch by independent code, and every displayed
+classical theorem is checked against the actual literature. For graph deposits
+here: never hand-transcribe a graph6 string or an invariant. Decode the exact
+graph6 that will be deposited, recompute the edge count and the defining property
+(C6-free and C6-saturated, K_4-free and K_4-saturated, or the Zarankiewicz matrix
+condition), and confirm the roundtrip decode(encode(G)) reproduces the edge set.
+When a fact is corrected in one place, grep the whole tree for the same fact;
+wrong constants propagate across companion artifacts.
+
+## 2026-07-03 -- graph6 strings can contain a literal backtick; write them byte-exact
+
+**Context:** Building this repo. Several witness graph6 strings contain a literal
+backtick (ASCII 96): sat(9,C6)=12 is `HyOkc?` followed by a backtick;
+sat(10,C6)=13 is `I{` then a backtick then `Q__H@?`; sat(8,C6)=11 and
+sat(8,P_4)=4 and z(9,10;3,4)=60 each contain one too. A backtick is easy to lose
+or turn into a different character when a string passes through Markdown, a shell,
+or a copy-paste. Losing that one byte silently changes the graph.
+
+**What was done:** The g6 files were written from explicit byte values (backtick =
+byte 96), not typed into prose. verify_witnesses.py then re-decoded every file,
+confirmed the roundtrip, the vertex count, the edge count, and the defining
+property. Result on 2026-07-03: all 14 witnesses verified. The two new C6 values
+checked out exactly: sat(9,C6)=12 is C6-free and C6-saturated at 12 edges;
+sat(10,C6)=13 is C6-free and C6-saturated at 13 edges (both the primary witness
+and the near-cubic alternate minimum).
+
+**Rule going forward:** Store every graph6 as a byte-exact file under graphs/,
+mirror it in contributions.yaml, and re-decode it with verify.py before any
+deposit. Record the byte values in a comment when a string contains a backtick.
+Treat any graph6 that fails its roundtrip or its property check as corrupt and
+re-transcribe from the byte sequence, not from prose.
+
+## Standing rules (not tied to one event)
+
+- Re-verify every witness from its graph6 string before deposit: edge count,
+  defining property, and roundtrip. verify_witnesses.py is the gate.
+- Do not label a graph "deposited" unless a live House of Graphs id is confirmed.
+  ready means verified and prepared; deposited means it has a hog_id.
+- State bipartite or ordered conditions in an orientation-explicit form for any
+  unlabeled-graph database. Never "K_(s,t)-free" for a one-sided Zarankiewicz
+  condition.
+- Cite the backing paper by its current Zenodo DOI on each deposit: saturation
+  10.5281/zenodo.19985046, Zarankiewicz 10.5281/zenodo.19985042.
+- Registration, the duplicate-check, and the final submit on House of Graphs are
+  Alex's own step. Automation prepares and verifies; it does not deposit.
