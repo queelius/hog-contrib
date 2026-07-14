@@ -24,9 +24,10 @@ described, and easy to build on. Private for now (no remote).
 - `ready` : witness verified from scratch, both certificates in hand, not deposited.
 - `candidate` : worth a deposit, pending a HoG duplicate-check.
 
-Confirmed live deposits as of build (2026-07-03): sat(8,C6)=11 is HoG #57145;
-z(10,10;3,4)=66 is #56650; z(9,10;3,4)=60 is #56652; z(9,11;3,4)=66 is #56651.
-sat(9,C6)=12 and sat(10,C6)=13 are verified and ready, not yet deposited.
+Confirmed live records as of 2026-07-14: all 21 tracked witnesses have HoG ids.
+The five non-isomorphic sat(9,C6)=12 minima are #21054 and #57168–#57171; the
+two sat(10,C6)=13 minima are #57166 and #57167. See `contributions.yaml` for
+the complete id mapping, including canonical matches to pre-existing graphs.
 
 ## Conventions
 
@@ -44,7 +45,7 @@ sat(9,C6)=12 and sat(10,C6)=13 are verified and ready, not yet deposited.
   transposed orientation of z(10,10) and z(9,10). Only z(9,11) is genuinely
   K_(3,4)-free. See LESSONS.md.
 - Cite the backing paper by its current Zenodo DOI on each deposit: saturation
-  10.5281/zenodo.19985046, Zarankiewicz 10.5281/zenodo.19985042.
+  10.5281/zenodo.21350167, Zarankiewicz 10.5281/zenodo.19985042.
 - Registration, the duplicate-check, and the final submit on House of Graphs are
   Alex's own step. Automation prepares and verifies; it does not deposit.
 - When a deposit is corrected or a value is found wrong, add a dated entry to

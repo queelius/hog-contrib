@@ -60,7 +60,7 @@
     ],
     "invariant_claim": "sat(8, K_4) = 13",
     "description": "An K_4-saturated graph on n=8 vertices with 13 edges. No copy of K_4, but every non-edge addition creates one. matches sat(n, K_4) = 2n - 3 = 13 (Erd\u0151s-Hajnal-Moon 1964).",
-    "reference": "A. Towell, \"Graph saturation for C_k, P_k, K_4, K_{2,3}\", Zenodo 10.5281/zenodo.19226372 (2026)."
+    "reference": "A. Towell, \"Graph Saturation Numbers for Small Subgraphs: Exact Computations via SAT\", Zenodo 10.5281/zenodo.21350167 (2026)."
   },
   {
     "name": "K_4-saturated graph on n=9 vertices (15 edges)",
@@ -131,7 +131,7 @@
     ],
     "invariant_claim": "sat(9, K_4) = 15",
     "description": "An K_4-saturated graph on n=9 vertices with 15 edges. No copy of K_4, but every non-edge addition creates one. matches sat(n, K_4) = 2n - 3 = 15 (Erd\u0151s-Hajnal-Moon 1964).",
-    "reference": "A. Towell, \"Graph saturation for C_k, P_k, K_4, K_{2,3}\", Zenodo 10.5281/zenodo.19226372 (2026)."
+    "reference": "A. Towell, \"Graph Saturation Numbers for Small Subgraphs: Exact Computations via SAT\", Zenodo 10.5281/zenodo.21350167 (2026)."
   },
   {
     "name": "K_4-saturated graph on n=10 vertices (17 edges)",
@@ -210,7 +210,7 @@
     ],
     "invariant_claim": "sat(10, K_4) = 17",
     "description": "An K_4-saturated graph on n=10 vertices with 17 edges. No copy of K_4, but every non-edge addition creates one. matches sat(n, K_4) = 2n - 3 = 17 (Erd\u0151s-Hajnal-Moon 1964).",
-    "reference": "A. Towell, \"Graph saturation for C_k, P_k, K_4, K_{2,3}\", Zenodo 10.5281/zenodo.19226372 (2026)."
+    "reference": "A. Towell, \"Graph Saturation Numbers for Small Subgraphs: Exact Computations via SAT\", Zenodo 10.5281/zenodo.21350167 (2026)."
   },
   {
     "name": "P_4-saturated graph on n=6 vertices (3 edges)",
@@ -233,7 +233,7 @@
     ],
     "invariant_claim": "sat(6, P_4) = 3",
     "description": "An P_4-saturated graph on n=6 vertices with 3 edges. No copy of P_4, but every non-edge addition creates one. computational value from Towell (2026) for sat(6, P_4).",
-    "reference": "A. Towell, \"Graph saturation for C_k, P_k, K_4, K_{2,3}\", Zenodo 10.5281/zenodo.19226372 (2026)."
+    "reference": "A. Towell, \"Graph Saturation Numbers for Small Subgraphs: Exact Computations via SAT\", Zenodo 10.5281/zenodo.21350167 (2026)."
   },
   {
     "name": "P_4-saturated graph on n=7 vertices (5 edges)",
@@ -264,7 +264,7 @@
     ],
     "invariant_claim": "sat(7, P_4) = 5",
     "description": "An P_4-saturated graph on n=7 vertices with 5 edges. No copy of P_4, but every non-edge addition creates one. computational value from Towell (2026) for sat(7, P_4).",
-    "reference": "A. Towell, \"Graph saturation for C_k, P_k, K_4, K_{2,3}\", Zenodo 10.5281/zenodo.19226372 (2026)."
+    "reference": "A. Towell, \"Graph Saturation Numbers for Small Subgraphs: Exact Computations via SAT\", Zenodo 10.5281/zenodo.21350167 (2026)."
   },
   {
     "name": "P_4-saturated graph on n=8 vertices (4 edges)",
@@ -291,6 +291,6 @@
     ],
     "invariant_claim": "sat(8, P_4) = 4",
     "description": "An P_4-saturated graph on n=8 vertices with 4 edges. No copy of P_4, but every non-edge addition creates one. computational value from Towell (2026) for sat(8, P_4).",
-    "reference": "A. Towell, \"Graph saturation for C_k, P_k, K_4, K_{2,3}\", Zenodo 10.5281/zenodo.19226372 (2026)."
+    "reference": "A. Towell, \"Graph Saturation Numbers for Small Subgraphs: Exact Computations via SAT\", Zenodo 10.5281/zenodo.21350167 (2026)."
   }
 ]

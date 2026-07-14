@@ -75,6 +75,24 @@ deposit. Record the byte values in a comment when a string contains a backtick.
 Treat any graph6 that fails its roundtrip or its property check as corrupt and
 re-transcribe from the byte sequence, not from prose.
 
+## 2026-07-14 -- Search canonical forms, not names
+
+**What:** A live graph6 search found several queued witnesses already in House of
+Graphs under unrelated names or for unrelated properties: sat(7,C6) is HoG #868,
+one sat(9,C6) minimum is #21054, and all queued K_4 and P_4 witnesses also had
+existing canonical matches. Their null `hog_id` fields meant "not checked," not
+"absent."
+
+**Why:** HoG stores unlabeled graphs and may know the same isomorphism class for a
+different theorem. Text, invariant, and graph-name searches do not reliably detect
+that overlap.
+
+**Rule going forward:** Immediately before every upload, search the exact byte-
+verified graph6 through HoG's canonical-form lookup. If it matches, record the live
+id and add a concise comment explaining the new interpretation instead of creating
+a duplicate. Treat absence as a time-stamped search result, never as an inference
+from an unfamiliar graph name.
+
 ## Standing rules (not tied to one event)
 
 - Re-verify every witness from its graph6 string before deposit: edge count,
@@ -85,6 +103,6 @@ re-transcribe from the byte sequence, not from prose.
   unlabeled-graph database. Never "K_(s,t)-free" for a one-sided Zarankiewicz
   condition.
 - Cite the backing paper by its current Zenodo DOI on each deposit: saturation
-  10.5281/zenodo.19985046, Zarankiewicz 10.5281/zenodo.19985042.
+  10.5281/zenodo.21350167, Zarankiewicz 10.5281/zenodo.19985042.
 - Registration, the duplicate-check, and the final submit on House of Graphs are
   Alex's own step. Automation prepares and verifies; it does not deposit.

@@ -12,6 +12,7 @@ Core:
   from_edges(n, edges)   -> adj
 Properties (all take (n, adj)):
   degrees, num_edges, is_regular(k), triangles, is_c4_free, girth_is_3,
+  is_ck_free, is_ck_saturated, is_pk_free, is_pk_saturated,
   is_bipartite -> (partA, partB) or None,
   zarankiewicz_report(m, n)  (one-sided vs abstract K_{s,t}),
   is_k4_free, is_k4_saturated
@@ -141,6 +142,35 @@ def is_ck_saturated(n, adj, k):
             continue
         adj[u][v] = adj[v][u] = 1
         created = contains_ck(n, adj, k)
+        adj[u][v] = adj[v][u] = 0
+        if not created:
+            return False
+    return True
+
+
+def contains_pk(n, adj, k):
+    """True iff G has a simple path on exactly k vertices (not induced)."""
+    if k < 1 or k > n:
+        return False
+    return any(
+        all(adj[path[i]][path[i + 1]] for i in range(k - 1))
+        for path in itertools.permutations(range(n), k)
+    )
+
+
+def is_pk_free(n, adj, k):
+    return not contains_pk(n, adj, k)
+
+
+def is_pk_saturated(n, adj, k):
+    """Pk-saturated: Pk-free, and adding any single non-edge creates a Pk."""
+    if contains_pk(n, adj, k):
+        return False
+    for u, v in itertools.combinations(range(n), 2):
+        if adj[u][v]:
+            continue
+        adj[u][v] = adj[v][u] = 1
+        created = contains_pk(n, adj, k)
         adj[u][v] = adj[v][u] = 0
         if not created:
             return False

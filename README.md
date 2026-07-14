@@ -17,7 +17,7 @@ record of what was verified and when.
 
 These graphs realize exact values of extremal invariants with no known closed
 form (C6 saturation) or newly computed values of classical ones (Zarankiewicz
-z(m,n;3,4), K_4 and P_4 saturation). Each was computed by SAT solving or
+z(m,n;3,4), C5, K_4, P_4, and P_5 saturation). Each was computed by SAT solving or
 exhaustive enumeration, checked against published prior art, and re-verified from
 its graph6 string before it was called ready. The two headline results are
 `sat(9,C6)=12` and `sat(10,C6)=13`: new exact values, each with both
@@ -32,7 +32,7 @@ Lan-Shi window valid for `n >= 9`.
 - `graphs/` : byte-exact graph6 witness files, one per record. Some contain a
   literal backtick (ASCII 96); they are written from byte values, not prose.
 - `verify.py` : the graph6 toolkit and property checkers (decode/encode, edge
-  count, roundtrip, C6-free/saturated, K_4-free/saturated, bipartite report).
+  count, roundtrip, cycle/path/K_4 saturation, bipartite report).
 - `verify_witnesses.py` : the verification gate. Re-decodes every witness in
   `graphs/`, checks n, edges, roundtrip, and the defining property.
 - `manifests/` : `saturation-graphs.json` and `zarankiewicz-graphs.json`, the
@@ -47,7 +47,7 @@ Lan-Shi window valid for `n >= 9`.
 python3 verify_witnesses.py     # re-decode and re-check every witness in graphs/
 ```
 
-Latest run (2026-07-03): all 14 witnesses verified. The C6 headline checks:
+Latest run (2026-07-14): all 21 witnesses verified. The C6 headline checks:
 `sat(9,C6)=12` is C6-free and C6-saturated at 12 edges; `sat(10,C6)=13` is
 C6-free and C6-saturated at 13 edges (primary and near-cubic alternate minima).
 
@@ -58,31 +58,37 @@ both certificates, not yet deposited), `deposited` (live on House of Graphs with
 confirmed id). Registration, the duplicate-check, and the final submit are Alex's
 own step.
 
-## Deposits and candidates
+## Deposits and canonical matches
 
 | Invariant | n | edges | HoG id | status |
 |-----------|---|-------|--------|--------|
-| sat(7,C6)=10 | 7 | 10 | -- | candidate |
+| sat(7,C6)=10 | 7 | 10 | [868](https://houseofgraphs.org/graphs/868) | deposited |
 | sat(8,C6)=11 | 8 | 11 | [57145](https://houseofgraphs.org/graphs/57145) | deposited |
-| sat(9,C6)=12 | 9 | 12 | -- | ready |
-| sat(10,C6)=13 (primary) | 10 | 13 | -- | ready |
-| sat(10,C6)=13 (alternate) | 10 | 13 | -- | ready |
-| sat(8,K_4)=13 | 8 | 13 | -- | ready |
-| sat(9,K_4)=15 | 9 | 15 | -- | ready |
-| sat(10,K_4)=17 | 10 | 17 | -- | ready |
-| sat(6,P_4)=3 | 6 | 3 | -- | ready |
-| sat(7,P_4)=5 | 7 | 5 | -- | ready |
-| sat(8,P_4)=4 | 8 | 4 | -- | ready |
+| sat(9,C6)=12 (classes 1–5) | 9 | 12 | [21054](https://houseofgraphs.org/graphs/21054), [57168](https://houseofgraphs.org/graphs/57168)–[57171](https://houseofgraphs.org/graphs/57171) | deposited |
+| sat(10,C6)=13 (near-cubic) | 10 | 13 | [57166](https://houseofgraphs.org/graphs/57166) | deposited |
+| sat(10,C6)=13 (cut-vertex) | 10 | 13 | [57167](https://houseofgraphs.org/graphs/57167) | deposited |
+| sat(8,C5)=10 | 8 | 10 | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
+| sat(8,K_4)=13 | 8 | 13 | [664](https://houseofgraphs.org/graphs/664) | deposited |
+| sat(9,K_4)=15 | 9 | 15 | [182](https://houseofgraphs.org/graphs/182) | deposited |
+| sat(10,K_4)=17 | 10 | 17 | [250](https://houseofgraphs.org/graphs/250) | deposited |
+| sat(6,P_4)=3 | 6 | 3 | [484](https://houseofgraphs.org/graphs/484) | deposited |
+| sat(7,P_4)=5 | 7 | 5 | [56649](https://houseofgraphs.org/graphs/56649) | deposited |
+| sat(8,P_4)=4 | 8 | 4 | [684](https://houseofgraphs.org/graphs/684) | deposited |
+| sat(8,P_5)=6 | 8 | 6 | [57173](https://houseofgraphs.org/graphs/57173) | deposited |
+| sat(9,P_5)=7 | 9 | 7 | [57174](https://houseofgraphs.org/graphs/57174) | deposited |
 | z(10,10;3,4)=66 | 20 | 66 | [56650](https://houseofgraphs.org/graphs/56650) | deposited |
 | z(9,10;3,4)=60 | 19 | 60 | [56652](https://houseofgraphs.org/graphs/56652) | deposited |
 | z(9,11;3,4)=66 | 20 | 66 | [56651](https://houseofgraphs.org/graphs/56651) | deposited |
 
-Four graphs are live on House of Graphs; ten are verified and ready or candidate.
+All 21 tracked witnesses are live on House of Graphs. Some were submitted as new
+graphs; others matched existing canonical forms and were annotated with their
+saturation interpretation where useful.
 
 ## Papers
 
-- Saturation: A. Towell, "Graph saturation for C_k, P_k, K_4, K_{2,3}", Zenodo
-  [10.5281/zenodo.19985046](https://doi.org/10.5281/zenodo.19985046).
+- Saturation: A. Towell, "Graph Saturation Numbers for Small Subgraphs: Exact
+  Computations via SAT", Zenodo
+  [10.5281/zenodo.21350167](https://doi.org/10.5281/zenodo.21350167).
 - Zarankiewicz: A. Towell, "Three new Zarankiewicz numbers z(m,n;3,4)", Zenodo
   [10.5281/zenodo.19985042](https://doi.org/10.5281/zenodo.19985042).
 
