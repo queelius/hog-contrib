@@ -1,111 +1,171 @@
 #!/usr/bin/env python3
-"""Verify every witness in graphs/ against contributions.yaml using verify.py.
+"""Verify every graph6 witness using the structured contributions registry."""
 
-For each graph6 file: decode it, confirm the roundtrip, the vertex count, and the
-edge count; then run the property check appropriate to its invariant family:
-
-  Cycle saturation: Ck-free AND Ck-saturated (verify.is_ck_free / is_ck_saturated)
-  Path saturation : Pk-free AND Pk-saturated (verify.is_pk_free / is_pk_saturated)
-  K_4 saturation: K_4-free AND K_4-saturated (verify.is_k4_free / is_k4_saturated)
-  Zarankiewicz  : bipartite with the stated part sizes, and an orientation-explicit
-                  K_(3,4) report (triple-based: does any 3 vertices on one side share
-                  4 common neighbours on the other). This is the Mistake-in-LESSONS
-                  check: state the matrix condition, never call it "K_(3,4)-free"
-                  unless BOTH orientations are clean.
-
-Run from the repo root:  python3 verify_witnesses.py
-Exit code 0 iff every check passes.
-"""
+from dataclasses import dataclass
+from enum import Enum
 import itertools
-import os
+from pathlib import Path
 import sys
 
-ROOT = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, ROOT)
+import yaml
+
 import verify as V
 
-# graph6_file -> (n, edges, family, param)
-#   family "ck" / "pk": param = cycle/path order k
-#   family "k4":        param = None
-#   family "zar":       param = (m, ncols) part sizes for the z(m,ncols;3,4) matrix
-CASES = {
-    "sat7_C6_10.g6":        (7,  10, "ck",  6),
-    "sat8_C6_11.g6":        (8,  11, "ck",  6),
-    "sat9_C6_12.g6":        (9,  12, "ck",  6),
-    "sat9_C6_12_class2.g6": (9,  12, "ck",  6),
-    "sat9_C6_12_class3.g6": (9,  12, "ck",  6),
-    "sat9_C6_12_class4.g6": (9,  12, "ck",  6),
-    "sat9_C6_12_class5.g6": (9,  12, "ck",  6),
-    "sat10_C6_13.g6":       (10, 13, "ck",  6),
-    "sat10_C6_13_alt.g6":   (10, 13, "ck",  6),
-    "sat8_C5_10.g6":        (8,  10, "ck",  5),
-    "sat8_K4_13.g6":      (8,  13, "k4",  None),
-    "sat9_K4_15.g6":      (9,  15, "k4",  None),
-    "sat10_K4_17.g6":     (10, 17, "k4",  None),
-    "sat6_P4_3.g6":       (6,  3,  "pk",  4),
-    "sat7_P4_5.g6":       (7,  5,  "pk",  4),
-    "sat8_P4_4.g6":       (8,  4,  "pk",  4),
-    "sat8_P5_6.g6":       (8,  6,  "pk",  5),
-    "sat9_P5_7.g6":       (9,  7,  "pk",  5),
-    "z10_10_34.g6":       (20, 66, "zar", (10, 10)),
-    "z9_10_34.g6":        (19, 60, "zar", (9, 10)),
-    "z9_11_34.g6":        (20, 66, "zar", (9, 11)),
-}
+ROOT = Path(__file__).resolve().parent
 
 
-def max_triple_share(adj, side, other):
-    """Max over 3-subsets of `side` of the number of common neighbours in `other`."""
-    best = 0
-    for trip in itertools.combinations(side, 3):
-        common = sum(1 for c in other if all(adj[r][c] for r in trip))
-        best = max(best, common)
-    return best
+class Family(Enum):
+    CYCLE = "cycle_saturation"
+    PATH = "path_saturation"
+    CLIQUE = "clique_saturation"
+    ORDERED_BIPARTITE = "ordered_bipartite"
+
+
+@dataclass(frozen=True)
+class Case:
+    path: Path
+    graph6: str
+    n: int
+    edges: int
+    family: Family
+    order: int | None = None
+    parts: tuple[int, int] | None = None
+    forbidden_parts: tuple[int, int] | None = None
+    abstract_free: bool | None = None
+
+
+@dataclass(frozen=True)
+class Result:
+    ok: bool
+    detail: str
+
+
+def _integer(value, name, minimum=0):
+    if type(value) is not int or value < minimum:
+        raise ValueError(f"invalid {name}: {value!r}")
+    return value
+
+
+def _pair(value, name):
+    if not isinstance(value, list) or len(value) != 2:
+        raise ValueError(f"{name} must contain two positive integers")
+    return tuple(_integer(x, name, 1) for x in value)
+
+
+def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
+    """Load typed cases and reject omitted files or inconsistent metadata."""
+    registry = Path(registry)
+    root = registry.parent.resolve()
+    data = yaml.safe_load(registry.read_text())
+    if not isinstance(data, dict) or not isinstance(data.get("graphs"), list):
+        raise ValueError("registry must contain a graphs list")
+    cases = []
+    paths = set()
+    for record in data["graphs"]:
+        if not isinstance(record, dict):
+            raise ValueError("each graph record must be a mapping")
+        path = Path(record["graph_file"])
+        if path.is_absolute() or not (root / path).resolve().is_relative_to(root / "graphs"):
+            raise ValueError("graph_file must remain within graphs/")
+        if path in paths:
+            raise ValueError(f"duplicate graph_file: {path}")
+        paths.add(path)
+        if record.get("status") == "deposited":
+            _integer(record.get("hog_id"), "confirmed HoG ID", 1)
+        n = _integer(record["n"], "vertex count")
+        edges = _integer(record["edges"], "edge count")
+        if edges > n * (n - 1) // 2:
+            raise ValueError("edge count exceeds a simple graph's capacity")
+        graph6 = record["graph6"]
+        if not isinstance(graph6, str) or not graph6:
+            raise ValueError("graph6 must be a nonempty string")
+        specification = record.get("verification")
+        if not isinstance(specification, dict):
+            raise ValueError(f"missing structured verification for {path}")
+        family = Family(specification["family"])
+        order = parts = forbidden = None
+        if family in (Family.CYCLE, Family.PATH, Family.CLIQUE):
+            order = _integer(specification["order"], "forbidden graph order", 2)
+            if family is Family.CLIQUE and order != 4:
+                raise ValueError("only K4 clique saturation is supported")
+            if family is Family.CYCLE and order < 3:
+                raise ValueError("a cycle must have at least three vertices")
+        else:
+            parts = _pair(record["parts"], "parts")
+            forbidden = _pair(specification["forbidden_parts"], "forbidden_parts")
+            if sum(parts) != n:
+                raise ValueError("part sizes do not sum to the graph order")
+        abstract_free = record.get("k34_free")
+        if abstract_free is not None and type(abstract_free) is not bool:
+            raise ValueError("abstract freeness flag must be boolean")
+        cases.append(Case(path, graph6, n, edges, family, order, parts, forbidden, abstract_free))
+    files = {path.relative_to(root) for path in (root / "graphs").rglob("*.g6")}
+    if files - paths:
+        raise ValueError(f"unregistered graph files: {sorted(map(str, files - paths))}")
+    if paths - files:
+        raise ValueError(f"missing graph files: {sorted(map(str, paths - files))}")
+    return cases
+
+
+def max_common_neighbours(adj, side, other, subset_size):
+    """Maximum common neighbours of a fixed-size subset of one part."""
+    return max(
+        (sum(all(adj[u][v] for u in subset) for v in other)
+         for subset in itertools.combinations(side, subset_size)),
+        default=0,
+    )
+
+
+def verify_case(case: Case, root: Path = ROOT) -> Result:
+    """Verify the exact file, registry mirror, counts, and defining property."""
+    try:
+        graph6 = (Path(root) / case.path).read_text().strip()
+        if graph6 != case.graph6:
+            return Result(False, "graph6 file differs from registry")
+        n, adj = V.decode_graph6(graph6)
+        m = V.num_edges(n, adj)
+        if (n, m) != (case.n, case.edges) or V.encode_graph6(n, adj) != graph6 or not V.roundtrip_ok(n, adj):
+            return Result(False, f"count or roundtrip mismatch: n={n} m={m}")
+        if case.family is Family.CYCLE:
+            ok = V.is_ck_free(n, adj, case.order) and V.is_ck_saturated(n, adj, case.order)
+            detail = f"C{case.order}-saturated={ok}"
+        elif case.family is Family.PATH:
+            ok = V.is_pk_free(n, adj, case.order) and V.is_pk_saturated(n, adj, case.order)
+            detail = f"P{case.order}-saturated={ok}"
+        elif case.family is Family.CLIQUE:
+            ok = V.is_k4_free(n, adj) and V.is_k4_saturated(n, adj)
+            detail = f"K4-saturated={ok}"
+        else:
+            partition = V.is_bipartite(n, adj)
+            if partition is None:
+                return Result(False, "graph is not bipartite")
+            a, b = partition
+            s, t = case.forbidden_parts
+            ab = max_common_neighbours(adj, a, b, s)
+            ba = max_common_neighbours(adj, b, a, s)
+            orientations = [(a, b, ab), (b, a, ba)]
+            clean = any((len(rows), len(cols)) == case.parts and common < t
+                        for rows, cols, common in orientations)
+            abstract_free = ab < t and ba < t
+            ok = clean and (case.abstract_free is None or case.abstract_free == abstract_free)
+            detail = f"parts=({len(a)},{len(b)}) ordered-clean={clean} abstract-free={abstract_free}"
+        return Result(ok, f"n={n} m={m} roundtrip=True {detail}")
+    except (OSError, ValueError, IndexError, UnicodeError) as error:
+        return Result(False, str(error))
 
 
 def main():
-    graphs_dir = os.path.join(ROOT, "graphs")
-    all_ok = True
-    for fname, (exp_n, exp_m, fam, param) in CASES.items():
-        with open(os.path.join(graphs_dir, fname), "rb") as fh:
-            g6 = fh.read().decode().strip()
-        n, adj = V.decode_graph6(g6)
-        m = V.num_edges(n, adj)
-        rt = V.roundtrip_ok(n, adj)
-        ok = (n == exp_n and m == exp_m and rt)
-        detail = ""
-        if fam == "ck":
-            cfree = V.is_ck_free(n, adj, param)
-            csat = V.is_ck_saturated(n, adj, param)
-            ok = ok and cfree and csat
-            detail = f"C{param}-free={cfree} C{param}-saturated={csat}"
-        elif fam == "pk":
-            pfree = V.is_pk_free(n, adj, param)
-            psat = V.is_pk_saturated(n, adj, param)
-            ok = ok and pfree and psat
-            detail = f"P{param}-free={pfree} P{param}-saturated={psat}"
-        elif fam == "k4":
-            kfree = V.is_k4_free(n, adj)
-            ksat = V.is_k4_saturated(n, adj)
-            ok = ok and kfree and ksat
-            detail = f"K4-free={kfree} K4-saturated={ksat}"
-        elif fam == "zar":
-            A, B = V.is_bipartite(n, adj)
-            parts = tuple(sorted((len(A), len(B))))
-            ab = max_triple_share(adj, A, B)
-            ba = max_triple_share(adj, B, A)
-            has_k34 = ab >= 4 or ba >= 4
-            # z(m,ncols;3,4) requires no 3 vertices on the smaller/"row" side sharing
-            # 4 on the other; the min side is the row side here for our witnesses.
-            one_sided_clean = min(ab, ba) < 4
-            ok = ok and parts == tuple(sorted(param)) and one_sided_clean
-            detail = (f"parts={parts} 3-share-4(A->B)={ab} 3-share-4(B->A)={ba} "
-                      f"abstract_K(3,4)={has_k34}")
-        status = "OK" if ok else "FAIL"
-        print(f"[{status}] {fname:22s} g6={g6!r:40s} n={n} m={m} rt={rt} {detail}")
-        all_ok = all_ok and ok
-    print("-" * 78)
-    print("ALL WITNESSES VERIFIED" if all_ok else "VERIFICATION FAILED")
-    return 0 if all_ok else 1
+    try:
+        cases = load_cases()
+    except (OSError, ValueError, KeyError, TypeError, yaml.YAMLError) as error:
+        print(f"REGISTRY ERROR: {error}", file=sys.stderr)
+        return 1
+    results = [(case, verify_case(case)) for case in cases]
+    for case, result in results:
+        print(f"[{'OK' if result.ok else 'FAIL'}] {case.path.name}: {result.detail}")
+    ok = all(result.ok for _, result in results)
+    print("ALL WITNESSES VERIFIED" if ok else "VERIFICATION FAILED")
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

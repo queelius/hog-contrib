@@ -93,7 +93,30 @@ id and add a concise comment explaining the new interpretation instead of creati
 a duplicate. Treat absence as a time-stamped search result, never as an inference
 from an unfamiliar graph name.
 
-## Standing rules (not tied to one event)
+## 2026-10-17 -- An open general problem does not make every small value new
+
+**What:** A deeper prior-art audit found the n=9,10 C6 saturation values and
+their complete minimum families in Remark 1 of the 2012 Zhang-Luo-Shigeno
+preprint, associated with DOI 10.1007/s00373-014-1422-4. Earlier records here
+incorrectly described these values as new. The preprint's n=11 claim also
+differs from our reproduced value; that discrepancy must be described with
+the source version specified, not automatically attributed to the final paper.
+
+**Rule:** Inspect small-case remarks, figures, computational tables, and
+preprint/final-version differences. Absence of a general formula or a web
+search match is not a novelty certificate. Correct inherited public claims
+and source attribution before using them to motivate further contributions.
+
+**Public correction:** On 2026-10-17 the comments on HoG 21054, 57168,
+57169, 57170, 57171, 57167, and 57166 were edited to credit the 2012
+preprint and explicitly withdraw the novelty claim. Each saved correction
+was checked on the live graph page.
+
+## Standing verification rules
+
+- Registry verification is data-driven: every graph needs structured
+  `verification` metadata, and every `.g6` file must have a registry record.
+  Do not reintroduce a parallel hardcoded witness table.
 
 - Re-verify every witness from its graph6 string before deposit: edge count,
   defining property, and roundtrip. verify_witnesses.py is the gate.
@@ -104,5 +127,6 @@ from an unfamiliar graph name.
   condition.
 - Cite the backing paper by its current Zenodo DOI on each deposit: saturation
   10.5281/zenodo.21350167, Zarankiewicz 10.5281/zenodo.19985042.
-- Registration, the duplicate-check, and the final submit on House of Graphs are
-  Alex's own step. Automation prepares and verifies; it does not deposit.
+- External publication requires explicit user authorization. The current
+  contribution goal authorizes Zenodo publication and HoG submissions or
+  annotations after verification; login remains a user handoff when necessary.

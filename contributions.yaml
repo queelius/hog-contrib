@@ -1,4 +1,4 @@
-# House of Graphs (HoG) deposits by Alexander Towell (queelius).
+# House of Graphs (HoG) deposits by Alexander Richard Towell (queelius).
 #
 # Single source of truth for this portfolio. One record per graph deposit or
 # deposit candidate. The value-generating computations live in the sibling
@@ -23,7 +23,7 @@
 # byte-exact in graphs/<graph_file>; verify.py re-decodes and re-checks it.
 
 author:
-  name: Alexander Towell
+  name: Alexander Richard Towell
   handle: queelius
   email: lex@metafunctor.com
   orcid: 0000-0001-6443-9897
@@ -45,16 +45,17 @@ papers:
 graphs:
 
   # ---- C6 saturation: sat(n, C6) minimum C6-saturated graphs ----
-  # Chain sat(6..10, C6) = 9, 10, 11, 12, 13. No exact formula for sat(n, C6)
-  # is known; Lan-Shi (2021/2025) give 4n/3 - 2 <= sat(n,C6) <= (4n+1)/3 for
-  # n >= 9. sat(9,C6)=12 and sat(10,C6)=13 are new exact values that continue
-  # the observed n+3 pattern and hug the Lan-Shi upper bound.
+  # The n+3 pattern holds through n=11 and breaks at n=12, where the value is 16.
+  # The n=9,10 values and minimum families already appear in Remark 1 of the
+  # 2012 Zhang-Luo-Shigeno preprint; our computations independently reproduce
+  # them. A missing general formula is not evidence that each small value is new.
 
   - invariant: "sat(7,C6)=10"
     n: 7
     edges: 10
     graph6: "FbSko"
     graph_file: graphs/sat7_C6_10.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 868
     hog_url: https://houseofgraphs.org/graphs/868
     status: deposited
@@ -72,6 +73,7 @@ graphs:
     edges: 11
     graph6: "G}`H_C"
     graph_file: graphs/sat8_C6_11.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 57145
     hog_url: https://houseofgraphs.org/graphs/57145
     status: deposited
@@ -90,6 +92,7 @@ graphs:
     edges: 12
     graph6: "HyOkc?`"
     graph_file: graphs/sat9_C6_12.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 21054
     hog_url: https://houseofgraphs.org/graphs/21054
     status: deposited
@@ -99,7 +102,7 @@ graphs:
     verified: true
     witness: "class 1 of 5 (degrees [4,4,4,2,2,2,2,2,2], 1 triangle)"
     notes: >-
-      New exact value (9+3=12). Lower bound by complete exhaustive enumeration
+      Independently reproduced exact value (9+3=12). Lower bound by complete exhaustive enumeration
       (per-edge non-iso counts match OEIS A008406, so completeness is certified)
       plus decision-SAT UNSAT at 11 edges on two solvers (cadical195, kissat).
       Exactly 5 non-isomorphic minima at 12 edges. graph6 ends in a literal
@@ -112,6 +115,7 @@ graphs:
     edges: 12
     graph6: "H{`Q__H"
     graph_file: graphs/sat9_C6_12_class2.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 57168
     hog_url: https://houseofgraphs.org/graphs/57168
     status: deposited
@@ -130,6 +134,7 @@ graphs:
     edges: 12
     graph6: "H{`PO_H"
     graph_file: graphs/sat9_C6_12_class3.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 57169
     hog_url: https://houseofgraphs.org/graphs/57169
     status: deposited
@@ -148,6 +153,7 @@ graphs:
     edges: 12
     graph6: "Hs`aA?Z"
     graph_file: graphs/sat9_C6_12_class4.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 57170
     hog_url: https://houseofgraphs.org/graphs/57170
     status: deposited
@@ -166,6 +172,7 @@ graphs:
     edges: 12
     graph6: "Hs`b?gI"
     graph_file: graphs/sat9_C6_12_class5.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 57171
     hog_url: https://houseofgraphs.org/graphs/57171
     status: deposited
@@ -184,6 +191,7 @@ graphs:
     edges: 13
     graph6: "I{`Q__H@?"
     graph_file: graphs/sat10_C6_13.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 57167
     hog_url: https://houseofgraphs.org/graphs/57167
     status: deposited
@@ -193,7 +201,7 @@ graphs:
     verified: true
     witness: "primary (degrees [4,4,4,3,2,2,2,2,2,1], 1 triangle)"
     notes: >-
-      New exact value (10+3=13). Lower bound by complete exhaustive enumeration
+      Independently reproduced exact value (10+3=13). Lower bound by complete exhaustive enumeration
       (per-edge counts match OEIS A008406, re-derived by Polya/Burnside as a
       second method), so no C6-saturated graph on 10 vertices has 12 or fewer
       edges. Upper bound by this re-verified witness. Exactly 2 non-isomorphic
@@ -205,6 +213,7 @@ graphs:
     edges: 13
     graph6: "I{S__OC?w"
     graph_file: graphs/sat10_C6_13_alt.g6
+    verification: {family: cycle_saturation, order: 6}
     hog_id: 57166
     hog_url: https://houseofgraphs.org/graphs/57166
     status: deposited
@@ -220,6 +229,70 @@ graphs:
       C6-saturated (re-verified). bytes 73 123 83 95 95 79 67 63 119.
       Deposited 2026-07-14 as HoG #57166.
 
+  - invariant: "sat(11,C6)=14"
+    n: 11
+    edges: 14
+    graph6: "J]P?CGIKCC?"
+    graph_file: graphs/sat11_C6_14.g6
+    verification: {family: cycle_saturation, order: 6}
+    hog_id: null
+    hog_url: null
+    status: ready
+    certificates: both
+    non_iso_minima: 1
+    zenodo: null
+    verified: true
+    notes: >-
+      Unique minimum class. Reproduced on 2026-10-17 by complete pynauty
+      enumeration and nauty geng, each checked against independent Burnside
+      counts. No saturated graph through 13 edges; exactly one class at 14.
+      The exact graph6 passes independent DFS and subset-Hamiltonicity checks.
+      HoG canonical search on 2026-10-17 found no match. Supporting archive
+      version is being prepared; publication and deposit remain pending.
+
+  - invariant: "sat(12,C6)=16"
+    n: 12
+    edges: 16
+    graph6: "KyOkc?`C??_D"
+    graph_file: graphs/sat12_C6_16.g6
+    verification: {family: cycle_saturation, order: 6}
+    hog_id: null
+    hog_url: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: null
+    verified: true
+    notes: >-
+      The n+3 pattern breaks: exhaustive enumeration finds no C6-saturated
+      graph through 15 edges, with all 1581347 generated classes counted
+      against independent Burnside totals. This 16-edge witness passes two
+      independent cycle checks and attains the lower bound. It is obtained
+      from the n=9 witness HyOkc?` by attaching a path of length four between
+      vertices 3 and 8. The complete minimum family is not classified.
+      Supporting archive publication and HoG canonical lookup remain pending.
+
+  - invariant: "sat(13,C6)=17"
+    n: 13
+    edges: 17
+    graph6: "L{`Q__H@C??@C@"
+    graph_file: graphs/sat13_C6_17.g6
+    verification: {family: cycle_saturation, order: 6}
+    hog_id: null
+    hog_url: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: null
+    verified: true
+    notes: >-
+      Exhaustive nauty geng enumeration found no C6-saturated graph through
+      16 edges. All 7997524 generated classes match independent Burnside
+      counts. This 17-edge witness passes independent DFS and subset checks.
+      Constructed from I{`Q__H@? by attaching a length-four path between
+      vertices 0 and 3. The minimum family is not classified. Supporting
+      archive publication and HoG canonical lookup remain pending.
+
   # ---- C5 saturation ----
 
   - invariant: "sat(8,C5)=10"
@@ -227,6 +300,7 @@ graphs:
     edges: 10
     graph6: "G`@jWO"
     graph_file: graphs/sat8_C5_10.g6
+    verification: {family: cycle_saturation, order: 5}
     hog_id: 57172
     hog_url: https://houseofgraphs.org/graphs/57172
     status: deposited
@@ -250,6 +324,7 @@ graphs:
     edges: 13
     graph6: "GzXbB?"
     graph_file: graphs/sat8_K4_13.g6
+    verification: {family: clique_saturation, order: 4}
     hog_id: 664
     hog_url: https://houseofgraphs.org/graphs/664
     status: deposited
@@ -267,6 +342,7 @@ graphs:
     edges: 15
     graph6: "HFCVwcQ"
     graph_file: graphs/sat9_K4_15.g6
+    verification: {family: clique_saturation, order: 4}
     hog_id: 182
     hog_url: https://houseofgraphs.org/graphs/182
     status: deposited
@@ -283,6 +359,7 @@ graphs:
     edges: 17
     graph6: "IXJxHGcH?"
     graph_file: graphs/sat10_K4_17.g6
+    verification: {family: clique_saturation, order: 4}
     hog_id: 250
     hog_url: https://houseofgraphs.org/graphs/250
     status: deposited
@@ -304,6 +381,7 @@ graphs:
     edges: 3
     graph6: "EOOO"
     graph_file: graphs/sat6_P4_3.g6
+    verification: {family: path_saturation, order: 4}
     hog_id: 484
     hog_url: https://houseofgraphs.org/graphs/484
     status: deposited
@@ -321,6 +399,7 @@ graphs:
     edges: 5
     graph6: "FKPA?"
     graph_file: graphs/sat7_P4_5.g6
+    verification: {family: path_saturation, order: 4}
     hog_id: 56649
     hog_url: https://houseofgraphs.org/graphs/56649
     status: deposited
@@ -337,6 +416,7 @@ graphs:
     edges: 4
     graph6: "G@`??C"
     graph_file: graphs/sat8_P4_4.g6
+    verification: {family: path_saturation, order: 4}
     hog_id: 684
     hog_url: https://houseofgraphs.org/graphs/684
     status: deposited
@@ -357,6 +437,7 @@ graphs:
     edges: 6
     graph6: "G___Cc"
     graph_file: graphs/sat8_P5_6.g6
+    verification: {family: path_saturation, order: 5}
     hog_id: 57173
     hog_url: https://houseofgraphs.org/graphs/57173
     status: deposited
@@ -375,6 +456,7 @@ graphs:
     edges: 7
     graph6: "H?IpA?_"
     graph_file: graphs/sat9_P5_7.g6
+    verification: {family: path_saturation, order: 5}
     hog_id: 57174
     hog_url: https://houseofgraphs.org/graphs/57174
     status: deposited
@@ -402,6 +484,7 @@ graphs:
     edges: 66
     graph6: "SsaCC@h?G@DrXq??laIyq[eOzP?{Q?mo?"
     graph_file: graphs/z10_10_34.g6
+    verification: {family: ordered_bipartite, forbidden_parts: [3, 4]}
     hog_id: 56650
     hog_url: https://houseofgraphs.org/graphs/56650
     status: deposited
@@ -424,6 +507,7 @@ graphs:
     edges: 60
     graph6: "RsaCAs@?OALQ?@IilfBlSNK`wI?{s?"
     graph_file: graphs/z9_10_34.g6
+    verification: {family: ordered_bipartite, forbidden_parts: [3, 4]}
     hog_id: 56652
     hog_url: https://houseofgraphs.org/graphs/56652
     status: deposited
@@ -445,6 +529,7 @@ graphs:
     edges: 66
     graph6: "SsaCC?t?G@?CWt??ipjWqVTPy[?uq@]Y?"
     graph_file: graphs/z9_11_34.g6
+    verification: {family: ordered_bipartite, forbidden_parts: [3, 4]}
     hog_id: 56651
     hog_url: https://houseofgraphs.org/graphs/56651
     status: deposited

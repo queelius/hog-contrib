@@ -15,14 +15,18 @@ record of what was verified and when.
 
 ## Why these
 
-These graphs realize exact values of extremal invariants with no known closed
-form (C6 saturation) or newly computed values of classical ones (Zarankiewicz
-z(m,n;3,4), C5, K_4, P_4, and P_5 saturation). Each was computed by SAT solving or
-exhaustive enumeration, checked against published prior art, and re-verified from
-its graph6 string before it was called ready. The two headline results are
-`sat(9,C6)=12` and `sat(10,C6)=13`: new exact values, each with both
-certificates, that continue the observed `n+3` pattern and sit at the top of the
-Lan-Shi window valid for `n >= 9`.
+These graphs provide concrete, independently checkable witnesses for cycle,
+path, clique, and ordered bipartite extremal problems. Known values are useful
+validation cases and are distinguished from new results. In particular,
+`sat(9,C6)=12`, `sat(10,C6)=13`, and their minimum families already appear in
+Remark 1 of the Zhang-Luo-Shigeno preprint (2012); our earlier novelty claims
+for those cases were incorrect.
+
+Freshly verified results awaiting archive publication and HoG deposit include
+`sat(11,C6)=14` (a unique minimum class), `sat(12,C6)=16`, and
+`sat(13,C6)=17`. The n=12 value breaks
+the `n+3` pattern. See the sibling research repository for exhaustive count
+logs and independent witness checks. Publication status is recorded below.
 
 ## Layout
 
@@ -44,12 +48,20 @@ Lan-Shi window valid for `n >= 9`.
 ## Verify
 
 ```
+python3 -m pip install -r requirements.txt
 python3 verify_witnesses.py     # re-decode and re-check every witness in graphs/
+python3 -m unittest discover -s tests -v
 ```
 
-Latest run (2026-07-14): all 21 witnesses verified. The C6 headline checks:
-`sat(9,C6)=12` is C6-free and C6-saturated at 12 edges; `sat(10,C6)=13` is
-C6-free and C6-saturated at 13 edges (primary and near-cubic alternate minima).
+The verification gate reads structured `verification` fields directly from
+`contributions.yaml`; no separate per-file lookup table is maintained. It
+rejects missing or unregistered graph files, mismatched graph6 mirrors, and
+deposited records without a positive HoG ID. PyYAML is the only runtime
+dependency and is used to parse the registry safely; graph-property checks
+remain pure Python.
+
+Latest run (2026-10-17): all 24 stored witnesses verified, including the new
+11-vertex, 14-edge and 12-vertex, 16-edge C6-saturated witnesses.
 
 ## Status vocabulary
 
@@ -67,6 +79,9 @@ own step.
 | sat(9,C6)=12 (classes 1–5) | 9 | 12 | [21054](https://houseofgraphs.org/graphs/21054), [57168](https://houseofgraphs.org/graphs/57168)–[57171](https://houseofgraphs.org/graphs/57171) | deposited |
 | sat(10,C6)=13 (near-cubic) | 10 | 13 | [57166](https://houseofgraphs.org/graphs/57166) | deposited |
 | sat(10,C6)=13 (cut-vertex) | 10 | 13 | [57167](https://houseofgraphs.org/graphs/57167) | deposited |
+| sat(11,C6)=14 | 11 | 14 | — | ready |
+| sat(12,C6)=16 | 12 | 16 | — | ready |
+| sat(13,C6)=17 | 13 | 17 | — | ready |
 | sat(8,C5)=10 | 8 | 10 | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
 | sat(8,K_4)=13 | 8 | 13 | [664](https://houseofgraphs.org/graphs/664) | deposited |
 | sat(9,K_4)=15 | 9 | 15 | [182](https://houseofgraphs.org/graphs/182) | deposited |
@@ -80,8 +95,9 @@ own step.
 | z(9,10;3,4)=60 | 19 | 60 | [56652](https://houseofgraphs.org/graphs/56652) | deposited |
 | z(9,11;3,4)=66 | 20 | 66 | [56651](https://houseofgraphs.org/graphs/56651) | deposited |
 
-All 21 tracked witnesses are live on House of Graphs. Some were submitted as new
-graphs; others matched existing canonical forms and were annotated with their
+Of 24 tracked witnesses, 21 are live on House of Graphs and three are ready for
+publication and deposit. Some live witnesses were submitted as new graphs;
+others matched existing canonical forms and were annotated with their
 saturation interpretation where useful.
 
 ## Papers
