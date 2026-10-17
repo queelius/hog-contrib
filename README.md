@@ -24,9 +24,14 @@ for those cases were incorrect.
 
 Freshly verified results awaiting archive publication and HoG deposit include
 `sat(11,C6)=14` (a unique minimum class), `sat(12,C6)=16`, and
-`sat(13,C6)=17`. The n=12 value breaks
+`sat(13,C6)=17`, and `sat(14,C6)=19`. The n=12 value breaks
 the `n+3` pattern. See the sibling research repository for exhaustive count
 logs and independent witness checks. Publication status is recorded below.
+
+The complete minimum families at orders 12 and 13 have 35 and four classes.
+All family witnesses and independent verification logs are preserved in the
+research repository; this deposit ledger tracks one representative per new
+order rather than treating additional representatives as separate contributions.
 
 ## Layout
 
@@ -60,7 +65,7 @@ deposited records without a positive HoG ID. PyYAML is the only runtime
 dependency and is used to parse the registry safely; graph-property checks
 remain pure Python.
 
-Latest run (2026-10-17): all 24 stored witnesses verified, including the new
+Latest run (2026-10-17): all 25 stored witnesses verified, including the new
 11-vertex, 14-edge and 12-vertex, 16-edge C6-saturated witnesses.
 
 ## Status vocabulary
@@ -82,6 +87,7 @@ own step.
 | sat(11,C6)=14 | 11 | 14 | — | ready |
 | sat(12,C6)=16 | 12 | 16 | — | ready |
 | sat(13,C6)=17 | 13 | 17 | — | ready |
+| sat(14,C6)=19 | 14 | 19 | — | ready |
 | sat(8,C5)=10 | 8 | 10 | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
 | sat(8,K_4)=13 | 8 | 13 | [664](https://houseofgraphs.org/graphs/664) | deposited |
 | sat(9,K_4)=15 | 9 | 15 | [182](https://houseofgraphs.org/graphs/182) | deposited |
@@ -95,7 +101,7 @@ own step.
 | z(9,10;3,4)=60 | 19 | 60 | [56652](https://houseofgraphs.org/graphs/56652) | deposited |
 | z(9,11;3,4)=66 | 20 | 66 | [56651](https://houseofgraphs.org/graphs/56651) | deposited |
 
-Of 24 tracked witnesses, 21 are live on House of Graphs and three are ready for
+Of 25 tracked witnesses, 21 are live on House of Graphs and four are ready for
 publication and deposit. Some live witnesses were submitted as new graphs;
 others matched existing canonical forms and were annotated with their
 saturation interpretation where useful.

@@ -260,7 +260,7 @@ graphs:
     hog_url: null
     status: ready
     certificates: both
-    non_iso_minima: null
+    non_iso_minima: 35
     zenodo: null
     verified: true
     notes: >-
@@ -269,7 +269,10 @@ graphs:
       against independent Burnside totals. This 16-edge witness passes two
       independent cycle checks and attains the lower bound. It is obtained
       from the n=9 witness HyOkc?` by attaching a path of length four between
-      vertices 3 and 8. The complete minimum family is not classified.
+      vertices 3 and 8. Complete generation through 16 edges classifies
+      35 minimum graphs, all independently checked; Python and compiled
+      checkers agree on the entire family. Full graph6 family and logs
+      are preserved in the research repository.
       Supporting archive publication and HoG canonical lookup remain pending.
 
   - invariant: "sat(13,C6)=17"
@@ -282,7 +285,7 @@ graphs:
     hog_url: null
     status: ready
     certificates: both
-    non_iso_minima: null
+    non_iso_minima: 4
     zenodo: null
     verified: true
     notes: >-
@@ -290,8 +293,32 @@ graphs:
       16 edges. All 7997524 generated classes match independent Burnside
       counts. This 17-edge witness passes independent DFS and subset checks.
       Constructed from I{`Q__H@? by attaching a length-four path between
-      vertices 0 and 3. The minimum family is not classified. Supporting
+      vertices 0 and 3. Complete generation through 17 edges classifies
+      four minimum graphs, all independently checked. Supporting
       archive publication and HoG canonical lookup remain pending.
+
+  - invariant: "sat(14,C6)=19"
+    n: 14
+    edges: 19
+    graph6: "M???C@_ECKI`i`_O?"
+    graph_file: graphs/sat14_C6_19.g6
+    verification: {family: cycle_saturation, order: 6}
+    hog_id: null
+    hog_url: null
+    status: ready
+    certificates: both
+    non_iso_minima: null
+    zenodo: null
+    verified: true
+    notes: >-
+      Complete unrestricted geng generation through 18 edges checks
+      141892272 classes, with every per-edge count matching Burnside totals,
+      and finds no C6-saturated graph. This 19-edge witness passes Python
+      DFS, subset-Hamiltonicity, and a compiled path-endpoint checker.
+      It extends L???C@_ECKI`i` by adding vertex 13 adjacent to 0 and 7.
+      No complete minimum classification is claimed. HoG canonical search
+      on 2026-10-17 found no match. Literature audit and supporting archive
+      publication remain pending.
 
   # ---- C5 saturation ----
 
