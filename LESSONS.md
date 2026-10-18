@@ -114,6 +114,12 @@ was checked on the live graph page.
 
 ## Standing verification rules
 
+- The final 2015 Zhang-Luo-Shigeno text was accessed on 2026-10-17. Remark 1,
+  page 1089, retains the order-11 value 15 and already records the order-12
+  value 16. Attribute the n=12 exact value to that source; distinguish the
+  new complete minimum classification. The checked n=11 witness corrects
+  the specific small-order computational claim, not the general bound.
+
 - Registry verification is data-driven: every graph needs structured
   `verification` metadata, and every `.g6` file must have a registry record.
   Do not reintroduce a parallel hardcoded witness table.
@@ -126,7 +132,7 @@ was checked on the live graph page.
   unlabeled-graph database. Never "K_(s,t)-free" for a one-sided Zarankiewicz
   condition.
 - Cite the backing paper by its current Zenodo DOI on each deposit: saturation
-  10.5281/zenodo.21350167, Zarankiewicz 10.5281/zenodo.19985042.
+  10.5281/zenodo.23434720, Zarankiewicz 10.5281/zenodo.19985042.
 - External publication requires explicit user authorization. The current
   contribution goal authorizes Zenodo publication and HoG submissions or
   annotations after verification; login remains a user handoff when necessary.

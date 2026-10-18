@@ -235,20 +235,23 @@ graphs:
     graph6: "J]P?CGIKCC?"
     graph_file: graphs/sat11_C6_14.g6
     verification: {family: cycle_saturation, order: 6}
-    hog_id: null
-    hog_url: null
-    status: ready
+    hog_id: 58088
+    hog_url: https://houseofgraphs.org/graphs/58088
+    status: deposited
     certificates: both
     non_iso_minima: 1
-    zenodo: null
+    zenodo: 10.5281/zenodo.23434720
     verified: true
     notes: >-
       Unique minimum class. Reproduced on 2026-10-17 by complete pynauty
       enumeration and nauty geng, each checked against independent Burnside
       counts. No saturated graph through 13 edges; exactly one class at 14.
       The exact graph6 passes independent DFS and subset-Hamiltonicity checks.
-      HoG canonical search on 2026-10-17 found no match. Supporting archive
-      version is being prepared; publication and deposit remain pending.
+      A hand-checkable cycle and nonedge-orbit certificate is included in v4.
+      This corrects the value 15 in Remark 1 of Zhang-Luo-Shigeno (2015).
+      HoG canonical search on 2026-10-18 found no match. The v4 archive and
+      HoG record were published and checked live on 2026-10-18. Downloaded
+      canonical graph6 is isomorphic to this witness and independently saturated.
 
   - invariant: "sat(12,C6)=16"
     n: 12
@@ -256,14 +259,17 @@ graphs:
     graph6: "KyOkc?`C??_D"
     graph_file: graphs/sat12_C6_16.g6
     verification: {family: cycle_saturation, order: 6}
-    hog_id: null
-    hog_url: null
-    status: ready
+    hog_id: 58089
+    hog_url: https://houseofgraphs.org/graphs/58089
+    status: deposited
     certificates: both
     non_iso_minima: 35
-    zenodo: null
+    zenodo: 10.5281/zenodo.23434720
     verified: true
     notes: >-
+      The exact value 16 was already recorded in Remark 1 of Zhang-Luo-Shigeno
+      (2015), DOI 10.1007/s00373-014-1422-4. The contribution is the complete
+      35-class minimum classification, not a new exact value or upper bound.
       The n+3 pattern breaks: exhaustive enumeration finds no C6-saturated
       graph through 15 edges, with all 1581347 generated classes counted
       against independent Burnside totals. This 16-edge witness passes two
@@ -273,7 +279,9 @@ graphs:
       35 minimum graphs, all independently checked; Python and compiled
       checkers agree on the entire family. Full graph6 family and logs
       are preserved in the research repository.
-      Supporting archive publication and HoG canonical lookup remain pending.
+      Canonical lookup found no match immediately before submission. The v4
+      archive and HoG record were published and checked live on 2026-10-18;
+      the downloaded canonical graph passes isomorphism and saturation checks.
 
   - invariant: "sat(13,C6)=17"
     n: 13
@@ -281,12 +289,12 @@ graphs:
     graph6: "L{`Q__H@C??@C@"
     graph_file: graphs/sat13_C6_17.g6
     verification: {family: cycle_saturation, order: 6}
-    hog_id: null
-    hog_url: null
-    status: ready
+    hog_id: 58090
+    hog_url: https://houseofgraphs.org/graphs/58090
+    status: deposited
     certificates: both
     non_iso_minima: 4
-    zenodo: null
+    zenodo: 10.5281/zenodo.23434720
     verified: true
     notes: >-
       Exhaustive nauty geng enumeration found no C6-saturated graph through
@@ -294,8 +302,13 @@ graphs:
       counts. This 17-edge witness passes independent DFS and subset checks.
       Constructed from I{`Q__H@? by attaching a length-four path between
       vertices 0 and 3. Complete generation through 17 edges classifies
-      four minimum graphs, all independently checked. Supporting
-      archive publication and HoG canonical lookup remain pending.
+      four minimum graphs, all independently checked. A separately written
+      compiled checker reproduced all 25420508 graphs through 17 edges and
+      the same four classes. The matching upper bound was already supplied
+      by Lan et al. (2025); the addition is exactness and classification.
+      Canonical lookup found no match immediately before submission. The v4
+      archive and HoG record were published and checked live on 2026-10-18;
+      the downloaded canonical graph passes isomorphism and saturation checks.
 
   - invariant: "sat(14,C6)=19"
     n: 14
@@ -303,12 +316,12 @@ graphs:
     graph6: "M???C@_ECKI`i`_O?"
     graph_file: graphs/sat14_C6_19.g6
     verification: {family: cycle_saturation, order: 6}
-    hog_id: null
-    hog_url: null
-    status: ready
+    hog_id: 58091
+    hog_url: https://houseofgraphs.org/graphs/58091
+    status: deposited
     certificates: both
     non_iso_minima: null
-    zenodo: null
+    zenodo: 10.5281/zenodo.23434720
     verified: true
     notes: >-
       Complete unrestricted geng generation through 18 edges checks
@@ -316,9 +329,15 @@ graphs:
       and finds no C6-saturated graph. This 19-edge witness passes Python
       DFS, subset-Hamiltonicity, and a compiled path-endpoint checker.
       It extends L???C@_ECKI`i` by adding vertex 13 adjacent to 0 and 7.
+      A separately written compiled checker repeated the entire negative
+      search, agreeing at every edge level. Lan et al. (2025) already gave
+      the matching upper bound; the addition is the exhaustive lower bound.
       No complete minimum classification is claimed. HoG canonical search
-      on 2026-10-17 found no match. Literature audit and supporting archive
-      publication remain pending.
+      on 2026-10-18 found no match. The final 2015 paper and the 2025 paper
+      were checked; no earlier exact order-14 value was located in the
+      bounded literature audit. The v4 archive and HoG record were published
+      and checked live on 2026-10-18; the downloaded canonical graph passes
+      isomorphism and saturation checks.
 
   # ---- C5 saturation ----
 

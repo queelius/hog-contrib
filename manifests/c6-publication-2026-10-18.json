@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "author": "Alexander Richard Towell",
+  "verified_date": "2026-10-18",
+  "zenodo": {
+    "record_url": "https://zenodo.org/records/23434720",
+    "doi": "10.5281/zenodo.23434720",
+    "version": "v4",
+    "published_date": "2026-10-18",
+    "archive": "graph-saturation-v4.zip",
+    "archive_sha256": "0a71b21851c53a802628f315cb63882cd28228b7fa12209457b13cdb225b1187",
+    "archive_bytes": 368838,
+    "live_download_byte_identical": true,
+    "paper_md5": "439283864aef91fddccee0dd8c9a5250",
+    "metadata_md5": "9fbc89f5ce58bb428dd14accee2a43da",
+    "archive_entries": 99
+  },
+  "verification": {
+    "canonical_lookup": "Exact source graph6 searches found no match immediately before each submission.",
+    "live_pages": "Each graph page displayed the submitted annotation, version DOI, order and edge count.",
+    "download_method": "Graph6 export from each live HoG graph page; hashes include the trailing LF.",
+    "identity_check": "networkx.from_graph6_bytes and networkx.is_isomorphic against the source witness",
+    "property_check": "verify.decode_graph6, num_edges, is_ck_saturated(n, adj, 6), roundtrip_ok",
+    "research_tests": {"passed": 122, "failed": 0, "skipped": 0},
+    "extracted_archive_tests": {"passed": 122, "failed": 0, "skipped": 0, "warnings": "Two unregistered slow-marker warnings; no skipped verification."},
+    "registry_tests": {"passed": 6, "failed": 0},
+    "stored_witnesses_verified": 25,
+    "research_evidence": "https://github.com/queelius/open-problems/tree/work/c6-contributions/discoveries/extremal-graph-theory/saturation"
+  },
+  "graphs": [
+    {
+      "hog_id": 58088,
+      "hog_url": "https://houseofgraphs.org/graphs/58088",
+      "n": 11,
+      "edges": 14,
+      "contribution": "Corrected exact value and unique minimum class",
+      "graph_file": "graphs/sat11_C6_14.g6",
+      "source_sha256": "c1bdb039b66f2bbc7d90f1878c4943e6876a1d913b2b478623fa71f9496e6c7b",
+      "download_graph6": "J``??CAEXJ?",
+      "download_sha256": "887b68159e52499d850572c9360fdc99685c878a53f23f00adce3c6505f52d8b",
+      "isomorphic_to_source": true,
+      "c6_saturated": true,
+      "roundtrip": true
+    },
+    {
+      "hog_id": 58089,
+      "hog_url": "https://houseofgraphs.org/graphs/58089",
+      "n": 12,
+      "edges": 16,
+      "contribution": "Complete 35-class minimum classification; exact value already published in 2015",
+      "graph_file": "graphs/sat12_C6_16.g6",
+      "source_sha256": "3d8abdd0f3f037e9d72cb7eb39dd5e16f1dff56b8158e15ce34caef829291cee",
+      "download_graph6": "KGAC?gIE@AgF",
+      "download_sha256": "ac8a33471848ec5965aec757e6eccb661325318981c508307949d7428243c468",
+      "isomorphic_to_source": true,
+      "c6_saturated": true,
+      "roundtrip": true
+    },
+    {
+      "hog_id": 58090,
+      "hog_url": "https://houseofgraphs.org/graphs/58090",
+      "n": 13,
+      "edges": 17,
+      "contribution": "Exact value and complete four-class minimum classification",
+      "graph_file": "graphs/sat13_C6_17.g6",
+      "source_sha256": "a7b329de419e172bde7337e2c206816af7ecbaebf44a3e07ea77aca8ea4b9bc3",
+      "download_graph6": "L????gI_B?cpUD",
+      "download_sha256": "a3acae8aaa104a1067542a03ddf01e500f7f4364bc1a502827f03612b3cec9ca",
+      "isomorphic_to_source": true,
+      "c6_saturated": true,
+      "roundtrip": true
+    },
+    {
+      "hog_id": 58091,
+      "hog_url": "https://houseofgraphs.org/graphs/58091",
+      "n": 14,
+      "edges": 19,
+      "contribution": "Exact value; minimum family not classified",
+      "graph_file": "graphs/sat14_C6_19.g6",
+      "source_sha256": "1127224bbd05a4371b4b0c083ce7ee6e5e89838fb5a625d1aa09aa7a885dd208",
+      "download_graph6": "M?hO????GE?FKPoa_",
+      "download_sha256": "a36f07fb1b1c1e2fafc3e176339e22522218e7b49e7e9ac722bc76f2f418592e",
+      "isomorphic_to_source": true,
+      "c6_saturated": true,
+      "roundtrip": true
+    }
+  ],
+  "novelty_scope": "Bounded literature audit checked final Zhang-Luo-Shigeno (2015) and Lan et al. (2025), with release-day searches. No earlier n12/n13 complete classifications or exact n13/n14 values were located. Search absence is not proof of novelty. Known upper bounds and n12 exact value are credited.",
+  "counted_contributions": 4
+}

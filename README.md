@@ -22,11 +22,16 @@ validation cases and are distinguished from new results. In particular,
 Remark 1 of the Zhang-Luo-Shigeno preprint (2012); our earlier novelty claims
 for those cases were incorrect.
 
-Freshly verified results awaiting archive publication and HoG deposit include
-`sat(11,C6)=14` (a unique minimum class), `sat(12,C6)=16`, and
+The October 2026 release publishes `sat(11,C6)=14` (a unique minimum class),
+the complete minimum classification for `sat(12,C6)=16`,
 `sat(13,C6)=17`, and `sat(14,C6)=19`. The n=12 value breaks
 the `n+3` pattern. See the sibling research repository for exhaustive count
 logs and independent witness checks. Publication status is recorded below.
+
+The final Zhang-Luo-Shigeno paper (2015), Remark 1, page 1089, also already
+records `sat(12,C6)=16`. The contribution at order 12 is the complete
+35-class classification. Its reported order-11 value 15 is contradicted
+by our byte-verified 14-edge witness.
 
 The complete minimum families at orders 12 and 13 have 35 and four classes.
 All family witnesses and independent verification logs are preserved in the
@@ -72,8 +77,8 @@ Latest run (2026-10-17): all 25 stored witnesses verified, including the new
 
 `candidate` (worth a deposit, pending a HoG duplicate-check), `ready` (verified,
 both certificates, not yet deposited), `deposited` (live on House of Graphs with a
-confirmed id). Registration, the duplicate-check, and the final submit are Alex's
-own step.
+confirmed id). The current contribution goal authorizes publication and deposit
+after verification; login is a user handoff when needed.
 
 ## Deposits and canonical matches
 
@@ -84,10 +89,10 @@ own step.
 | sat(9,C6)=12 (classes 1–5) | 9 | 12 | [21054](https://houseofgraphs.org/graphs/21054), [57168](https://houseofgraphs.org/graphs/57168)–[57171](https://houseofgraphs.org/graphs/57171) | deposited |
 | sat(10,C6)=13 (near-cubic) | 10 | 13 | [57166](https://houseofgraphs.org/graphs/57166) | deposited |
 | sat(10,C6)=13 (cut-vertex) | 10 | 13 | [57167](https://houseofgraphs.org/graphs/57167) | deposited |
-| sat(11,C6)=14 | 11 | 14 | — | ready |
-| sat(12,C6)=16 | 12 | 16 | — | ready |
-| sat(13,C6)=17 | 13 | 17 | — | ready |
-| sat(14,C6)=19 | 14 | 19 | — | ready |
+| sat(11,C6)=14 | 11 | 14 | [58088](https://houseofgraphs.org/graphs/58088) | deposited |
+| sat(12,C6)=16 | 12 | 16 | [58089](https://houseofgraphs.org/graphs/58089) | deposited |
+| sat(13,C6)=17 | 13 | 17 | [58090](https://houseofgraphs.org/graphs/58090) | deposited |
+| sat(14,C6)=19 | 14 | 19 | [58091](https://houseofgraphs.org/graphs/58091) | deposited |
 | sat(8,C5)=10 | 8 | 10 | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
 | sat(8,K_4)=13 | 8 | 13 | [664](https://houseofgraphs.org/graphs/664) | deposited |
 | sat(9,K_4)=15 | 9 | 15 | [182](https://houseofgraphs.org/graphs/182) | deposited |
@@ -101,16 +106,18 @@ own step.
 | z(9,10;3,4)=60 | 19 | 60 | [56652](https://houseofgraphs.org/graphs/56652) | deposited |
 | z(9,11;3,4)=66 | 20 | 66 | [56651](https://houseofgraphs.org/graphs/56651) | deposited |
 
-Of 25 tracked witnesses, 21 are live on House of Graphs and four are ready for
-publication and deposit. Some live witnesses were submitted as new graphs;
+All 25 tracked witnesses are live on House of Graphs. The four October 18
+deposits and their downloaded canonical graphs were checked against the source
+witnesses; see [publication verification](manifests/c6-publication-2026-10-18.json).
+Some live witnesses were submitted as new graphs;
 others matched existing canonical forms and were annotated with their
 saturation interpretation where useful.
 
 ## Papers
 
-- Saturation: A. Towell, "Graph Saturation Numbers for Small Subgraphs: Exact
-  Computations via SAT", Zenodo
-  [10.5281/zenodo.21350167](https://doi.org/10.5281/zenodo.21350167).
+- Saturation: Alexander Richard Towell, "Small-order C6 saturation: exact
+  values, minimum graphs, and a correction", Zenodo v4
+  [10.5281/zenodo.23434720](https://doi.org/10.5281/zenodo.23434720).
 - Zarankiewicz: A. Towell, "Three new Zarankiewicz numbers z(m,n;3,4)", Zenodo
   [10.5281/zenodo.19985042](https://doi.org/10.5281/zenodo.19985042).
 
