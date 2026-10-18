@@ -38,6 +38,18 @@ All family witnesses and independent verification logs are preserved in the
 research repository; this deposit ledger tracks one representative per new
 order rather than treating additional representatives as separate contributions.
 
+Published v5 classifies all **205** order-14 minima, with two
+complete census implementations and independent checks of every witness.
+The live HoG annotation links the complete archive;
+the full family remains in `open-problems`. The existing HoG 58091 witness
+is class 55 in the archived family order. No duplicate deposit is needed.
+
+The same follow-up proves `sat(15,C6)=20`: both complete checkers reject all
+784,526,109 graphs through 19 edges, and a 20-edge witness passes independent
+checks. Its minimum family is not classified. The witness is live as
+[HoG 58092](https://houseofgraphs.org/graphs/58092), backed by
+[Zenodo v5](https://doi.org/10.5281/zenodo.23447722).
+
 ## Layout
 
 - `contributions.yaml` : single source of truth. One record per graph deposit or
@@ -70,8 +82,8 @@ deposited records without a positive HoG ID. PyYAML is the only runtime
 dependency and is used to parse the registry safely; graph-property checks
 remain pure Python.
 
-Latest run (2026-10-17): all 25 stored witnesses verified, including the new
-11-vertex, 14-edge and 12-vertex, 16-edge C6-saturated witnesses.
+Latest run (2026-10-18): all 26 stored witnesses verified, including the new
+15-vertex, 20-edge C6-saturated witness. All six registry tests pass.
 
 ## Status vocabulary
 
@@ -93,6 +105,7 @@ after verification; login is a user handoff when needed.
 | sat(12,C6)=16 | 12 | 16 | [58089](https://houseofgraphs.org/graphs/58089) | deposited |
 | sat(13,C6)=17 | 13 | 17 | [58090](https://houseofgraphs.org/graphs/58090) | deposited |
 | sat(14,C6)=19 | 14 | 19 | [58091](https://houseofgraphs.org/graphs/58091) | deposited |
+| sat(15,C6)=20 | 15 | 20 | [58092](https://houseofgraphs.org/graphs/58092) | deposited |
 | sat(8,C5)=10 | 8 | 10 | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
 | sat(8,K_4)=13 | 8 | 13 | [664](https://houseofgraphs.org/graphs/664) | deposited |
 | sat(9,K_4)=15 | 9 | 15 | [182](https://houseofgraphs.org/graphs/182) | deposited |
@@ -106,9 +119,11 @@ after verification; login is a user handoff when needed.
 | z(9,10;3,4)=60 | 19 | 60 | [56652](https://houseofgraphs.org/graphs/56652) | deposited |
 | z(9,11;3,4)=66 | 20 | 66 | [56651](https://houseofgraphs.org/graphs/56651) | deposited |
 
-All 25 tracked witnesses are live on House of Graphs. The four October 18
+All 26 tracked witnesses are live on House of Graphs. The four earlier October 18
 deposits and their downloaded canonical graphs were checked against the source
 witnesses; see [publication verification](manifests/c6-publication-2026-10-18.json).
+The v5 classification annotation and order-15 deposit have separate
+[live verification evidence](manifests/c6-v5-publication.json).
 Some live witnesses were submitted as new graphs;
 others matched existing canonical forms and were annotated with their
 saturation interpretation where useful.
@@ -116,8 +131,8 @@ saturation interpretation where useful.
 ## Papers
 
 - Saturation: Alexander Richard Towell, "Small-order C6 saturation: exact
-  values, minimum graphs, and a correction", Zenodo v4
-  [10.5281/zenodo.23434720](https://doi.org/10.5281/zenodo.23434720).
+  values, minimum graphs, and a correction", Zenodo v5
+  [10.5281/zenodo.23447722](https://doi.org/10.5281/zenodo.23447722).
 - Zarankiewicz: A. Towell, "Three new Zarankiewicz numbers z(m,n;3,4)", Zenodo
   [10.5281/zenodo.19985042](https://doi.org/10.5281/zenodo.19985042).
 

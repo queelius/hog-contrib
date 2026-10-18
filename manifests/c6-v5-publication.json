@@ -1,0 +1,62 @@
+{
+  "schema_version": "1.0",
+  "author": "Alexander Richard Towell",
+  "verified_date": "2026-10-18",
+  "zenodo": {
+    "record_url": "https://zenodo.org/records/23447722",
+    "doi": "10.5281/zenodo.23447722",
+    "version": "v5",
+    "published_date": "2026-10-18",
+    "archive": "graph-saturation-v5.zip",
+    "archive_sha256": "375714f80004a884ccbfce2ce0c35b2eeb603316bad784cbda24230745db4a03",
+    "archive_bytes": 429356,
+    "archive_entries": 129,
+    "live_download_byte_identical": true,
+    "paper_md5": "f83180a3669d8b2c267fcd4878a558bd",
+    "metadata_md5": "4552e8a140e124c7b83b4e653d42ea25"
+  },
+  "verification": {
+    "focused_source_tests_passed": 89,
+    "focused_fresh_extraction_tests_passed": 89,
+    "additional_fresh_extraction_witness_tests_passed": 49,
+    "order14_full_family_witnesses_verified": 205,
+    "registry_tests_passed": 6,
+    "stored_witnesses_verified": 26,
+    "broad_suite_caveat": "Unrelated catalog-schema failure remains in tests/test_catalog_validate.py::TestValidateAll::test_all_problems_validate.",
+    "research_revision": "4131a3e",
+    "archive_scope": "All tested preflight payloads were byte-identical in the final archive; only the verification summary and manifest were added/updated."
+  },
+  "graphs": [
+    {
+      "hog_id": 58091,
+      "hog_url": "https://houseofgraphs.org/graphs/58091",
+      "action": "Existing comment updated with complete205-class minimum classification and v5 citation; checked live after save.",
+      "n": 14,
+      "edges": 19,
+      "minimum_classes": 205,
+      "representative_class_in_archive": 55,
+      "family_sha256": "f2aff94b484ed808463dc5028c02e7999e99c5a1fb16222344e0a4e4701400bc",
+      "canonical_graph_isomorphic_to_class55": true,
+      "graph_unchanged": true
+    },
+    {
+      "hog_id": 58092,
+      "hog_url": "https://houseofgraphs.org/graphs/58092",
+      "action": "New witness submitted; live name, description, order, edge count and v5 citation checked.",
+      "n": 15,
+      "edges": 20,
+      "minimum_family_classified": false,
+      "graph_file": "graphs/sat15_C6_20.g6",
+      "source_sha256": "712754cd10163c0c918b3f531f9a40a7487e4c2a3f540f8d12867c506c3539c2",
+      "download_graph6": "N@?????AOHO?O`?wn_g",
+      "download_sha256": "be2fc1be21b8fe873dfcfff094aae9985791874fbbd34ae14ea716a96b65873a",
+      "download_hash_includes_trailing_lf": true,
+      "isomorphic_to_source": true,
+      "dfs_saturated": true,
+      "subset_saturated": true,
+      "roundtrip": true
+    }
+  ],
+  "new_contributions_in_this_version": 2,
+  "novelty_scope": "Complete order14 minimum classification and order15 exactness. The matching upper bounds are prior work. No complete order15 classification, general bound improvement, journal submission, or email is claimed."
+}

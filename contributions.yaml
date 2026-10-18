@@ -310,6 +310,35 @@ graphs:
       archive and HoG record were published and checked live on 2026-10-18;
       the downloaded canonical graph passes isomorphism and saturation checks.
 
+  - invariant: "sat(15,C6)=20"
+    n: 15
+    edges: 20
+    graph6: "N????A?W?o?wT@iw_O?"
+    graph_file: graphs/sat15_C6_20.g6
+    verification: {family: cycle_saturation, order: 6}
+    hog_id: 58092
+    hog_url: https://houseofgraphs.org/graphs/58092
+    status: deposited
+    certificates: both
+    non_iso_minima: null
+    zenodo: 10.5281/zenodo.23447722
+    verified: true
+    notes: >-
+      Two complete unrestricted geng 15 0:19 streams each check 784526109
+      unlabeled graphs and find none C6-saturated. Per-edge counts match
+      an independent Polya-Burnside calculation; both pipelines exit zero.
+      This byte-exact 20-edge witness passes Python DFS, independent
+      subset-Hamiltonicity, NetworkX decoding, and codec round trips.
+      It extends M????A?W?o?wT@iw_ with vertex 14 adjacent to vertex 6.
+      Lan et al. (2025) already supply the matching upper bound; the new
+      contribution is exactness from the exhaustive lower bound, not a
+      new general construction or complete minimum classification.
+      Research evidence is in open-problems, saturation/runs/2026-10-18/.
+      Canonical HoG search found no match on 2026-10-18. Published in v5
+      DOI10.5281/zenodo.23447722 and submitted as HoG58092. The live page
+      and downloaded canonical graph were verified; isomorphism to this
+      witness, both saturation checks, counts and byte round trip pass.
+
   - invariant: "sat(14,C6)=19"
     n: 14
     edges: 19
@@ -320,8 +349,8 @@ graphs:
     hog_url: https://houseofgraphs.org/graphs/58091
     status: deposited
     certificates: both
-    non_iso_minima: null
-    zenodo: 10.5281/zenodo.23434720
+    non_iso_minima: 205
+    zenodo: 10.5281/zenodo.23447722
     verified: true
     notes: >-
       Complete unrestricted geng generation through 18 edges checks
@@ -332,7 +361,17 @@ graphs:
       A separately written compiled checker repeated the entire negative
       search, agreeing at every edge level. Lan et al. (2025) already gave
       the matching upper bound; the addition is the exhaustive lower bound.
-      No complete minimum classification is claimed. HoG canonical search
+      The published v4 does not classify the minimum family. A post-v4
+      computation on 2026-10-18 classifies all 205 minima: both independent
+      property checkers agree on all 342260293 graphs at 19 edges and the
+      same witness set. Every minimum passes independent Python checks.
+      The full family and certificates remain in open-problems at
+      discoveries/extremal-graph-theory/saturation/minima/c6-n14-m19.g6;
+      family SHA256 f2aff94b484ed808463dc5028c02e7999e99c5a1fb16222344e0a4e4701400bc.
+      This deposited representative belongs to class 55 in that file order.
+      The classification is published in v5; the HoG annotation was updated
+      and checked live on 2026-10-18. See manifests/c6-v5-publication.json.
+      HoG canonical search
       on 2026-10-18 found no match. The final 2015 paper and the 2025 paper
       were checked; no earlier exact order-14 value was located in the
       bounded literature audit. The v4 archive and HoG record were published
