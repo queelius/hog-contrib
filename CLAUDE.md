@@ -2,7 +2,20 @@
 
 Purpose: track Alex Towell's House of Graphs (HoG) deposits and the certificates
 and lessons behind them, so each deposited graph is verifiable, honestly
-described, and easy to build on. Private for now (no remote).
+described, and easy to build on.
+
+## Research ownership (2026-10-17)
+
+This repo maintains the deposit registry, witness files, annotations, and
+independent graph-property checks. Mathematical proofs, exhaustive searches,
+complete minimum families, and manuscripts remain in `../open-problems`;
+sequence work is maintained in `../oeis`. Read `docs/research-handoff.md` and
+`../open-problems/docs/repository-roles.md`.
+
+Locate current C6 evidence with `git -C ../open-problems worktree list`:
+branch `work/c6-contributions` is in a separate research worktree. The older
+main-checkout reports are not a current work queue. Consult the registry for
+deposit status rather than treating the historical counts below as live state.
 
 ## Files
 
@@ -31,7 +44,7 @@ the complete id mapping, including canonical matches to pre-existing graphs.
 
 ## Conventions
 
-- Identity: Alexander Towell, handle `queelius`, email `lex@metafunctor.com`,
+- Identity: Alexander Richard Towell, handle `queelius`, email `lex@metafunctor.com`,
   ORCID 0000-0001-6443-9897. Use these for any author or citation field.
 - Verify then claim. Do not mark a graph `deposited` without a confirmed live HoG
   id. Do not assert a value or a graph6 that has not been re-decoded and
@@ -55,6 +68,7 @@ the complete id mapping, including canonical matches to pre-existing graphs.
 
 ```
 python3 verify_witnesses.py
+python3 -m unittest discover -s tests -v
 ```
 
 Exit 0 iff every witness re-decodes and passes its property check. Run it before

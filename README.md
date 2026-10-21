@@ -13,6 +13,20 @@ them, tracks their HoG status, and re-checks each one from its graph6 string. Ov
 time this becomes a base to grow from: new extremal families, new deposits, a
 record of what was verified and when.
 
+## Research boundary
+
+Maintain graph deposits, annotations, registry metadata, and independent witness
+checks here. Proof development, exhaustive lower-bound computations, complete
+minimum families, and manuscripts remain in `open-problems`. See the shared
+[repository ownership guide](../open-problems/docs/repository-roles.md) and the
+local [research handoff](docs/research-handoff.md).
+
+The current C6 evidence is on `open-problems` branch `work/c6-contributions`,
+checked out at `../open-problems-c6-publication` during the 2026-10-17 audit.
+Use `git -C ../open-problems worktree list` to locate it before repeating an
+experiment. A verified witness here does not replace that branch's lower-bound
+evidence or establish novelty/publication.
+
 ## Why these
 
 These graphs provide concrete, independently checkable witnesses for cycle,
