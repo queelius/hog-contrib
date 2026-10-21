@@ -111,8 +111,13 @@ checker inherited from the research repository, and `crosscheck.py`, built on
 networkx with its own graph6 codec and different algorithms, share no code.
 A witness counts as checked only when both agree. PyYAML parses the registry.
 
+Each record also carries a permanent `id` and a structured `claim`: its kind
+(known value, new value, new classification, correction, or unassessed), a
+one-sentence statement, and the dated prior-art sources checked for it. The
+gate rejects any assessed claim without prior art.
+
 Latest run (2026-10-21): all 26 stored witnesses verified by both
-implementations. All 12 tests pass.
+implementations. All 23 tests pass.
 
 ## Status vocabulary
 

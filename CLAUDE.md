@@ -61,10 +61,17 @@ graph. Both must pass before graph data is committed.
     `parts: [a, b]` and optional `k34_free` (whether the *unlabeled* graph is
     also abstractly free). The check passes if some orientation has the stated
     part sizes with fewer than t common neighbours for every s-subset.
+- Each record also has a permanent `id` (lowercase slug, never reused) and a
+  `claim: {kind, statement, prior_art}` block (`cases.ClaimKind`):
+  `known_value`, `new_value`, `new_classification`, `correction`, or
+  `unassessed`. Every kind except `unassessed` must list prior-art entries
+  with `source`, `finding` and a YAML-date `checked`. `unassessed` records
+  are the targets for prior-art sweeps. Enter a source only after reading
+  its content; never cite from memory.
 - `verify_witnesses.load_cases()` builds typed `Case` objects. It rejects:
-  unregistered `.g6` files, missing files, duplicate paths, paths outside
-  `graphs/`, inconsistent counts, and `status: deposited` without a positive
-  `hog_id`.
+  unregistered `.g6` files, missing files, duplicate paths or ids, paths
+  outside `graphs/`, inconsistent counts, malformed or unsupported claims,
+  and `status: deposited` without a positive `hog_id`.
 - `verify_case()` re-reads the file and requires its bytes to equal the registry
   `graph6`. It then runs every checker in `verify_witnesses.CHECKERS` and passes
   only if all agree. Each checker independently decodes, checks n and edges,
@@ -105,8 +112,10 @@ graphs, are in `contributions.yaml`. Do not copy counts into this file.
   id. Do not assert a value or a graph6 that has not been re-decoded and
   re-checked by `verify_witnesses.py`. A witness establishes attainment (the
   upper bound) only. An exact value also needs the lower-bound evidence from
-  open-problems. Absence from HoG does not make a value new: check prior art
-  (see LESSONS.md 2026-10-17).
+  open-problems. Absence from HoG does not make a value new: record the checked
+  prior art in the record's `claim` (see LESSONS.md 2026-10-17).
+- The design for ids, claims, generated docs and citation is
+  `docs/superpowers/specs/2026-10-21-ledger-structure-design.md`.
 - graph6 strings can contain a literal backtick (ASCII 96). Store each as a
   byte-exact file and re-decode it; never rely on a graph6 typed into prose.
   Record byte values in a comment when a string contains a backtick.

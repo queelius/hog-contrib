@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 """Verify every graph6 witness using the structured contributions registry."""
 
+import datetime
 import itertools
 from pathlib import Path
+import re
 import sys
 
 import yaml
 
-from cases import Case, Family, Result
+from cases import Case, Claim, ClaimKind, Family, PriorArt, Result
 import crosscheck
 import verify as V
 
 ROOT = Path(__file__).resolve().parent
+RECORD_ID = re.compile(r"[a-z0-9]+(-[a-z0-9]+)*")
 
 
 def _integer(value, name, minimum=0):
@@ -26,6 +29,38 @@ def _pair(value, name):
     return tuple(_integer(x, name, 1) for x in value)
 
 
+def _text(value, name):
+    if not isinstance(value, str) or not value.strip():
+        raise ValueError(f"{name} must be nonempty text")
+    return value
+
+
+def _prior_art(entry):
+    if not isinstance(entry, dict):
+        raise ValueError("each prior art entry must be a mapping")
+    checked = entry.get("checked")
+    if type(checked) is not datetime.date:
+        raise ValueError(f"prior art checked must be a date, not {checked!r}")
+    locator = entry.get("locator")
+    return PriorArt(_text(entry.get("source"), "prior art source"), checked,
+                    _text(entry.get("finding"), "prior art finding"),
+                    None if locator is None else _text(locator, "prior art locator"))
+
+
+def _claim(specification):
+    """Parse a claim; every assessed kind must cite dated, checked prior art."""
+    if not isinstance(specification, dict):
+        raise ValueError("missing structured claim")
+    kind = ClaimKind(specification.get("kind"))
+    entries = specification.get("prior_art") or []
+    if not isinstance(entries, list):
+        raise ValueError("prior_art must be a list")
+    prior_art = tuple(map(_prior_art, entries))
+    if kind is not ClaimKind.UNASSESSED and not prior_art:
+        raise ValueError(f"a {kind.value} claim requires prior art")
+    return Claim(kind, _text(specification.get("statement"), "claim statement"), prior_art)
+
+
 def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
     """Load typed cases and reject omitted files or inconsistent metadata."""
     registry = Path(registry)
@@ -35,6 +70,7 @@ def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
         raise ValueError("registry must contain a graphs list")
     cases = []
     paths = set()
+    ids = set()
     for record in data["graphs"]:
         if not isinstance(record, dict):
             raise ValueError("each graph record must be a mapping")
@@ -44,6 +80,13 @@ def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
         if path in paths:
             raise ValueError(f"duplicate graph_file: {path}")
         paths.add(path)
+        record_id = record.get("id")
+        if not isinstance(record_id, str) or not RECORD_ID.fullmatch(record_id):
+            raise ValueError(f"record id must be a lowercase slug: {record_id!r}")
+        if record_id in ids:
+            raise ValueError(f"duplicate id: {record_id}")
+        ids.add(record_id)
+        claim = _claim(record.get("claim"))
         if record.get("status") == "deposited":
             _integer(record.get("hog_id"), "confirmed HoG ID", 1)
         n = _integer(record["n"], "vertex count")
@@ -72,7 +115,8 @@ def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
         abstract_free = record.get("k34_free")
         if abstract_free is not None and type(abstract_free) is not bool:
             raise ValueError("abstract freeness flag must be boolean")
-        cases.append(Case(path, graph6, n, edges, family, order, parts, forbidden, abstract_free))
+        cases.append(Case(path, graph6, n, edges, family, order, parts, forbidden, abstract_free,
+                          record_id, claim))
     files = {path.relative_to(root) for path in (root / "graphs").rglob("*.g6")}
     if files - paths:
         raise ValueError(f"unregistered graph files: {sorted(map(str, files - paths))}")

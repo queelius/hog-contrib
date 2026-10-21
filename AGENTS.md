@@ -45,7 +45,9 @@ The unittest suite in `tests/` checks registry and verification failures. There
 is no numeric coverage threshold; inspect coverage when changing logic. Add a
 witness through its registry metadata and exact `.g6` file, then run the full
 witness gate. New invariant families need focused property tests and independent
-cross-checks. A witness establishes attainment, not the lower bound for exactness.
+cross-checks. A witness establishes attainment, not the lower bound for exactness. Every record
+needs a permanent `id` and a structured `claim`; any kind other than `unassessed`
+must cite dated prior art that was actually read.
 
 ## Commit & Pull Request Guidelines
 

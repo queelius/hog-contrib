@@ -16,6 +16,18 @@
 #                formula) AND an independently re-verified witness (upper bound)
 #   upper-only : witness verified, matching lower bound not established here
 #
+# id: permanent, unique lowercase slug for citing a record; never reused.
+#
+# claim: {kind, statement, prior_art}. kind is one of
+#   known_value        : value already published; the deposit reproduces it
+#   new_value          : exact value not located in the checked prior art
+#   new_classification : value known; the complete minimum family is new
+#   correction         : contradicts a specific published value
+#   unassessed         : prior-art status not yet recorded (a sweep target)
+# Every kind except unassessed needs prior_art entries, each with a source,
+# a checked date and a finding. Enter a source only after reading what it
+# says. Search absence is a finding, not a novelty certificate.
+#
 # non_iso_minima: number of non-isomorphic minimum witnesses at the stated edge
 #   count, where the enumeration established it; null when not determined.
 #
@@ -50,7 +62,8 @@ graphs:
   # 2012 Zhang-Luo-Shigeno preprint; our computations independently reproduce
   # them. A missing general formula is not evidence that each small value is new.
 
-  - invariant: "sat(7,C6)=10"
+  - id: sat-c6-n7
+    invariant: "sat(7,C6)=10"
     n: 7
     edges: 10
     graph6: "FbSko"
@@ -63,12 +76,16 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: unassessed
+      statement: "sat(7,C6) = 10; this graph is a 10-edge C6-saturated witness."
     notes: >-
       C6-free and C6-saturated (re-verified from the graph6). The canonical HoG
       duplicate-check matched the existing McCuaig/Shepherd H_7, HoG #868. Added
       a saturation-context comment to that graph on 2026-07-14.
 
-  - invariant: "sat(8,C6)=11"
+  - id: sat-c6-n8
+    invariant: "sat(8,C6)=11"
     n: 8
     edges: 11
     graph6: "G}`H_C"
@@ -81,13 +98,17 @@ graphs:
     non_iso_minima: 1
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: unassessed
+      statement: "sat(8,C6) = 11, with a unique minimum graph."
     notes: >-
       Unique minimum C6-saturated graph on 8 vertices (degrees [4,4,3,3,3,2,2,1],
       2 triangles, non-bipartite). Deposited 2026-07-01 after a from-scratch
       re-verification and a HoG canonical-form duplicate-check (no prior match).
       graph6 contains a literal backtick as its 3rd character.
 
-  - invariant: "sat(9,C6)=12"
+  - id: sat-c6-n9
+    invariant: "sat(9,C6)=12"
     n: 9
     edges: 12
     graph6: "HyOkc?`"
@@ -100,6 +121,18 @@ graphs:
     non_iso_minima: 5
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(9,C6) = 12; this graph is class 1 of the 5 minimum graphs."
+      prior_art:
+        - source: "https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf"
+          locator: "Remark 1"
+          checked: 2026-10-17
+          finding: "Records sat(9,C6) = 12 and the complete family of five minimum graphs."
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
     witness: "class 1 of 5 (degrees [4,4,4,2,2,2,2,2,2], 1 triangle)"
     notes: >-
       Independently reproduced exact value (9+3=12). Lower bound by complete exhaustive enumeration
@@ -110,7 +143,8 @@ graphs:
       matched existing HoG #21054; added the saturation result and links to the
       other four classes as a comment on 2026-07-14.
 
-  - invariant: "sat(9,C6)=12"
+  - id: sat-c6-n9-class2
+    invariant: "sat(9,C6)=12"
     n: 9
     edges: 12
     graph6: "H{`Q__H"
@@ -123,13 +157,26 @@ graphs:
     non_iso_minima: 5
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(9,C6) = 12; this graph is class 2 of the 5 minimum graphs."
+      prior_art:
+        - source: "https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf"
+          locator: "Remark 1"
+          checked: 2026-10-17
+          finding: "Records sat(9,C6) = 12 and the complete family of five minimum graphs."
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
     witness: "class 2 of 5 (degrees [4,4,4,2,2,2,2,2,2], 1 triangle)"
     notes: >-
       Second isomorphism class among the five minimum C6-saturated graphs on 9
       vertices. C6-free and C6-saturated (re-verified). graph6 bytes:
       72 123 96 81 95 95 72. Deposited 2026-07-14 as HoG #57168.
 
-  - invariant: "sat(9,C6)=12"
+  - id: sat-c6-n9-class3
+    invariant: "sat(9,C6)=12"
     n: 9
     edges: 12
     graph6: "H{`PO_H"
@@ -142,13 +189,26 @@ graphs:
     non_iso_minima: 5
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(9,C6) = 12; this graph is class 3 of the 5 minimum graphs."
+      prior_art:
+        - source: "https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf"
+          locator: "Remark 1"
+          checked: 2026-10-17
+          finding: "Records sat(9,C6) = 12 and the complete family of five minimum graphs."
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
     witness: "class 3 of 5 (degrees [4,3,3,3,3,2,2,2,2], 1 triangle)"
     notes: >-
       Third isomorphism class among the five minimum C6-saturated graphs on 9
       vertices. C6-free and C6-saturated (re-verified). graph6 bytes:
       72 123 96 80 79 95 72. Deposited 2026-07-14 as HoG #57169.
 
-  - invariant: "sat(9,C6)=12"
+  - id: sat-c6-n9-class4
+    invariant: "sat(9,C6)=12"
     n: 9
     edges: 12
     graph6: "Hs`aA?Z"
@@ -161,13 +221,26 @@ graphs:
     non_iso_minima: 5
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(9,C6) = 12; this graph is class 4 of the 5 minimum graphs."
+      prior_art:
+        - source: "https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf"
+          locator: "Remark 1"
+          checked: 2026-10-17
+          finding: "Records sat(9,C6) = 12 and the complete family of five minimum graphs."
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
     witness: "class 4 of 5 (degrees [4,4,4,2,2,2,2,2,2], triangle-free)"
     notes: >-
       Fourth isomorphism class and the first triangle-free minimum at n=9.
       C6-free and C6-saturated (re-verified). graph6 bytes:
       72 115 96 97 65 63 90. Deposited 2026-07-14 as HoG #57170.
 
-  - invariant: "sat(9,C6)=12"
+  - id: sat-c6-n9-class5
+    invariant: "sat(9,C6)=12"
     n: 9
     edges: 12
     graph6: "Hs`b?gI"
@@ -180,13 +253,26 @@ graphs:
     non_iso_minima: 5
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(9,C6) = 12; this graph is class 5 of the 5 minimum graphs."
+      prior_art:
+        - source: "https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf"
+          locator: "Remark 1"
+          checked: 2026-10-17
+          finding: "Records sat(9,C6) = 12 and the complete family of five minimum graphs."
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
     witness: "class 5 of 5 (degrees [4,3,3,3,3,2,2,2,2], triangle-free)"
     notes: >-
       Fifth isomorphism class and the second triangle-free minimum at n=9.
       C6-free and C6-saturated (re-verified). graph6 bytes:
       72 115 96 98 63 103 73. Deposited 2026-07-14 as HoG #57171.
 
-  - invariant: "sat(10,C6)=13"
+  - id: sat-c6-n10
+    invariant: "sat(10,C6)=13"
     n: 10
     edges: 13
     graph6: "I{`Q__H@?"
@@ -199,6 +285,18 @@ graphs:
     non_iso_minima: 2
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(10,C6) = 13; this graph is one of the 2 minimum graphs (with a cut vertex)."
+      prior_art:
+        - source: "https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf"
+          locator: "Remark 1"
+          checked: 2026-10-17
+          finding: "Records sat(10,C6) = 13 and the complete family of two minimum graphs."
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Includes n = 10 in floor((3n-3)/2) and classifies the n = 10 minima."
     witness: "primary (degrees [4,4,4,3,2,2,2,2,2,1], 1 triangle)"
     notes: >-
       Independently reproduced exact value (10+3=13). Lower bound by complete exhaustive enumeration
@@ -208,7 +306,8 @@ graphs:
       minima at 13 edges. graph6 has a literal backtick as its 3rd character;
       bytes 73 123 96 81 95 95 72 64 63. Deposited 2026-07-14 as HoG #57167.
 
-  - invariant: "sat(10,C6)=13"
+  - id: sat-c6-n10-alt
+    invariant: "sat(10,C6)=13"
     n: 10
     edges: 13
     graph6: "I{S__OC?w"
@@ -221,6 +320,18 @@ graphs:
     non_iso_minima: 2
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(10,C6) = 13; this graph is one of the 2 minimum graphs (near-cubic)."
+      prior_art:
+        - source: "https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf"
+          locator: "Remark 1"
+          checked: 2026-10-17
+          finding: "Records sat(10,C6) = 13 and the complete family of two minimum graphs."
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Includes n = 10 in floor((3n-3)/2) and classifies the n = 10 minima."
     witness: "alternate, near-cubic (degrees [3,3,3,3,3,3,2,2,2,2], 1 triangle)"
     notes: >-
       The second of the two non-isomorphic minima for sat(10,C6)=13. Its
@@ -229,7 +340,8 @@ graphs:
       C6-saturated (re-verified). bytes 73 123 83 95 95 79 67 63 119.
       Deposited 2026-07-14 as HoG #57166.
 
-  - invariant: "sat(11,C6)=14"
+  - id: sat-c6-n11
+    invariant: "sat(11,C6)=14"
     n: 11
     edges: 14
     graph6: "J]P?CGIKCC?"
@@ -242,6 +354,22 @@ graphs:
     non_iso_minima: 1
     zenodo: 10.5281/zenodo.23434720
     verified: true
+    claim:
+      kind: correction
+      statement: "sat(11,C6) = 14, with a unique minimum graph. This contradicts the value 15 reported in Remark 1 of Zhang-Luo-Shigeno; their general bounds are unaffected."
+      prior_art:
+        - source: "https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf"
+          locator: "Remark 1"
+          checked: 2026-10-17
+          finding: "Remark 1 gives 15 for n = 11."
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Remark 1 gives floor((3n-3)/2) = 15 for n = 11."
+        - source: "doi:10.37236/41"
+          locator: "Theorem 19, Conjecture 1"
+          checked: 2026-10-21
+          finding: "Conjecture 1, attributed to the 2015 Zhang-Luo-Shigeno paper: sat(n,C6) = floor((3n-3)/2) for n >= 9, i.e. 15 at n = 11."
     notes: >-
       Unique minimum class. Reproduced on 2026-10-17 by complete pynauty
       enumeration and nauty geng, each checked against independent Burnside
@@ -253,7 +381,8 @@ graphs:
       HoG record were published and checked live on 2026-10-18. Downloaded
       canonical graph6 is isomorphic to this witness and independently saturated.
 
-  - invariant: "sat(12,C6)=16"
+  - id: sat-c6-n12
+    invariant: "sat(12,C6)=16"
     n: 12
     edges: 16
     graph6: "KyOkc?`C??_D"
@@ -266,6 +395,17 @@ graphs:
     non_iso_minima: 35
     zenodo: 10.5281/zenodo.23434720
     verified: true
+    claim:
+      kind: new_classification
+      statement: "sat(12,C6) = 16 is previously published; the contribution is the complete family of 35 minimum graphs."
+      prior_art:
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Records sat(12,C6) = 16, but does not classify the n = 12 minima."
+        - source: "doi:10.1016/j.disc.2025.114504"
+          checked: 2026-10-17
+          finding: "General bounds give 14-16 at n = 12."
     notes: >-
       The exact value 16 was already recorded in Remark 1 of Zhang-Luo-Shigeno
       (2015), DOI 10.1007/s00373-014-1422-4. The contribution is the complete
@@ -283,7 +423,8 @@ graphs:
       archive and HoG record were published and checked live on 2026-10-18;
       the downloaded canonical graph passes isomorphism and saturation checks.
 
-  - invariant: "sat(13,C6)=17"
+  - id: sat-c6-n13
+    invariant: "sat(13,C6)=17"
     n: 13
     edges: 17
     graph6: "L{`Q__H@C??@C@"
@@ -296,6 +437,21 @@ graphs:
     non_iso_minima: 4
     zenodo: 10.5281/zenodo.23434720
     verified: true
+    claim:
+      kind: new_value
+      statement: "sat(13,C6) = 17, with 4 minimum graphs. The 17-edge upper bound is prior work; the contribution is exactness and the classification."
+      prior_art:
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-17
+          finding: "Remark 1 covers n = 9 to 12 only."
+        - source: "doi:10.1016/j.disc.2025.114504"
+          checked: 2026-10-17
+          finding: "General bounds give 16-17 at n = 13; the upper construction is prior work, exactness is not claimed."
+        - source: "doi:10.37236/41"
+          locator: "Theorem 19, Conjecture 1"
+          checked: 2026-10-21
+          finding: "Conjecture 1, attributed to the 2015 Zhang-Luo-Shigeno paper: sat(n,C6) = floor((3n-3)/2) for n >= 9, predicting 18 at n = 13. No exact order-13 value is listed."
     notes: >-
       Exhaustive nauty geng enumeration found no C6-saturated graph through
       16 edges. All 7997524 generated classes match independent Burnside
@@ -310,7 +466,8 @@ graphs:
       archive and HoG record were published and checked live on 2026-10-18;
       the downloaded canonical graph passes isomorphism and saturation checks.
 
-  - invariant: "sat(15,C6)=20"
+  - id: sat-c6-n15
+    invariant: "sat(15,C6)=20"
     n: 15
     edges: 20
     graph6: "N????A?W?o?wT@iw_O?"
@@ -323,6 +480,21 @@ graphs:
     non_iso_minima: 24
     zenodo: 10.5281/zenodo.23527267
     verified: true
+    claim:
+      kind: new_value
+      statement: "sat(15,C6) = 20, with 24 minimum graphs. The upper bound is prior work; the contribution is exactness and the classification."
+      prior_art:
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-18
+          finding: "No exact order-15 value; Remark 1 covers n = 9 to 12 only."
+        - source: "doi:10.1016/j.disc.2025.114504"
+          checked: 2026-10-18
+          finding: "Gives the matching 20-edge upper bound, not exactness."
+        - source: "doi:10.37236/41"
+          locator: "Theorem 19, Conjecture 1"
+          checked: 2026-10-21
+          finding: "Conjecture 1, attributed to the 2015 Zhang-Luo-Shigeno paper: sat(n,C6) = floor((3n-3)/2) for n >= 9, predicting 21 at n = 15. No exact order-15 value is listed."
     notes: >-
       Two complete unrestricted geng 15 0:19 streams each check 784526109
       unlabeled graphs and find none C6-saturated. Per-edge counts match
@@ -348,7 +520,8 @@ graphs:
       with the 24-class result and v6 DOI10.5281/zenodo.23527267. No new
       graph was deposited; see manifests/c6-v6-publication.json.
 
-  - invariant: "sat(14,C6)=19"
+  - id: sat-c6-n14
+    invariant: "sat(14,C6)=19"
     n: 14
     edges: 19
     graph6: "M???C@_ECKI`i`_O?"
@@ -361,6 +534,21 @@ graphs:
     non_iso_minima: 205
     zenodo: 10.5281/zenodo.23447722
     verified: true
+    claim:
+      kind: new_value
+      statement: "sat(14,C6) = 19, with 205 minimum graphs. The upper bound is prior work; the contribution is the exhaustive lower bound and the classification."
+      prior_art:
+        - source: "doi:10.1007/s00373-014-1422-4"
+          locator: "Remark 1, p. 1089"
+          checked: 2026-10-18
+          finding: "No exact order-14 value; Remark 1 covers n = 9 to 12 only."
+        - source: "doi:10.1016/j.disc.2025.114504"
+          checked: 2026-10-18
+          finding: "Gives the matching 19-edge upper bound, not exactness."
+        - source: "doi:10.37236/41"
+          locator: "Theorem 19, Conjecture 1"
+          checked: 2026-10-21
+          finding: "Conjecture 1, attributed to the 2015 Zhang-Luo-Shigeno paper: sat(n,C6) = floor((3n-3)/2) for n >= 9, predicting 19 at n = 14. No exact order-14 value is listed."
     notes: >-
       Complete unrestricted geng generation through 18 edges checks
       141892272 classes, with every per-edge count matching Burnside totals,
@@ -389,7 +577,8 @@ graphs:
 
   # ---- C5 saturation ----
 
-  - invariant: "sat(8,C5)=10"
+  - id: sat-c5-n8
+    invariant: "sat(8,C5)=10"
     n: 8
     edges: 10
     graph6: "G`@jWO"
@@ -402,6 +591,14 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: unassessed
+      statement: "sat(8,C5) = 10; this graph is a 10-edge C5-saturated witness."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Theorem 18"
+          checked: 2026-10-21
+          finding: "Theorem 18 (Chen 2009, 2011) gives sat(n,C5) = ceil(10(n-1)/7) only for n >= 21; small orders are not covered there."
     notes: >-
       C5-free and C5-saturated (re-verified from the byte-exact graph6). Matches
       the known value sat(8,C5)=10 and the project's independent SAT computation.
@@ -413,7 +610,8 @@ graphs:
   # sat(n, K_4) = 2n - 3 (Erdos-Hajnal-Moon 1964). Witnesses computed by SAT in
   # the saturation paper; prepared for HoG but not yet deposited.
 
-  - invariant: "sat(8,K_4)=13"
+  - id: sat-k4-n8
+    invariant: "sat(8,K_4)=13"
     n: 8
     edges: 13
     graph6: "GzXbB?"
@@ -426,12 +624,21 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(8,K4) = 13; this graph (K_2 + 6K_1) is a minimum K4-saturated graph."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Theorem 1"
+          checked: 2026-10-21
+          finding: "Theorem 1 (Erdos-Hajnal-Moon 1964, doi:10.2307/2311408): sat(n,K_p) = (p-2)(n-p+2) + C(p-2,2), which gives 2n-3 for p = 4."
     notes: >-
       K_4-free and K_4-saturated (re-verified from the graph6). Matches the
       Erdos-Hajnal-Moon formula sat(n,K_4)=2n-3=13. Canonical duplicate-check
       matched the existing graph K_2 + 6K_1, HoG #664.
 
-  - invariant: "sat(9,K_4)=15"
+  - id: sat-k4-n9
+    invariant: "sat(9,K_4)=15"
     n: 9
     edges: 15
     graph6: "HFCVwcQ"
@@ -444,11 +651,20 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(9,K4) = 15; this graph (K_2 + 7K_1) is a minimum K4-saturated graph."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Theorem 1"
+          checked: 2026-10-21
+          finding: "Theorem 1 (Erdos-Hajnal-Moon 1964, doi:10.2307/2311408): sat(n,K_p) = (p-2)(n-p+2) + C(p-2,2), which gives 2n-3 for p = 4."
     notes: >-
       K_4-free and K_4-saturated (re-verified). Matches 2n-3=15. Canonical
       duplicate-check matched the existing graph K_2 + 7K_1, HoG #182.
 
-  - invariant: "sat(10,K_4)=17"
+  - id: sat-k4-n10
+    invariant: "sat(10,K_4)=17"
     n: 10
     edges: 17
     graph6: "IXJxHGcH?"
@@ -461,6 +677,14 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: known_value
+      statement: "sat(10,K4) = 17; this graph (K_2 + 8K_1) is a minimum K4-saturated graph."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Theorem 1"
+          checked: 2026-10-21
+          finding: "Theorem 1 (Erdos-Hajnal-Moon 1964, doi:10.2307/2311408): sat(n,K_p) = (p-2)(n-p+2) + C(p-2,2), which gives 2n-3 for p = 4."
     notes: >-
       K_4-free and K_4-saturated (re-verified). Matches 2n-3=17. Canonical
       duplicate-check matched the existing graph K_2 + 8K_1, HoG #250.
@@ -470,7 +694,8 @@ graphs:
   # computational (Kaszonyi-Tuza-type). Witnesses have low novelty (many small
   # forests), so these are low-priority deposits.
 
-  - invariant: "sat(6,P_4)=3"
+  - id: sat-p4-n6
+    invariant: "sat(6,P_4)=3"
     n: 6
     edges: 3
     graph6: "EOOO"
@@ -483,12 +708,21 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: unassessed
+      statement: "sat(6,P4) = 3; this graph (a perfect matching) is a minimum P4-saturated graph."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Paths section, after Theorem 27"
+          checked: 2026-10-21
+          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
     notes: >-
       Three disjoint edges (a perfect matching on 6 vertices). P_4-saturation
       directly re-verified here. Canonical duplicate-check matched existing HoG
       #484; saturation-context comment added 2026-05-02.
 
-  - invariant: "sat(7,P_4)=5"
+  - id: sat-p4-n7
+    invariant: "sat(7,P_4)=5"
     n: 7
     edges: 5
     graph6: "FKPA?"
@@ -501,11 +735,20 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: unassessed
+      statement: "sat(7,P4) = 5; this graph is a minimum P4-saturated graph."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Paths section, after Theorem 27"
+          checked: 2026-10-21
+          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
     notes: >-
       P_4-saturation directly re-verified. Canonical duplicate-check matched
       existing HoG #56649; saturation-context comment added 2026-05-02.
 
-  - invariant: "sat(8,P_4)=4"
+  - id: sat-p4-n8
+    invariant: "sat(8,P_4)=4"
     n: 8
     edges: 4
     graph6: "G@`??C"
@@ -518,6 +761,14 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: unassessed
+      statement: "sat(8,P4) = 4; this graph is a minimum P4-saturated graph."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Paths section, after Theorem 27"
+          checked: 2026-10-21
+          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
     notes: >-
       Illustrates the P_4 series non-monotonicity, sat(8,P_4)=4 < sat(7,P_4)=5.
       P_4-saturation directly re-verified. graph6 contains a literal backtick as
@@ -526,7 +777,8 @@ graphs:
 
   # ---- P_5 saturation ----
 
-  - invariant: "sat(8,P_5)=6"
+  - id: sat-p5-n8
+    invariant: "sat(8,P_5)=6"
     n: 8
     edges: 6
     graph6: "G___Cc"
@@ -539,13 +791,22 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: unassessed
+      statement: "sat(8,P5) = 6; this graph is a minimum P5-saturated graph."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Paths section, after Theorem 27"
+          checked: 2026-10-21
+          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
     notes: >-
       P5-free and P5-saturated (re-verified from graph6). A 6-vertex double-star
       component plus a disjoint edge; degree sequence [3,3,1,1,1,1,1,1]. This
       realizes the plateau sat(8,P5)=sat(7,P5)=6. Deposited 2026-07-14 as HoG
       #57173.
 
-  - invariant: "sat(9,P_5)=7"
+  - id: sat-p5-n9
+    invariant: "sat(9,P_5)=7"
     n: 9
     edges: 7
     graph6: "H?IpA?_"
@@ -558,6 +819,14 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.21350167
     verified: true
+    claim:
+      kind: unassessed
+      statement: "sat(9,P5) = 7; this graph is a minimum P5-saturated graph."
+      prior_art:
+        - source: "doi:10.37236/41"
+          locator: "Paths section, after Theorem 27"
+          checked: 2026-10-21
+          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
     notes: >-
       P5-free and P5-saturated (re-verified from graph6). A 7-vertex double-star
       component plus a disjoint edge; degree sequence [4,3,1,1,1,1,1,1,1].
@@ -573,7 +842,8 @@ graphs:
   # permitted 4-by-3 orientation, so state the matrix condition instead. See
   # LESSONS.md.
 
-  - invariant: "z(10,10;3,4)=66"
+  - id: z-10-10-3-4
+    invariant: "z(10,10;3,4)=66"
     n: 20
     edges: 66
     graph6: "SsaCC@h?G@DrXq??laIyq[eOzP?{Q?mo?"
@@ -586,6 +856,13 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.19985042
     verified: true
+    claim:
+      kind: new_value
+      statement: "z(10,10;3,4) = 66: this 10-by-10 bipartite graph has 66 edges and no 3-by-4 all-ones submatrix in the stated orientation."
+      prior_art:
+        - source: "https://oeis.org/A006615"
+          checked: 2026-10-17
+          finding: "a(10) = 67, i.e. z(10,10;3,4) = 66, is credited to the author's extension, accepted after OEIS editorial review; the sequence had no earlier value for this term."
     oeis: A006615
     parts: [10, 10]
     k34_free: false
@@ -596,7 +873,8 @@ graphs:
       on one side share 4 common neighbours). The public HoG comment was
       corrected on 2026-06-30 to state the matrix condition, not "K_(3,4)-free".
 
-  - invariant: "z(9,10;3,4)=60"
+  - id: z-9-10-3-4
+    invariant: "z(9,10;3,4)=60"
     n: 19
     edges: 60
     graph6: "RsaCAs@?OALQ?@IilfBlSNK`wI?{s?"
@@ -609,6 +887,13 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.19985042
     verified: true
+    claim:
+      kind: new_value
+      statement: "z(9,10;3,4) = 60: this 9-by-10 bipartite graph has 60 edges and no 3-by-4 all-ones submatrix in the stated orientation."
+      prior_art:
+        - source: "https://oeis.org/A006622"
+          checked: 2026-10-17
+          finding: "a(9) = 61, i.e. z(9,10;3,4) = 60, is credited to the author's extension, accepted after OEIS editorial review; the sequence had no earlier value for this term."
     oeis: A006622
     parts: [9, 10]
     k34_free: false
@@ -618,7 +903,8 @@ graphs:
       (verified). Comment corrected on 2026-06-30. graph6 contains a literal
       backtick.
 
-  - invariant: "z(9,11;3,4)=66"
+  - id: z-9-11-3-4
+    invariant: "z(9,11;3,4)=66"
     n: 20
     edges: 66
     graph6: "SsaCC?t?G@?CWt??ipjWqVTPy[?uq@]Y?"
@@ -631,6 +917,13 @@ graphs:
     non_iso_minima: null
     zenodo: 10.5281/zenodo.19985042
     verified: true
+    claim:
+      kind: new_value
+      statement: "z(9,11;3,4) = 66: this 9-by-11 bipartite graph has 66 edges and no 3-by-4 all-ones submatrix in either orientation."
+      prior_art:
+        - source: "https://oeis.org/A006625"
+          checked: 2026-10-17
+          finding: "a(9) = 67, i.e. z(9,11;3,4) = 66, is credited to the author's extension, accepted after OEIS editorial review; the sequence had no earlier value for this term."
     oeis: A006625
     parts: [9, 11]
     k34_free: true
