@@ -60,6 +60,9 @@ witness is class 4 in the archived order. Detailed research remains in
 repositories are private. The curated public index is
 [research-records](https://github.com/queelius/research-records/tree/main/records/small-order-c6-saturation).
 
+For the canonical checkout, branch pointers and paused research boundary, read
+the [C6 maintenance handoff](docs/c6-maintenance-2026-10-21.md).
+
 ## Layout
 
 - `contributions.yaml` : single source of truth. One record per graph deposit or

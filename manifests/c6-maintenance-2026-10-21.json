@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "author": "Alexander Richard Towell",
+  "date": "2026-10-21",
+  "scope": "Branch and handoff maintenance; no new research or publication version.",
+  "published_version_doi": "10.5281/zenodo.23527267",
+  "frozen_research_source": "47002aacd10733ed784ce054c8ae8c39cd19a178",
+  "research_handoff_commit": "e5853986273114f8ec28a27b47e43a611455f280",
+  "research_remote_refs": ["refs/heads/master", "refs/heads/work/c6-contributions"],
+  "research_remote_update": "verified normal fast-forward; original dirty local master unchanged",
+  "hog_remote_refs": ["refs/heads/main", "refs/heads/work/c6-contributions"],
+  "hog_remote_update": "normal fast-forward from verified work/c6-contributions; no force or history rewrite",
+  "shared_index": {
+    "shared_head_preserved": "c07568dd56fc71298a99a390f09fa5c132813fc5",
+    "remote_head_at_merge": "f0a6452482a8ab6eba8f67ea2e54b8b8c1eefd6a",
+    "safety_branch": "safety/c6-index-before-reconciliation-20261021",
+    "safety_commit": "4bf1b0d97a207b984f3d178b0066ae78cfdd01c8",
+    "snapshot_files_checked": 6,
+    "reconciliation_branch": "audit/c6-shared-index-20261021",
+    "reconciliation_commit": "b9db93ab2cc4f2a5d2374aae393bf00ff768bb6e",
+    "catalog_records": 20,
+    "duplicate_ids": 0,
+    "all_parent_record_ids_preserved": true,
+    "remote_record_bytes_preserved": true,
+    "c6_record_matches_remote": true,
+    "untracked_sandpile_files_match_remote": true,
+    "candidate_pushed": false,
+    "shared_checkout_changed": false,
+    "remaining_gate": "Confirm no other session uses shared main before applying; revalidate current refs and dirty-file hashes first."
+  },
+  "verification": {
+    "research_tests_passed": 61,
+    "registry_tests_passed": 6,
+    "witnesses_verified": 26,
+    "exit_code": 0,
+    "new_broken_documentation_links": 0,
+    "unchanged_baseline_broken_link": "research README: ../erdos/",
+    "new_coverage_measurement": false,
+    "reason": "Documentation and branch pointers only; verification logic unchanged."
+  },
+  "excluded_material_scan": {
+    "scope": "All local and origin branch tips present before creating the two local index safety/audit refs.",
+    "hog_refs_checked": 4,
+    "research_refs_checked": 8,
+    "index_refs_checked": 14,
+    "matching_files": 0,
+    "limitation": "Named excluded venue text only, not a whole-history or general secret scan."
+  },
+  "preservation": "Unrelated dirty work, generated binaries, operational research state, and frozen archives left unchanged; no history rewrite or visibility change.",
+  "review": "Brief prepared; independent human review pending; no external contact."
+}
