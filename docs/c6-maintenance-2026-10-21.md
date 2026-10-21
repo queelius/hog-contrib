@@ -19,7 +19,7 @@ repository root. Do not resume historical sessions or searches from old logs.
 ## Branch reconciliation
 
 - `open-problems` remote `master` and `work/c6-contributions` now both contain
-  maintenance commit `e585398`, advanced by normal fast-forward. The archive
+  maintenance commit `cf3452b`, advanced by normal fast-forward. The archive
   source pin remains `47002aacd10733ed784ce054c8ae8c39cd19a178`.
 - `hog-contrib/main` is advanced only by fast-forward from the verified
   `work/c6-contributions` branch. Its local `main` can likewise advance
@@ -31,24 +31,26 @@ repository root. Do not resume historical sessions or searches from old logs.
 - Older research branches remain historical. No branches were deleted,
   histories rewritten, visibility changed or frozen archives replaced.
 
-## Shared public index: preserved, not switched
+## Shared public index: reconciliation applied
 
-The shared `research-records/main` contains other sessions' work. Its C6
-record tree is byte-identical to the public remote; no C6 change is missing.
-The apparent divergence includes equivalent cherry-picked C6 and coprime
-changes, a local-only codec record, and remote-only records from other projects.
-The four untracked sandpile files already match the remote byte-for-byte.
+After user confirmation, shared `research-records/main` was reconciled at
+`97289ce`, including public state through pinned commit `17af4a9`. It is
+clean and no longer divergent from that remote state: eight local commits
+ahead, zero behind at verification. Its C6 record tree is byte-identical to
+the public remote. All 24 catalog IDs are present without duplicates, all
+preexisting remote record files are byte-preserved, and local-only codec
+records remain unpublished. No public-index push was made.
 
-A local safety commit `4bf1b0d` preserves the shared HEAD, README/catalog edits
-and untracked sandpile files at
-`safety/c6-index-before-reconciliation-20261021`. A clean reconciliation is
-available at `audit/c6-shared-index-20261021`, commit `b9db93a`, and in
-`/tmp/c6-index-publication-20261021`. It combines all 20 catalog IDs from both
-parents, with no duplicates; every preexisting remote record is byte-preserved.
-Neither branch was pushed. The shared checkout remains untouched, pending
-confirmation that another session is not using it. Do not force-push its
-divergent `main`, publish unrelated records, or apply the candidate blindly
-after further remote/local changes.
+A local safety commit `4bf1b0d` preserves the original shared HEAD,
+README/catalog edits and untracked sandpile files at
+`safety/c6-index-before-reconciliation-20261021`. All six saved files were
+checked byte-for-byte before adopting that existing commit by fast-forward.
+The checkout then fast-forwarded to the separately validated reconciliation;
+one additional pinned remote update was merged without rewriting history.
+`audit/c6-shared-index-20261021` and `/tmp/c6-index-publication-20261021` retain
+the final reconciliation. Neither safety/audit branch was pushed. Review the
+local-only codec record with its owning session before any shared-main push;
+do not force-push or treat public indexing as approval to publish local work.
 
 ## Review and verification boundary
 

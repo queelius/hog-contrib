@@ -5,28 +5,34 @@
   "scope": "Branch and handoff maintenance; no new research or publication version.",
   "published_version_doi": "10.5281/zenodo.23527267",
   "frozen_research_source": "47002aacd10733ed784ce054c8ae8c39cd19a178",
-  "research_handoff_commit": "e5853986273114f8ec28a27b47e43a611455f280",
+  "research_handoff_commit": "cf3452b8045524f84ec5ef338c8c565cd2f660da",
   "research_remote_refs": ["refs/heads/master", "refs/heads/work/c6-contributions"],
   "research_remote_update": "verified normal fast-forward; original dirty local master unchanged",
   "hog_remote_refs": ["refs/heads/main", "refs/heads/work/c6-contributions"],
   "hog_remote_update": "normal fast-forward from verified work/c6-contributions; no force or history rewrite",
   "shared_index": {
     "shared_head_preserved": "c07568dd56fc71298a99a390f09fa5c132813fc5",
-    "remote_head_at_merge": "f0a6452482a8ab6eba8f67ea2e54b8b8c1eefd6a",
+    "remote_head_at_merge": "17af4a9e0093f1d09347c438c5821cf646b31e5d",
     "safety_branch": "safety/c6-index-before-reconciliation-20261021",
     "safety_commit": "4bf1b0d97a207b984f3d178b0066ae78cfdd01c8",
     "snapshot_files_checked": 6,
     "reconciliation_branch": "audit/c6-shared-index-20261021",
-    "reconciliation_commit": "b9db93ab2cc4f2a5d2374aae393bf00ff768bb6e",
-    "catalog_records": 20,
+    "reconciliation_commit": "97289cea5bd03d6e2f81e53a6891d7a93df3304f",
+    "catalog_records": 24,
     "duplicate_ids": 0,
     "all_parent_record_ids_preserved": true,
     "remote_record_bytes_preserved": true,
     "c6_record_matches_remote": true,
     "untracked_sandpile_files_match_remote": true,
     "candidate_pushed": false,
-    "shared_checkout_changed": false,
-    "remaining_gate": "Confirm no other session uses shared main before applying; revalidate current refs and dirty-file hashes first."
+    "shared_checkout_changed": true,
+    "shared_worktree_clean": true,
+    "local_commits_ahead_of_pinned_remote": 8,
+    "local_commits_behind_pinned_remote": 0,
+    "public_index_pushed": false,
+    "unpublished_local_record_ids": ["codec-controlled-retrieval"],
+    "remaining_gate": null,
+    "future_push_boundary": "Review local-only records with their owning session before any shared-main push."
   },
   "verification": {
     "research_tests_passed": 61,
@@ -46,6 +52,6 @@
     "matching_files": 0,
     "limitation": "Named excluded venue text only, not a whole-history or general secret scan."
   },
-  "preservation": "Unrelated dirty work, generated binaries, operational research state, and frozen archives left unchanged; no history rewrite or visibility change.",
+  "preservation": "Original shared-index edits preserved byte-exactly in the safety commit before integration; unrelated worktrees, generated binaries, operational research state and frozen archives left unchanged; no history rewrite or visibility change.",
   "review": "Brief prepared; independent human review pending; no external contact."
 }
