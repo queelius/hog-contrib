@@ -131,8 +131,9 @@ was checked on the live graph page.
 - State bipartite or ordered conditions in an orientation-explicit form for any
   unlabeled-graph database. Never "K_(s,t)-free" for a one-sided Zarankiewicz
   condition.
-- Cite the backing paper by its current Zenodo DOI on each deposit: saturation
-  10.5281/zenodo.23434720, Zarankiewicz 10.5281/zenodo.19985042.
+- Cite the appropriate exact archived version. The current C6 release is
+  v6, 10.5281/zenodo.23527267; preserve earlier version links when identifying
+  historical evidence. Zarankiewicz: 10.5281/zenodo.19985042.
 - External publication requires explicit user authorization. The current
   contribution goal authorizes Zenodo publication and HoG submissions or
   annotations after verification; login remains a user handoff when necessary.

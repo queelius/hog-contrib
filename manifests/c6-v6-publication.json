@@ -1,0 +1,14 @@
+{
+  "schema_version": "1.0",
+  "author": "Alexander Richard Towell",
+  "publication_state": "published and verified",
+  "date": "2026-10-21",
+  "zenodo": {"record_id": 23527267, "record_url": "https://zenodo.org/records/23527267", "doi": "10.5281/zenodo.23527267", "concept_doi": "10.5281/zenodo.19226371", "version": "v6", "archive": "graph-saturation-v6.zip", "archive_sha256": "eb425fd2a1af28ba5095122a7250219ea2a10b23d1c12991c1cdc0380a759dab", "archive_bytes": 30420358, "archive_entries": 732, "public_downloads_verified": true},
+  "source": {"research_commit": "47002aacd10733ed784ce054c8ae8c39cd19a178", "access": "private repositories unchanged; scoped public source in Zenodo archive"},
+  "verification": {"source_tests_passed": 777, "optional_skips": 5, "fresh_extraction_tests_passed": 61, "fresh_witnesses_verified": 24, "nonisomorphism_pairs": 276, "lower_bound_logs_revalidated": 2, "scoped_line_branch_coverage_percent": 95.82417582417582, "deterministic_archive_rebuild": true},
+  "graphs": [{"hog_id": 58092, "hog_url": "https://houseofgraphs.org/graphs/58092", "n": 15, "edges": 20, "minimum_classes": 24, "leaf_containing_classes": 12, "leaf_free_classes": 12, "representative_class_in_archive": 4, "family_sha256": "f1e85c54b84eacd501c377b03955ee7f1df007e768a0726a1e95864f68a4289e", "annotation_file": "c6-v6-annotation.md", "annotation_saved_and_read_back": true, "live_edited_timestamp": "21 October 2026 - 10:21", "graph_unchanged": true}],
+  "new_contributions_in_this_version": 1,
+  "new_hog_graphs": 0,
+  "central_record": "https://github.com/queelius/research-records/tree/main/records/small-order-c6-saturation",
+  "scope": "Complete order-15 minimum classification plus supporting completed structural evidence. No new research or larger-order census was launched."
+}

@@ -36,8 +36,8 @@ source_repo:
 # Papers backing these deposits (Zenodo DOIs, cited on each HoG deposit).
 papers:
   saturation:
-    title: "Graph Saturation Numbers for Small Subgraphs: Exact Computations via SAT"
-    zenodo: 10.5281/zenodo.21350167
+    title: "Small-order C6 saturation: exact values, minimum graphs, and a correction"
+    zenodo: 10.5281/zenodo.23527267
   zarankiewicz:
     title: "Three new Zarankiewicz numbers z(m,n;3,4)"
     zenodo: 10.5281/zenodo.19985042
@@ -320,8 +320,8 @@ graphs:
     hog_url: https://houseofgraphs.org/graphs/58092
     status: deposited
     certificates: both
-    non_iso_minima: null
-    zenodo: 10.5281/zenodo.23447722
+    non_iso_minima: 24
+    zenodo: 10.5281/zenodo.23527267
     verified: true
     notes: >-
       Two complete unrestricted geng 15 0:19 streams each check 784526109
@@ -330,14 +330,23 @@ graphs:
       This byte-exact 20-edge witness passes Python DFS, independent
       subset-Hamiltonicity, NetworkX decoding, and codec round trips.
       It extends M????A?W?o?wT@iw_ with vertex 14 adjacent to vertex 6.
-      Lan et al. (2025) already supply the matching upper bound; the new
-      contribution is exactness from the exhaustive lower bound, not a
-      new general construction or complete minimum classification.
+      Lan et al. (2025) already supply the matching upper bound. Published
+      v5 added exactness from the exhaustive lower bound. Version 6 adds the
+      complete 24-class minimum family: 12 leaf-containing and 12 leaf-free.
+      The unrestricted minimum-level census checks 2149523582 graphs, two
+      separate property algorithms check the complete minimum-degree-two
+      universe, and a separate weighted-kernel route recovers the leaf-free
+      sector. Every final witness and all 276 distinctness pairs are checked.
+      Family SHA256 f1e85c54b84eacd501c377b03955ee7f1df007e768a0726a1e95864f68a4289e.
+      This deposited representative is class 4 in the archived family order.
       Research evidence is in open-problems, saturation/runs/2026-10-18/.
       Canonical HoG search found no match on 2026-10-18. Published in v5
       DOI10.5281/zenodo.23447722 and submitted as HoG58092. The live page
       and downloaded canonical graph were verified; isomorphism to this
       witness, both saturation checks, counts and byte round trip pass.
+      The existing HoG annotation was updated and read back on 2026-10-21
+      with the 24-class result and v6 DOI10.5281/zenodo.23527267. No new
+      graph was deposited; see manifests/c6-v6-publication.json.
 
   - invariant: "sat(14,C6)=19"
     n: 14

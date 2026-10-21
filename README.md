@@ -44,11 +44,21 @@ The live HoG annotation links the complete archive;
 the full family remains in `open-problems`. The existing HoG 58091 witness
 is class 55 in the archived family order. No duplicate deposit is needed.
 
-The same follow-up proves `sat(15,C6)=20`: both complete checkers reject all
+Published v5 proves `sat(15,C6)=20`: both complete checkers reject all
 784,526,109 graphs through 19 edges, and a 20-edge witness passes independent
-checks. Its minimum family is not classified. The witness is live as
+checks. The witness is live as
 [HoG 58092](https://houseofgraphs.org/graphs/58092), backed by
 [Zenodo v5](https://doi.org/10.5281/zenodo.23447722).
+
+[Zenodo v6](https://doi.org/10.5281/zenodo.23527267) completes the order-15
+minimum classification: **24 classes, 12 with leaves and 12 leaf-free**.
+The archive retains the full family, complete census, leaf attachments,
+weighted-kernel recovery, rejection certificates, code and verification logs.
+The existing HoG 58092 annotation now links this classification; its source
+witness is class 4 in the archived order. Detailed research remains in
+`open-problems`; the public source is in Zenodo because the development
+repositories are private. The curated public index is
+[research-records](https://github.com/queelius/research-records/tree/main/records/small-order-c6-saturation).
 
 ## Layout
 
@@ -82,7 +92,7 @@ deposited records without a positive HoG ID. PyYAML is the only runtime
 dependency and is used to parse the registry safely; graph-property checks
 remain pure Python.
 
-Latest run (2026-10-18): all 26 stored witnesses verified, including the new
+Latest run (2026-10-21): all 26 stored witnesses verified, including the
 15-vertex, 20-edge C6-saturated witness. All six registry tests pass.
 
 ## Status vocabulary
@@ -124,6 +134,8 @@ deposits and their downloaded canonical graphs were checked against the source
 witnesses; see [publication verification](manifests/c6-publication-2026-10-18.json).
 The v5 classification annotation and order-15 deposit have separate
 [live verification evidence](manifests/c6-v5-publication.json).
+The order-15 classification update has its own
+[v6 publication receipt](manifests/c6-v6-publication.json).
 Some live witnesses were submitted as new graphs;
 others matched existing canonical forms and were annotated with their
 saturation interpretation where useful.
@@ -131,8 +143,8 @@ saturation interpretation where useful.
 ## Papers
 
 - Saturation: Alexander Richard Towell, "Small-order C6 saturation: exact
-  values, minimum graphs, and a correction", Zenodo v5
-  [10.5281/zenodo.23447722](https://doi.org/10.5281/zenodo.23447722).
+  values, minimum graphs, and a correction", Zenodo v6
+  [10.5281/zenodo.23527267](https://doi.org/10.5281/zenodo.23527267).
 - Zarankiewicz: A. Towell, "Three new Zarankiewicz numbers z(m,n;3,4)", Zenodo
   [10.5281/zenodo.19985042](https://doi.org/10.5281/zenodo.19985042).
 
