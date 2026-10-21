@@ -15,8 +15,9 @@ newer evidence is on `work/c6-contributions`, not necessarily its main checkout.
 
 ## Build, Test, and Development Commands
 
-There is no build step. PyYAML parses the structured registry; the graph-property
-checkers use the Python standard library. Run from the repository root:
+There is no build step. PyYAML parses the structured registry. Every witness
+must pass two separate property checkers: pure-Python `verify.py` and
+networkx-based `crosscheck.py`, which share no code. Run from the repository root:
 
 ```bash
 python3 -m pip install -r requirements.txt

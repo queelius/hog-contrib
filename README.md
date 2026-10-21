@@ -105,12 +105,15 @@ python3 -m unittest discover -s tests -v
 The verification gate reads structured `verification` fields directly from
 `contributions.yaml`; no separate per-file lookup table is maintained. It
 rejects missing or unregistered graph files, mismatched graph6 mirrors, and
-deposited records without a positive HoG ID. PyYAML is the only runtime
-dependency and is used to parse the registry safely; graph-property checks
-remain pure Python.
+deposited records without a positive HoG ID.
 
-Latest run (2026-10-21): all 26 stored witnesses verified, including the
-15-vertex, 20-edge C6-saturated witness. All six registry tests pass.
+Each witness must pass two separate implementations. `verify.py`, a pure-Python
+checker inherited from the research repository, and `crosscheck.py`, built on
+networkx with its own graph6 codec and different algorithms, share no code.
+A witness counts as checked only when both agree. PyYAML parses the registry.
+
+Latest run (2026-10-21): all 26 stored witnesses verified by both
+implementations. All 12 tests pass.
 
 ## Status vocabulary
 

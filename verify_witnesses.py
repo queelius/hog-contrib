@@ -1,43 +1,17 @@
 #!/usr/bin/env python3
 """Verify every graph6 witness using the structured contributions registry."""
 
-from dataclasses import dataclass
-from enum import Enum
 import itertools
 from pathlib import Path
 import sys
 
 import yaml
 
+from cases import Case, Family, Result
+import crosscheck
 import verify as V
 
 ROOT = Path(__file__).resolve().parent
-
-
-class Family(Enum):
-    CYCLE = "cycle_saturation"
-    PATH = "path_saturation"
-    CLIQUE = "clique_saturation"
-    ORDERED_BIPARTITE = "ordered_bipartite"
-
-
-@dataclass(frozen=True)
-class Case:
-    path: Path
-    graph6: str
-    n: int
-    edges: int
-    family: Family
-    order: int | None = None
-    parts: tuple[int, int] | None = None
-    forbidden_parts: tuple[int, int] | None = None
-    abstract_free: bool | None = None
-
-
-@dataclass(frozen=True)
-class Result:
-    ok: bool
-    detail: str
 
 
 def _integer(value, name, minimum=0):
@@ -116,12 +90,9 @@ def max_common_neighbours(adj, side, other, subset_size):
     )
 
 
-def verify_case(case: Case, root: Path = ROOT) -> Result:
-    """Verify the exact file, registry mirror, counts, and defining property."""
+def primary_check(case: Case, graph6: str) -> Result:
+    """Check counts, round trip, and the defining property with verify.py."""
     try:
-        graph6 = (Path(root) / case.path).read_text().strip()
-        if graph6 != case.graph6:
-            return Result(False, "graph6 file differs from registry")
         n, adj = V.decode_graph6(graph6)
         m = V.num_edges(n, adj)
         if (n, m) != (case.n, case.edges) or V.encode_graph6(n, adj) != graph6 or not V.roundtrip_ok(n, adj):
@@ -150,8 +121,25 @@ def verify_case(case: Case, root: Path = ROOT) -> Result:
             ok = clean and (case.abstract_free is None or case.abstract_free == abstract_free)
             detail = f"parts=({len(a)},{len(b)}) ordered-clean={clean} abstract-free={abstract_free}"
         return Result(ok, f"n={n} m={m} roundtrip=True {detail}")
-    except (OSError, ValueError, IndexError, UnicodeError) as error:
+    except (ValueError, IndexError) as error:
         return Result(False, str(error))
+
+
+# Every checker must pass. crosscheck shares no code with verify.py.
+CHECKERS = {"verify.py": primary_check, "networkx": crosscheck.check}
+
+
+def verify_case(case: Case, root: Path = ROOT, checkers=CHECKERS) -> Result:
+    """Verify the exact file mirrors the registry, then require every checker to pass."""
+    try:
+        graph6 = (Path(root) / case.path).read_text().strip()
+    except (OSError, UnicodeError) as error:
+        return Result(False, str(error))
+    if graph6 != case.graph6:
+        return Result(False, "graph6 file differs from registry")
+    results = {name: check(case, graph6) for name, check in checkers.items()}
+    detail = "; ".join(f"{name}: {result.detail}" for name, result in results.items())
+    return Result(all(result.ok for result in results.values()), detail)
 
 
 def main():
