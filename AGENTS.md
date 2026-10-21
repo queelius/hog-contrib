@@ -10,8 +10,8 @@ This repository owns graph deposits and their independent witness checks.
 Proofs, exhaustive lower-bound research, complete extremal families, and papers
 remain in `../open-problems`; sequence work belongs in `../oeis`. Read
 `docs/research-handoff.md` and the shared `../open-problems/docs/repository-roles.md`.
-Check `git -C ../open-problems worktree list` before starting C6 research; the
-newer evidence is on `work/c6-contributions`, not necessarily its main checkout.
+Before starting C6 research, read `../open-problems/docs/c6-current-status.md`;
+the C6 line was merged into open-problems `master` on 2026-10-21.
 
 ## Build, Test, and Development Commands
 

@@ -16,9 +16,9 @@ complete minimum families, and manuscripts remain in `../open-problems`;
 sequence work is maintained in `../oeis`. Read `docs/research-handoff.md` and
 `../open-problems/docs/repository-roles.md`.
 
-Locate current C6 evidence with `git -C ../open-problems worktree list`:
-branch `work/c6-contributions` is in a separate research worktree. The older
-main-checkout reports are not a current work queue. As of 2026-10-21 C6
+C6 evidence is on open-problems `master` (the separate `work/c6-contributions`
+worktree was merged and retired 2026-10-21); its `hog/` reports are
+historical, not a current work queue. As of 2026-10-21 C6
 research is paused (maintenance only); start from
 `docs/c6-maintenance-2026-10-21.md` for branch pointers and the review boundary.
 Do not resume historical sessions or searches from old logs.

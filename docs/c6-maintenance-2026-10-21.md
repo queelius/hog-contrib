@@ -11,10 +11,9 @@ order-15 minimum family. This repository owns deposit status and witness
 verification; detailed research remains in `open-problems`.
 
 The canonical local research handoff is
-[`c6-current-status.md`](../../open-problems-c6-publication/docs/c6-current-status.md),
-with an [independent-review brief](../../open-problems-c6-publication/docs/c6-review-brief.md).
-Locate that checkout using `git -C ../open-problems worktree list` from this
-repository root. Do not resume historical sessions or searches from old logs.
+[`c6-current-status.md`](../../open-problems/docs/c6-current-status.md),
+with an [independent-review brief](../../open-problems/docs/c6-review-brief.md),
+on open-problems `master`. Do not resume historical sessions or searches from old logs.
 
 ## Branch reconciliation
 
@@ -24,10 +23,10 @@ repository root. Do not resume historical sessions or searches from old logs.
 - `hog-contrib/main` is advanced only by fast-forward from the verified
   `work/c6-contributions` branch. Its local `main` can likewise advance
   without switching the dirty active worktree.
-- The original local `open-problems/master` is divergent and heavily dirty.
-  It is not the current C6 checkout. Its branch and files were not reset,
-  rebased, stashed, bulk-staged or merged. Its old ownership guide's C6
-  checkpoint predates v6; follow the current handoff above instead.
+- Later on 2026-10-21 the divergent local `open-problems/master` was
+  committed in full, merged with the C6 line, and pushed as a fast-forward
+  (`cf3452b..7cf5505`). The `../open-problems-c6-publication` worktree was
+  retired; paths under it in run manifests are historical.
 - Older research branches remain historical. No branches were deleted,
   histories rewritten, visibility changed or frozen archives replaced.
 

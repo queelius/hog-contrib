@@ -21,10 +21,9 @@ minimum families, and manuscripts remain in `open-problems`. See the shared
 [repository ownership guide](../open-problems/docs/repository-roles.md) and the
 local [research handoff](docs/research-handoff.md).
 
-The current C6 evidence is on `open-problems` branch `work/c6-contributions`,
-checked out at `../open-problems-c6-publication` during the 2026-10-17 audit.
-Use `git -C ../open-problems worktree list` to locate it before repeating an
-experiment. A verified witness here does not replace that branch's lower-bound
+The C6 evidence is on `open-problems` `master` (merged from branch
+`work/c6-contributions` on 2026-10-21); start from its
+`docs/c6-current-status.md` before repeating an experiment. A verified witness here does not replace that branch's lower-bound
 evidence or establish novelty/publication.
 
 ## Why these

@@ -38,17 +38,10 @@ does not mean a public annotation has been changed.
 
 ## Current C6 location
 
-On 2026-10-17, branch `work/c6-contributions` in `open-problems` was checked out
-at `../open-problems-c6-publication`. Discover the current path with:
-
-```bash
-git -C ../open-problems worktree list
-```
-
+The C6 line, checked out at `../open-problems-c6-publication` from 2026-10-17,
+was merged into open-problems `master` on 2026-10-21 and the worktree retired.
 Read `docs/graph-contributions-progress.md`,
 `discoveries/extremal-graph-theory/saturation/REPRODUCE.md`, and
-`discoveries/extremal-graph-theory/saturation/PRIOR-ART-2026-10-17.md` on that
-branch before restarting computations or claiming publication. The branch
-records newer evidence and unresolved final-literature checks; this registry
-does not replace them. Its integration into the main research checkout is a
-separate action, not a prerequisite to keeping the deposit ledger accurate.
+`discoveries/extremal-graph-theory/saturation/PRIOR-ART-2026-10-17.md` there
+before restarting computations or claiming publication. They record the evidence and final-literature checks; this registry does not
+replace them.
