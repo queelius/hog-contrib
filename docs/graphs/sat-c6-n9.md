@@ -26,6 +26,7 @@ HyOkc?`
 
 - [https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf](https://infoshako.sk.tsukuba.ac.jp/~databank/pdf/1299.pdf) (Remark 1), checked 2026-10-17: Records sat(9,C6) = 12 and the complete family of five minimum graphs.
 - [doi:10.1007/s00373-014-1422-4](https://doi.org/10.1007/s00373-014-1422-4) (Remark 1, p. 1089), checked 2026-10-17: Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima.
+- [https://digitalcommons.memphis.edu/speccoll-faudreerj/27](https://digitalcommons.memphis.edu/speccoll-faudreerj/27) (C6 column, table on p. 6), checked 2026-10-21: Also lists sat(9,C6) = 12 (graph Y39), without a classification. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n \<= 9 obtained by exhaustive computer search (p. 3).
 
 ## Verify
 

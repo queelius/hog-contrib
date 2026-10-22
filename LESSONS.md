@@ -117,6 +117,22 @@ and source attribution before using them to motivate further contributions.
 preprint and explicitly withdraw the novelty claim. Each saved correction
 was checked on the live graph page.
 
+## 2026-10-21 -- Check the witness against the published family, not only the value
+
+**What:** The prior-art sweep of the eight `unassessed` records found every
+value already published (Kaszonyi-Tuza 1986 as restated by Dudek-Wojda 2004
+and Balister-Dogan 2018 for P4 and P5; the Jambulapati-Faudree technical
+report for C5 and C6 at n <= 9). The values agree, but two witnesses are not
+the published minimum graph: `sat-c5-n8` differs from the report's Y19, and
+`sat-p4-n7` (K2 with K_{1,4}) is a minimum that the restated Kaszonyi-Tuza
+family, which lists only 2K2 with K3 at n = 7, omits.
+
+**Rule:** For each record, compare the witness with any graph or family the
+source names, not just the number. A verified witness with the published
+edge count that lies outside a published "all minima" family is evidence
+against that family. Unrefereed reports and computational tables count as
+prior art; search them before calling a small value new.
+
 ## Standing verification rules
 
 - The final 2015 Zhang-Luo-Shigeno text was accessed on 2026-10-17. Remark 1,

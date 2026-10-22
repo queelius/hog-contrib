@@ -97,8 +97,17 @@ graphs:
     zenodo: 10.5281/zenodo.21350167
     verified: true
     claim:
-      kind: unassessed
-      statement: "sat(7,C6) = 10; this graph is a 10-edge C6-saturated witness."
+      kind: known_value
+      statement: "sat(7,C6) = 10; this graph is a minimum C6-saturated graph on 7 vertices."
+      prior_art:
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "C6 column, table on p. 6; appendix graph Y37"
+          checked: 2026-10-21
+          finding: "Lists sat(7,C6) = 10 with graph Y37; Y37 as drawn in the appendix is isomorphic to this witness. No uniqueness claim. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
+        - source: "https://tsukuba.repo.nii.ac.jp/records/27557"
+          locator: "Theorems 1 and 2"
+          checked: 2026-10-21
+          finding: "Zhang-Luo-Shigeno 2012 preprint (journal version doi:10.1007/s00373-014-1422-4): the upper bound floor((3n-3)/2) is stated only for n >= 9; the lower bound ceil(7n/6) - 2 gives 7 at n = 7."
     notes: >-
       C6-free and C6-saturated (re-verified from the graph6). The canonical HoG
       duplicate-check matched the existing McCuaig/Shepherd H_7, HoG #868. Added
@@ -119,8 +128,17 @@ graphs:
     zenodo: 10.5281/zenodo.21350167
     verified: true
     claim:
-      kind: unassessed
-      statement: "sat(8,C6) = 11, with a unique minimum graph."
+      kind: new_classification
+      statement: "sat(8,C6) = 11 is known; this graph is the unique minimum C6-saturated graph on 8 vertices. Uniqueness rests on the open-problems exhaustive enumeration (hog/SATURATION-EXTEND.md), not yet in an archived release."
+      prior_art:
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "C6 column, table on p. 6; appendix graph Y38"
+          checked: 2026-10-21
+          finding: "Lists sat(8,C6) = 11 with graph Y38, isomorphic to this witness as drawn in the appendix. One graph per cell and no claim that it is the only minimum. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
+        - source: "https://tsukuba.repo.nii.ac.jp/records/27557"
+          locator: "Theorems 1 and 2"
+          checked: 2026-10-21
+          finding: "Zhang-Luo-Shigeno 2012 preprint (journal version doi:10.1007/s00373-014-1422-4): the upper bound is stated only for n >= 9; the lower bound gives 8 at n = 8. No order-8 classification."
     notes: >-
       Unique minimum C6-saturated graph on 8 vertices (degrees [4,4,3,3,3,2,2,1],
       2 triangles, non-bipartite). Deposited 2026-07-01 after a from-scratch
@@ -153,6 +171,10 @@ graphs:
           locator: "Remark 1, p. 1089"
           checked: 2026-10-17
           finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "C6 column, table on p. 6"
+          checked: 2026-10-21
+          finding: "Also lists sat(9,C6) = 12 (graph Y39), without a classification. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     witness: "class 1 of 5 (degrees [4,4,4,2,2,2,2,2,2], 1 triangle)"
     notes: >-
       Independently reproduced exact value (9+3=12). Lower bound by complete exhaustive enumeration
@@ -189,6 +211,10 @@ graphs:
           locator: "Remark 1, p. 1089"
           checked: 2026-10-17
           finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "C6 column, table on p. 6"
+          checked: 2026-10-21
+          finding: "Also lists sat(9,C6) = 12 (graph Y39), without a classification. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     witness: "class 2 of 5 (degrees [4,4,4,2,2,2,2,2,2], 1 triangle)"
     notes: >-
       Second isomorphism class among the five minimum C6-saturated graphs on 9
@@ -221,6 +247,10 @@ graphs:
           locator: "Remark 1, p. 1089"
           checked: 2026-10-17
           finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "C6 column, table on p. 6"
+          checked: 2026-10-21
+          finding: "Also lists sat(9,C6) = 12 (graph Y39), without a classification. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     witness: "class 3 of 5 (degrees [4,3,3,3,3,2,2,2,2], 1 triangle)"
     notes: >-
       Third isomorphism class among the five minimum C6-saturated graphs on 9
@@ -253,6 +283,10 @@ graphs:
           locator: "Remark 1, p. 1089"
           checked: 2026-10-17
           finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "C6 column, table on p. 6"
+          checked: 2026-10-21
+          finding: "Also lists sat(9,C6) = 12 (graph Y39), without a classification. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     witness: "class 4 of 5 (degrees [4,4,4,2,2,2,2,2,2], triangle-free)"
     notes: >-
       Fourth isomorphism class and the first triangle-free minimum at n=9.
@@ -285,6 +319,10 @@ graphs:
           locator: "Remark 1, p. 1089"
           checked: 2026-10-17
           finding: "Includes n = 9 in floor((3n-3)/2) and classifies the n = 9 minima."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "C6 column, table on p. 6"
+          checked: 2026-10-21
+          finding: "Also lists sat(9,C6) = 12 (graph Y39), without a classification. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     witness: "class 5 of 5 (degrees [4,3,3,3,3,2,2,2,2], triangle-free)"
     notes: >-
       Fifth isomorphism class and the second triangle-free minimum at n=9.
@@ -612,9 +650,13 @@ graphs:
     zenodo: 10.5281/zenodo.21350167
     verified: true
     claim:
-      kind: unassessed
-      statement: "sat(8,C5) = 10; this graph is a 10-edge C5-saturated witness."
+      kind: known_value
+      statement: "sat(8,C5) = 10; this graph is a minimum C5-saturated graph on 8 vertices, and is not isomorphic to the minimum graph published for that order, so at least two minima exist."
       prior_art:
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "C5 column, table on p. 4; appendix graph Y19"
+          checked: 2026-10-21
+          finding: "Lists sat(8,C5) = 10 with graph Y19 (K4 with a pendant edge at each vertex, degrees [4,4,4,4,1,1,1,1]), which is not isomorphic to this witness. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
         - source: "doi:10.37236/41"
           locator: "Theorem 18"
           checked: 2026-10-21
@@ -710,9 +752,9 @@ graphs:
       duplicate-check matched the existing graph K_2 + 8K_1, HoG #250.
 
   # ---- P_4 saturation: sat(n, P_4) minimum P_4-saturated graphs ----
-  # The P_4 series is non-monotone: sat(8,P_4)=4 < sat(7,P_4)=5. Values are
-  # computational (Kaszonyi-Tuza-type). Witnesses have low novelty (many small
-  # forests), so these are low-priority deposits.
+  # The P_4 series is non-monotone: sat(8,P_4)=4 < sat(7,P_4)=5. The values
+  # are Kaszonyi-Tuza 1986, as restated by Dudek-Wojda 2004 and Balister-Dogan
+  # 2018. At odd n the restated minimum family omits K_2-components with K_{1,4}.
 
   - id: sat-p4-n6
     invariant: "sat(6,P_4)=3"
@@ -729,13 +771,25 @@ graphs:
     zenodo: 10.5281/zenodo.21350167
     verified: true
     claim:
-      kind: unassessed
-      statement: "sat(6,P4) = 3; this graph (a perfect matching) is a minimum P4-saturated graph."
+      kind: known_value
+      statement: "sat(6,P4) = 3; this graph (a perfect matching, 3K_2) is the minimum P4-saturated graph in the Kaszonyi-Tuza family as restated by Dudek-Wojda 2004."
       prior_art:
         - source: "doi:10.37236/41"
-          locator: "Paths section, after Theorem 27"
+          locator: "Paths section, p. 18, and p. 65"
           checked: 2026-10-21
-          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
+          finding: "States that sat(n,P_k) is known for all n when k <= 6 (citing Kaszonyi-Tuza 1986 and Dudek-Wojda 2004) and, citing Kaszonyi-Tuza, that sat(2k-1,P4) = k+1 > sat(2k,P4) = k."
+        - source: "https://opuscula.agh.edu.pl/vol24/1/art/opuscula_math_2404.pdf"
+          locator: "Theorem 2, p. 44"
+          checked: 2026-10-21
+          finding: "Opuscula Math. 24(1) (2004) 43-55, restating Kaszonyi-Tuza: sat(n;P4) = k if n = 2k and k+2 if n = 2k+1, which gives 3 at n = 6; the stated minimum family at n = 2k is kK2, which is this graph. Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) itself was not read (paywalled)."
+        - source: "https://preview.memphis.edu/msci/people/pbalistr/edge_spectrum.pdf"
+          locator: "Theorem 4(b) (author preprint, March 2018)"
+          checked: 2026-10-21
+          finding: "Balister-Dogan, J. Graph Theory 89(4) (2018), restating Kaszonyi-Tuza: for n >= 4, sat(n;P4) = n/2 if n is even and (n+3)/2 if n is odd; 3 at n = 6."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "P4 column, table on p. 4"
+          checked: 2026-10-21
+          finding: "Lists sat(6,P4) = 3. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     notes: >-
       Three disjoint edges (a perfect matching on 6 vertices). P_4-saturation
       directly re-verified here. Canonical duplicate-check matched existing HoG
@@ -756,13 +810,25 @@ graphs:
     zenodo: 10.5281/zenodo.21350167
     verified: true
     claim:
-      kind: unassessed
-      statement: "sat(7,P4) = 5; this graph is a minimum P4-saturated graph."
+      kind: known_value
+      statement: "sat(7,P4) = 5; this graph (the disjoint union of K_2 and the star K_{1,4}) is a minimum P4-saturated graph that the published minimum family (2K_2 with K_3) omits."
       prior_art:
         - source: "doi:10.37236/41"
-          locator: "Paths section, after Theorem 27"
+          locator: "Paths section, p. 18, and p. 65"
           checked: 2026-10-21
-          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
+          finding: "States that sat(n,P_k) is known for all n when k <= 6 (citing Kaszonyi-Tuza 1986 and Dudek-Wojda 2004) and, citing Kaszonyi-Tuza, that sat(2k-1,P4) = k+1 > sat(2k,P4) = k."
+        - source: "https://opuscula.agh.edu.pl/vol24/1/art/opuscula_math_2404.pdf"
+          locator: "Theorem 2, p. 44"
+          checked: 2026-10-21
+          finding: "Opuscula Math. 24(1) (2004) 43-55, restating Kaszonyi-Tuza: sat(n;P4) = k if n = 2k and k+2 if n = 2k+1, which gives 5 at n = 7; the stated minimum family at n = 2k+1 is only (k-1)K2 with K3, but this witness (K2 with K_{1,4}, P4-saturated by both checkers, 5 edges) is also minimum, so the family as restated is incomplete. Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) itself was not read (paywalled)."
+        - source: "https://preview.memphis.edu/msci/people/pbalistr/edge_spectrum.pdf"
+          locator: "Theorem 4(b) (author preprint, March 2018)"
+          checked: 2026-10-21
+          finding: "Balister-Dogan, J. Graph Theory 89(4) (2018), restating Kaszonyi-Tuza: for n >= 4, sat(n;P4) = n/2 if n is even and (n+3)/2 if n is odd; 5 at n = 7."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "P4 column, table on p. 4"
+          checked: 2026-10-21
+          finding: "Lists sat(7,P4) = 5. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     notes: >-
       P_4-saturation directly re-verified. Canonical duplicate-check matched
       existing HoG #56649; saturation-context comment added 2026-05-02.
@@ -782,13 +848,25 @@ graphs:
     zenodo: 10.5281/zenodo.21350167
     verified: true
     claim:
-      kind: unassessed
-      statement: "sat(8,P4) = 4; this graph is a minimum P4-saturated graph."
+      kind: known_value
+      statement: "sat(8,P4) = 4; this graph (a perfect matching, 4K_2) is the minimum P4-saturated graph in the Kaszonyi-Tuza family as restated by Dudek-Wojda 2004."
       prior_art:
         - source: "doi:10.37236/41"
-          locator: "Paths section, after Theorem 27"
+          locator: "Paths section, p. 18, and p. 65"
           checked: 2026-10-21
-          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
+          finding: "States that sat(n,P_k) is known for all n when k <= 6 (citing Kaszonyi-Tuza 1986 and Dudek-Wojda 2004) and, citing Kaszonyi-Tuza, that sat(2k-1,P4) = k+1 > sat(2k,P4) = k."
+        - source: "https://opuscula.agh.edu.pl/vol24/1/art/opuscula_math_2404.pdf"
+          locator: "Theorem 2, p. 44"
+          checked: 2026-10-21
+          finding: "Opuscula Math. 24(1) (2004) 43-55, restating Kaszonyi-Tuza: sat(n;P4) = k if n = 2k and k+2 if n = 2k+1, which gives 4 at n = 8; the stated minimum family at n = 2k is kK2, which is this graph. Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) itself was not read (paywalled)."
+        - source: "https://preview.memphis.edu/msci/people/pbalistr/edge_spectrum.pdf"
+          locator: "Theorem 4(b) (author preprint, March 2018)"
+          checked: 2026-10-21
+          finding: "Balister-Dogan, J. Graph Theory 89(4) (2018), restating Kaszonyi-Tuza: for n >= 4, sat(n;P4) = n/2 if n is even and (n+3)/2 if n is odd; 4 at n = 8."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "P4 column, table on p. 4"
+          checked: 2026-10-21
+          finding: "Lists sat(8,P4) = 4. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     notes: >-
       Illustrates the P_4 series non-monotonicity, sat(8,P_4)=4 < sat(7,P_4)=5.
       P_4-saturation directly re-verified. graph6 contains a literal backtick as
@@ -812,13 +890,25 @@ graphs:
     zenodo: 10.5281/zenodo.21350167
     verified: true
     claim:
-      kind: unassessed
+      kind: known_value
       statement: "sat(8,P5) = 6; this graph is a minimum P5-saturated graph."
       prior_art:
         - source: "doi:10.37236/41"
-          locator: "Paths section, after Theorem 27"
+          locator: "Paths section, p. 18"
           checked: 2026-10-21
-          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
+          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 and Dudek-Wojda 2004; gives no P5 formula itself."
+        - source: "https://opuscula.agh.edu.pl/vol24/1/art/opuscula_math_2404.pdf"
+          locator: "Theorem 2, p. 44"
+          checked: 2026-10-21
+          finding: "Opuscula Math. 24(1) (2004) 43-55, restating Kaszonyi-Tuza: sat(n;P5) = n - floor((n-2)/6) - 1 for n >= 6, which gives 6 at n = 8. No P5 minimum family is stated. Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) itself was not read (paywalled)."
+        - source: "https://preview.memphis.edu/msci/people/pbalistr/edge_spectrum.pdf"
+          locator: "Theorem 4(c) (author preprint, March 2018)"
+          checked: 2026-10-21
+          finding: "Balister-Dogan, J. Graph Theory 89(4) (2018): for n >= 5, sat(n;P5) = ceil((5n-4)/6); 6 at n = 8."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "P5 column, table on p. 5"
+          checked: 2026-10-21
+          finding: "Lists sat(8,P5) = 6 with graph Y40 with K1; that label was not compared with this witness. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     notes: >-
       P5-free and P5-saturated (re-verified from graph6). A 6-vertex double-star
       component plus a disjoint edge; degree sequence [3,3,1,1,1,1,1,1]. This
@@ -840,13 +930,25 @@ graphs:
     zenodo: 10.5281/zenodo.21350167
     verified: true
     claim:
-      kind: unassessed
+      kind: known_value
       statement: "sat(9,P5) = 7; this graph is a minimum P5-saturated graph."
       prior_art:
         - source: "doi:10.37236/41"
-          locator: "Paths section, after Theorem 27"
+          locator: "Paths section, p. 18"
           checked: 2026-10-21
-          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared."
+          finding: "States that sat(n,P_k) is known for all n when k <= 6, citing Kaszonyi-Tuza 1986 and Dudek-Wojda 2004; gives no P5 formula itself."
+        - source: "https://opuscula.agh.edu.pl/vol24/1/art/opuscula_math_2404.pdf"
+          locator: "Theorem 2, p. 44"
+          checked: 2026-10-21
+          finding: "Opuscula Math. 24(1) (2004) 43-55, restating Kaszonyi-Tuza: sat(n;P5) = n - floor((n-2)/6) - 1 for n >= 6, which gives 7 at n = 9. No P5 minimum family is stated. Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) itself was not read (paywalled)."
+        - source: "https://preview.memphis.edu/msci/people/pbalistr/edge_spectrum.pdf"
+          locator: "Theorem 4(c) (author preprint, March 2018)"
+          checked: 2026-10-21
+          finding: "Balister-Dogan, J. Graph Theory 89(4) (2018): for n >= 5, sat(n;P5) = ceil((5n-4)/6); 7 at n = 9."
+        - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
+          locator: "P5 column, table on p. 5"
+          checked: 2026-10-21
+          finding: "Lists sat(9,P5) = 7 with graph Y41 with K1; that label was not compared with this witness. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n <= 9 obtained by exhaustive computer search (p. 3)."
     notes: >-
       P5-free and P5-saturated (re-verified from graph6). A 7-vertex double-star
       component plus a disjoint edge; degree sequence [4,3,1,1,1,1,1,1,1].

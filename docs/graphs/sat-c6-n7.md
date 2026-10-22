@@ -2,9 +2,9 @@
 
 # sat(7,C6)=10
 
-Record `sat-c6-n7`: **unassessed**.
+Record `sat-c6-n7`: **known value**.
 
-> sat(7,C6) = 10; this graph is a 10-edge C6-saturated witness.
+> sat(7,C6) = 10; this graph is a minimum C6-saturated graph on 7 vertices.
 
 | | |
 | --- | --- |
@@ -23,9 +23,8 @@ FbSko
 
 ## Prior art
 
-None recorded.
-
-The prior-art status of this record has not been assessed. It makes no novelty claim.
+- [https://digitalcommons.memphis.edu/speccoll-faudreerj/27](https://digitalcommons.memphis.edu/speccoll-faudreerj/27) (C6 column, table on p. 6; appendix graph Y37), checked 2026-10-21: Lists sat(7,C6) = 10 with graph Y37; Y37 as drawn in the appendix is isomorphic to this witness. No uniqueness claim. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n \<= 9 obtained by exhaustive computer search (p. 3).
+- [https://tsukuba.repo.nii.ac.jp/records/27557](https://tsukuba.repo.nii.ac.jp/records/27557) (Theorems 1 and 2), checked 2026-10-21: Zhang-Luo-Shigeno 2012 preprint (journal version doi:10.1007/s00373-014-1422-4): the upper bound floor((3n-3)/2) is stated only for n \>= 9; the lower bound ceil(7n/6) - 2 gives 7 at n = 7.
 
 ## Verify
 

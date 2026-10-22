@@ -2,9 +2,9 @@
 
 # sat(8,C6)=11
 
-Record `sat-c6-n8`: **unassessed**.
+Record `sat-c6-n8`: **new classification**.
 
-> sat(8,C6) = 11, with a unique minimum graph.
+> sat(8,C6) = 11 is known; this graph is the unique minimum C6-saturated graph on 8 vertices. Uniqueness rests on the open-problems exhaustive enumeration (hog/SATURATION-EXTEND.md), not yet in an archived release.
 
 | | |
 | --- | --- |
@@ -24,9 +24,8 @@ G}`H_C
 
 ## Prior art
 
-None recorded.
-
-The prior-art status of this record has not been assessed. It makes no novelty claim.
+- [https://digitalcommons.memphis.edu/speccoll-faudreerj/27](https://digitalcommons.memphis.edu/speccoll-faudreerj/27) (C6 column, table on p. 6; appendix graph Y38), checked 2026-10-21: Lists sat(8,C6) = 11 with graph Y38, isomorphic to this witness as drawn in the appendix. One graph per cell and no claim that it is the only minimum. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n \<= 9 obtained by exhaustive computer search (p. 3).
+- [https://tsukuba.repo.nii.ac.jp/records/27557](https://tsukuba.repo.nii.ac.jp/records/27557) (Theorems 1 and 2), checked 2026-10-21: Zhang-Luo-Shigeno 2012 preprint (journal version doi:10.1007/s00373-014-1422-4): the upper bound is stated only for n \>= 9; the lower bound gives 8 at n = 8. No order-8 classification.
 
 ## Verify
 

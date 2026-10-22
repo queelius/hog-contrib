@@ -9,7 +9,13 @@ path, clique, and ordered bipartite extremal problems. Known values are useful
 validation cases and are distinguished from new results. In particular,
 `sat(9,C6)=12`, `sat(10,C6)=13`, and their minimum families already appear in
 Remark 1 of the Zhang-Luo-Shigeno preprint (2012); our earlier novelty claims
-for those cases were incorrect.
+for those cases were incorrect. The values `sat(n,C6)` for n = 6 to 9
+(9, 10, 11, 12) also appear, from an exhaustive computer search, in the
+Jambulapati-Faudree technical report "A Collection of Results on Saturation
+Numbers" (2014, posted 2021 at
+<https://digitalcommons.memphis.edu/speccoll-faudreerj/27>), found in the
+2026-10-21 prior-art sweep. The C6 note does not cite it yet; add it when
+the note is next revised.
 
 The October 2026 release publishes `sat(11,C6)=14` (a unique minimum class),
 the complete minimum classification for `sat(12,C6)=16`,

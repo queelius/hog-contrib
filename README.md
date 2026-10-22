@@ -22,12 +22,12 @@ is one of: *known value* (already published, reproduced here), *new value*,
 (prior art not yet checked; no novelty claimed).
 
 <!-- BEGIN GENERATED: deposits -->
-26 records: 26 deposited. Claims: 10 known value, 6 new value, 1 new classification, 1 correction, 8 unassessed.
+26 records: 26 deposited. Claims: 17 known value, 6 new value, 2 new classification, 1 correction.
 
 | Record | Invariant | n | Edges | Claim | House of Graphs | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| [sat-c6-n7](docs/graphs/sat-c6-n7.md) | sat(7,C6)=10 | 7 | 10 | unassessed | [868](https://houseofgraphs.org/graphs/868) | deposited |
-| [sat-c6-n8](docs/graphs/sat-c6-n8.md) | sat(8,C6)=11 | 8 | 11 | unassessed | [57145](https://houseofgraphs.org/graphs/57145) | deposited |
+| [sat-c6-n7](docs/graphs/sat-c6-n7.md) | sat(7,C6)=10 | 7 | 10 | known value | [868](https://houseofgraphs.org/graphs/868) | deposited |
+| [sat-c6-n8](docs/graphs/sat-c6-n8.md) | sat(8,C6)=11 | 8 | 11 | new classification | [57145](https://houseofgraphs.org/graphs/57145) | deposited |
 | [sat-c6-n9](docs/graphs/sat-c6-n9.md) | sat(9,C6)=12 | 9 | 12 | known value | [21054](https://houseofgraphs.org/graphs/21054) | deposited |
 | [sat-c6-n9-class2](docs/graphs/sat-c6-n9-class2.md) | sat(9,C6)=12 | 9 | 12 | known value | [57168](https://houseofgraphs.org/graphs/57168) | deposited |
 | [sat-c6-n9-class3](docs/graphs/sat-c6-n9-class3.md) | sat(9,C6)=12 | 9 | 12 | known value | [57169](https://houseofgraphs.org/graphs/57169) | deposited |
@@ -40,15 +40,15 @@ is one of: *known value* (already published, reproduced here), *new value*,
 | [sat-c6-n13](docs/graphs/sat-c6-n13.md) | sat(13,C6)=17 | 13 | 17 | new value | [58090](https://houseofgraphs.org/graphs/58090) | deposited |
 | [sat-c6-n15](docs/graphs/sat-c6-n15.md) | sat(15,C6)=20 | 15 | 20 | new value | [58092](https://houseofgraphs.org/graphs/58092) | deposited |
 | [sat-c6-n14](docs/graphs/sat-c6-n14.md) | sat(14,C6)=19 | 14 | 19 | new value | [58091](https://houseofgraphs.org/graphs/58091) | deposited |
-| [sat-c5-n8](docs/graphs/sat-c5-n8.md) | sat(8,C5)=10 | 8 | 10 | unassessed | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
+| [sat-c5-n8](docs/graphs/sat-c5-n8.md) | sat(8,C5)=10 | 8 | 10 | known value | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
 | [sat-k4-n8](docs/graphs/sat-k4-n8.md) | sat(8,K\_4)=13 | 8 | 13 | known value | [664](https://houseofgraphs.org/graphs/664) | deposited |
 | [sat-k4-n9](docs/graphs/sat-k4-n9.md) | sat(9,K\_4)=15 | 9 | 15 | known value | [182](https://houseofgraphs.org/graphs/182) | deposited |
 | [sat-k4-n10](docs/graphs/sat-k4-n10.md) | sat(10,K\_4)=17 | 10 | 17 | known value | [250](https://houseofgraphs.org/graphs/250) | deposited |
-| [sat-p4-n6](docs/graphs/sat-p4-n6.md) | sat(6,P\_4)=3 | 6 | 3 | unassessed | [484](https://houseofgraphs.org/graphs/484) | deposited |
-| [sat-p4-n7](docs/graphs/sat-p4-n7.md) | sat(7,P\_4)=5 | 7 | 5 | unassessed | [56649](https://houseofgraphs.org/graphs/56649) | deposited |
-| [sat-p4-n8](docs/graphs/sat-p4-n8.md) | sat(8,P\_4)=4 | 8 | 4 | unassessed | [684](https://houseofgraphs.org/graphs/684) | deposited |
-| [sat-p5-n8](docs/graphs/sat-p5-n8.md) | sat(8,P\_5)=6 | 8 | 6 | unassessed | [57173](https://houseofgraphs.org/graphs/57173) | deposited |
-| [sat-p5-n9](docs/graphs/sat-p5-n9.md) | sat(9,P\_5)=7 | 9 | 7 | unassessed | [57174](https://houseofgraphs.org/graphs/57174) | deposited |
+| [sat-p4-n6](docs/graphs/sat-p4-n6.md) | sat(6,P\_4)=3 | 6 | 3 | known value | [484](https://houseofgraphs.org/graphs/484) | deposited |
+| [sat-p4-n7](docs/graphs/sat-p4-n7.md) | sat(7,P\_4)=5 | 7 | 5 | known value | [56649](https://houseofgraphs.org/graphs/56649) | deposited |
+| [sat-p4-n8](docs/graphs/sat-p4-n8.md) | sat(8,P\_4)=4 | 8 | 4 | known value | [684](https://houseofgraphs.org/graphs/684) | deposited |
+| [sat-p5-n8](docs/graphs/sat-p5-n8.md) | sat(8,P\_5)=6 | 8 | 6 | known value | [57173](https://houseofgraphs.org/graphs/57173) | deposited |
+| [sat-p5-n9](docs/graphs/sat-p5-n9.md) | sat(9,P\_5)=7 | 9 | 7 | known value | [57174](https://houseofgraphs.org/graphs/57174) | deposited |
 | [z-10-10-3-4](docs/graphs/z-10-10-3-4.md) | z(10,10;3,4)=66 | 20 | 66 | new value | [56650](https://houseofgraphs.org/graphs/56650) | deposited |
 | [z-9-10-3-4](docs/graphs/z-9-10-3-4.md) | z(9,10;3,4)=60 | 19 | 60 | new value | [56652](https://houseofgraphs.org/graphs/56652) | deposited |
 | [z-9-11-3-4](docs/graphs/z-9-11-3-4.md) | z(9,11;3,4)=66 | 20 | 66 | new value | [56651](https://houseofgraphs.org/graphs/56651) | deposited |

@@ -2,7 +2,7 @@
 
 # sat(9,P\_5)=7
 
-Record `sat-p5-n9`: **unassessed**.
+Record `sat-p5-n9`: **known value**.
 
 > sat(9,P5) = 7; this graph is a minimum P5-saturated graph.
 
@@ -23,9 +23,10 @@ H?IpA?_
 
 ## Prior art
 
-- [doi:10.37236/41](https://doi.org/10.37236/41) (Paths section, after Theorem 27), checked 2026-10-21: States that sat(n,P\_k) is known for all n when k \<= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared.
-
-The prior-art status of this record has not been assessed. It makes no novelty claim.
+- [doi:10.37236/41](https://doi.org/10.37236/41) (Paths section, p. 18), checked 2026-10-21: States that sat(n,P\_k) is known for all n when k \<= 6, citing Kaszonyi-Tuza 1986 and Dudek-Wojda 2004; gives no P5 formula itself.
+- [https://opuscula.agh.edu.pl/vol24/1/art/opuscula\_math\_2404.pdf](https://opuscula.agh.edu.pl/vol24/1/art/opuscula_math_2404.pdf) (Theorem 2, p. 44), checked 2026-10-21: Opuscula Math. 24(1) (2004) 43-55, restating Kaszonyi-Tuza: sat(n;P5) = n - floor((n-2)/6) - 1 for n \>= 6, which gives 7 at n = 9. No P5 minimum family is stated. Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) itself was not read (paywalled).
+- [https://preview.memphis.edu/msci/people/pbalistr/edge\_spectrum.pdf](https://preview.memphis.edu/msci/people/pbalistr/edge_spectrum.pdf) (Theorem 4(c) (author preprint, March 2018)), checked 2026-10-21: Balister-Dogan, J. Graph Theory 89(4) (2018): for n \>= 5, sat(n;P5) = ceil((5n-4)/6); 7 at n = 9.
+- [https://digitalcommons.memphis.edu/speccoll-faudreerj/27](https://digitalcommons.memphis.edu/speccoll-faudreerj/27) (P5 column, table on p. 5), checked 2026-10-21: Lists sat(9,P5) = 7 with graph Y41 with K1; that label was not compared with this witness. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n \<= 9 obtained by exhaustive computer search (p. 3).
 
 ## Verify
 

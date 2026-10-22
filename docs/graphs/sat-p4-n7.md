@@ -2,9 +2,9 @@
 
 # sat(7,P\_4)=5
 
-Record `sat-p4-n7`: **unassessed**.
+Record `sat-p4-n7`: **known value**.
 
-> sat(7,P4) = 5; this graph is a minimum P4-saturated graph.
+> sat(7,P4) = 5; this graph (the disjoint union of K\_2 and the star K\_{1,4}) is a minimum P4-saturated graph that the published minimum family (2K\_2 with K\_3) omits.
 
 | | |
 | --- | --- |
@@ -23,9 +23,10 @@ FKPA?
 
 ## Prior art
 
-- [doi:10.37236/41](https://doi.org/10.37236/41) (Paths section, after Theorem 27), checked 2026-10-21: States that sat(n,P\_k) is known for all n when k \<= 6, citing Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) and Dudek-Wojda 2004. The survey does not list this value, and those papers were not compared.
-
-The prior-art status of this record has not been assessed. It makes no novelty claim.
+- [doi:10.37236/41](https://doi.org/10.37236/41) (Paths section, p. 18, and p. 65), checked 2026-10-21: States that sat(n,P\_k) is known for all n when k \<= 6 (citing Kaszonyi-Tuza 1986 and Dudek-Wojda 2004) and, citing Kaszonyi-Tuza, that sat(2k-1,P4) = k+1 \> sat(2k,P4) = k.
+- [https://opuscula.agh.edu.pl/vol24/1/art/opuscula\_math\_2404.pdf](https://opuscula.agh.edu.pl/vol24/1/art/opuscula_math_2404.pdf) (Theorem 2, p. 44), checked 2026-10-21: Opuscula Math. 24(1) (2004) 43-55, restating Kaszonyi-Tuza: sat(n;P4) = k if n = 2k and k+2 if n = 2k+1, which gives 5 at n = 7; the stated minimum family at n = 2k+1 is only (k-1)K2 with K3, but this witness (K2 with K\_{1,4}, P4-saturated by both checkers, 5 edges) is also minimum, so the family as restated is incomplete. Kaszonyi-Tuza 1986 (doi:10.1002/jgt.3190100209) itself was not read (paywalled).
+- [https://preview.memphis.edu/msci/people/pbalistr/edge\_spectrum.pdf](https://preview.memphis.edu/msci/people/pbalistr/edge_spectrum.pdf) (Theorem 4(b) (author preprint, March 2018)), checked 2026-10-21: Balister-Dogan, J. Graph Theory 89(4) (2018), restating Kaszonyi-Tuza: for n \>= 4, sat(n;P4) = n/2 if n is even and (n+3)/2 if n is odd; 5 at n = 7.
+- [https://digitalcommons.memphis.edu/speccoll-faudreerj/27](https://digitalcommons.memphis.edu/speccoll-faudreerj/27) (P4 column, table on p. 4), checked 2026-10-21: Lists sat(7,P4) = 5. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n \<= 9 obtained by exhaustive computer search (p. 3).
 
 ## Verify
 

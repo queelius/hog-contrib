@@ -2,9 +2,9 @@
 
 # sat(8,C5)=10
 
-Record `sat-c5-n8`: **unassessed**.
+Record `sat-c5-n8`: **known value**.
 
-> sat(8,C5) = 10; this graph is a 10-edge C5-saturated witness.
+> sat(8,C5) = 10; this graph is a minimum C5-saturated graph on 8 vertices, and is not isomorphic to the minimum graph published for that order, so at least two minima exist.
 
 | | |
 | --- | --- |
@@ -23,9 +23,8 @@ G`@jWO
 
 ## Prior art
 
+- [https://digitalcommons.memphis.edu/speccoll-faudreerj/27](https://digitalcommons.memphis.edu/speccoll-faudreerj/27) (C5 column, table on p. 4; appendix graph Y19), checked 2026-10-21: Lists sat(8,C5) = 10 with graph Y19 (K4 with a pendant edge at each vertex, degrees \[4,4,4,4,1,1,1,1\]), which is not isomorphic to this witness. Unrefereed technical report (Jambulapati and Faudree, dated 2014-11-18, posted 2021); values for n \<= 9 obtained by exhaustive computer search (p. 3).
 - [doi:10.37236/41](https://doi.org/10.37236/41) (Theorem 18), checked 2026-10-21: Theorem 18 (Chen 2009, 2011) gives sat(n,C5) = ceil(10(n-1)/7) only for n \>= 21; small orders are not covered there.
-
-The prior-art status of this record has not been assessed. It makes no novelty claim.
 
 ## Verify
 
