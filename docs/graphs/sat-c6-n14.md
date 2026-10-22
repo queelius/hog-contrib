@@ -41,7 +41,7 @@ Two separate implementations must both accept the witness.
 ## Cite
 
 ```text
-Towell, Alexander Richard. House of Graphs witness ledger, version 1.0.0, record sat-c6-n14. https://github.com/queelius/hog-contrib
+Towell, Alexander Richard. House of Graphs witness ledger, version 1.0.0, record sat-c6-n14. doi:10.5281/zenodo.23550687
 Witness: House of Graphs graph 58091, https://houseofgraphs.org/graphs/58091
 Evidence: doi:10.5281/zenodo.23447722
 ```

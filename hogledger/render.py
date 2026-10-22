@@ -177,9 +177,11 @@ def zenodo_json(ledger: Ledger) -> str:
         "creators": [{"name": f"{author.family_names}, {author.given_names}", "orcid": author.orcid}],
         "keywords": list(ledger.keywords),
         "license": ledger.data_license.lower(),
-        "related_identifiers": [{"identifier": paper.doi, "relation": "references",
-                                 "scheme": "doi", "resource_type": "publication"}
-                                for paper in ledger.papers],
+        "related_identifiers": [
+            {"identifier": f"{ledger.repository}/tree/v{ledger.version}",
+             "relation": "isSupplementTo", "scheme": "url"},
+            *({"identifier": paper.doi, "relation": "references",
+               "scheme": "doi", "resource_type": "publication"} for paper in ledger.papers)],
     }
     return json.dumps(data, indent=2, ensure_ascii=False) + "\n"
 

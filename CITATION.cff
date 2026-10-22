@@ -5,6 +5,7 @@ message: Cite the House of Graphs entry and the archived evidence for each recor
   cite this ledger for the verified collection.
 type: dataset
 version: 1.0.0
+doi: 10.5281/zenodo.23550687
 license:
 - CC-BY-4.0
 - MIT
@@ -17,7 +18,9 @@ authors:
 abstract: Extremal and saturated graphs deposited on House of Graphs, each stored
   as a byte-exact graph6 witness and accepted only when two separate implementations
   verify its defining property. Every record states its claim, the prior art checked
-  for it, and the archived evidence behind it.
+  for it, and the archived evidence behind it. Prepared with substantial AI assistance
+  (Claude Code, OpenAI Codex). The checks are computational; they are not human peer
+  review.
 keywords:
 - House of Graphs
 - graph saturation

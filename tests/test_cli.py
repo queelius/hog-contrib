@@ -3,6 +3,8 @@
 import contextlib
 import io
 from pathlib import Path
+import shutil
+import tempfile
 import unittest
 
 from hogledger import cli
@@ -10,10 +12,10 @@ from hogledger import cli
 ROOT = Path(__file__).resolve().parent.parent
 
 
-def run(*args):
+def run(*args, root=ROOT):
     out, err = io.StringIO(), io.StringIO()
     with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
-        code = cli.main(["--root", str(ROOT), *args])
+        code = cli.main(["--root", str(root), *args])
     return code, out.getvalue(), err.getvalue()
 
 
@@ -36,6 +38,28 @@ class CommandLineTests(unittest.TestCase):
 
     def test_render_check_exits_zero_when_current(self):
         self.assertEqual(run("render", "--check")[0], 0)
+
+    def test_render_reports_a_registry_error(self):
+        for args in (("render",), ("render", "--check")):
+            with self.subTest(args=args):
+                code, _, err = run(*args, root="/nonexistent")
+                self.assertEqual(code, 1)
+                self.assertIn("REGISTRY ERROR", err)
+
+    def test_render_rewrites_what_check_reports_stale(self):
+        with tempfile.TemporaryDirectory() as workspace:
+            copy = Path(workspace)
+            for name in ("graphs", "receipts"):
+                shutil.copytree(ROOT / name, copy / name)
+            for name in ("contributions.yaml", "README.md"):
+                shutil.copy(ROOT / name, copy / name)
+            (copy / "CITATION.cff").write_text("edited\n")
+            code, out, _ = run("render", "--check", root=copy)
+            self.assertEqual(code, 1)
+            self.assertIn("STALE: CITATION.cff", out)
+            self.assertIn("STALE: docs/graphs/sat-c6-n15.md", out)
+            self.assertEqual(run("render", root=copy)[0], 0)
+            self.assertEqual(run("render", "--check", root=copy)[:2], (0, ""))
 
     def test_unknown_arguments_are_rejected(self):
         with self.assertRaises(SystemExit) as raised, contextlib.redirect_stderr(io.StringIO()):

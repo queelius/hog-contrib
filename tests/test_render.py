@@ -125,9 +125,11 @@ class RenderTests(unittest.TestCase):
         self.assertEqual(metadata["license"], "cc-by-4.0")
         self.assertEqual(metadata["creators"], [{"name": "Towell, Alexander Richard",
                                                  "orcid": "0000-0001-6443-9897"}])
-        self.assertEqual(metadata["related_identifiers"], [{
-            "identifier": "10.5281/zenodo.23527267", "relation": "references",
-            "scheme": "doi", "resource_type": "publication"}])
+        self.assertEqual(metadata["related_identifiers"], [
+            {"identifier": "https://github.com/queelius/hog-contrib/tree/v1.0.0",
+             "relation": "isSupplementTo", "scheme": "url"},
+            {"identifier": "10.5281/zenodo.23527267", "relation": "references",
+             "scheme": "doi", "resource_type": "publication"}])
 
     def test_page_lists_the_receipts_for_its_record(self):
         (self.root / "receipts").mkdir()
