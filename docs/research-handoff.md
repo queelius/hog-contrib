@@ -6,6 +6,11 @@ mathematics, research implementation, exhaustive runs, full families, and papers
 Sequence work belongs in `oeis`. The shared
 [ownership guide](../../open-problems/docs/repository-roles.md) defines these boundaries.
 
+The ledger's central index record is `hog-witness-ledger` in
+[research-records](https://github.com/queelius/research-records/tree/main/records/hog-witness-ledger).
+After each archived release, update that record to the new version DOI and
+public-file hashes; the concept DOI stays 10.5281/zenodo.23550687.
+
 ## Evidence supplied by the research repository
 
 - A precise invariant and convention, including ordered bipartite conditions

@@ -135,6 +135,10 @@ table; do not copy them into instruction files.
   gate and tests pass and the canonical-form duplicate-check is done, the
   agent may submit and annotate; Alex handles login only. Write a receipt for
   every external action and confirm the live id before setting `deposited`.
+- Annotations cite the ledger lazily (decided 2026-10-21): do not edit live
+  annotations only to add the ledger. When an annotation is next changed for
+  another reason, or a new graph is submitted, add "House of Graphs witness
+  ledger, record <id>, doi:<ledger.doi>" alongside the evidence DOI.
 - Releases: bump `ledger.version` and `pyproject.toml` together (a test checks
   they agree), render, tag `v<version>`, and archive as a new version of the
   ledger's Zenodo concept record; never create a second concept.
