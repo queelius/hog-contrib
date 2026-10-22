@@ -4,7 +4,7 @@
 
 Record `sat-c6-n8`: **new classification**.
 
-> sat(8,C6) = 11 is known; this graph is the unique minimum C6-saturated graph on 8 vertices. Uniqueness rests on the open-problems exhaustive enumeration (hog/SATURATION-EXTEND.md), not yet in an archived release.
+> sat(8,C6) = 11 is known; this graph is the unique minimum C6-saturated graph on 8 vertices. Uniqueness is the complete enumeration in Zenodo v3 (doi:10.5281/zenodo.21350167), Section 2.3 and c6-saturation-extension.json.
 
 | | |
 | --- | --- |
@@ -48,6 +48,7 @@ Evidence: doi:10.5281/zenodo.21350167
 ## Receipts
 
 - [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+- [2026-10-22-prior-art-annotations](../../receipts/2026-10-22-prior-art-annotations.json): Rewrote Alex Towell's House of Graphs comments on eight saturation witnesses after the 2026-10-21 prior-art sweep: withdrew the novelty claim on 57145, withdrew the Chen attribution on 57172, credited the published sources on all eight, and added the ledger citation.
 
 ## History
 

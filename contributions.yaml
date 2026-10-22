@@ -129,7 +129,7 @@ graphs:
     verified: true
     claim:
       kind: new_classification
-      statement: "sat(8,C6) = 11 is known; this graph is the unique minimum C6-saturated graph on 8 vertices. Uniqueness rests on the open-problems exhaustive enumeration (hog/SATURATION-EXTEND.md), not yet in an archived release."
+      statement: "sat(8,C6) = 11 is known; this graph is the unique minimum C6-saturated graph on 8 vertices. Uniqueness is the complete enumeration in Zenodo v3 (doi:10.5281/zenodo.21350167), Section 2.3 and c6-saturation-extension.json."
       prior_art:
         - source: "https://digitalcommons.memphis.edu/speccoll-faudreerj/27"
           locator: "C6 column, table on p. 6; appendix graph Y38"

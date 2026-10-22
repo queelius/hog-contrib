@@ -49,6 +49,7 @@ Evidence: doi:10.5281/zenodo.21350167
 ## Receipts
 
 - [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+- [2026-10-22-prior-art-annotations](../../receipts/2026-10-22-prior-art-annotations.json): Rewrote Alex Towell's House of Graphs comments on eight saturation witnesses after the 2026-10-21 prior-art sweep: withdrew the novelty claim on 57145, withdrew the Chen attribution on 57172, credited the published sources on all eight, and added the ledger citation.
 
 ## History
 

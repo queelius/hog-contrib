@@ -1,0 +1,93 @@
+{
+  "schema_version": 2,
+  "date": "2026-10-22",
+  "action": "annotate",
+  "records": [
+    "sat-c6-n7",
+    "sat-c6-n8",
+    "sat-c5-n8",
+    "sat-p4-n6",
+    "sat-p4-n7",
+    "sat-p4-n8",
+    "sat-p5-n8",
+    "sat-p5-n9"
+  ],
+  "summary": "Rewrote Alex Towell's House of Graphs comments on eight saturation witnesses after the 2026-10-21 prior-art sweep: withdrew the novelty claim on 57145, withdrew the Chen attribution on 57172, credited the published sources on all eight, and added the ledger citation.",
+  "attachments": [
+    "2026-10-22-prior-art-annotations.md"
+  ],
+  "details": {
+    "method": "Edited through Alex's logged-in browser session; each saved text read back from https://houseofgraphs.org/api/graphs/<id>/comments and compared byte for byte with the attachment.",
+    "comment_length_limit": 1024,
+    "graphs": [
+      {
+        "hog_id": 868,
+        "record": "sat-c6-n7",
+        "comment_id": 75136,
+        "updated_at": "2026-10-22T20:07:54.694963",
+        "saved_text_matches_attachment": true,
+        "graph_unchanged": true
+      },
+      {
+        "hog_id": 57145,
+        "record": "sat-c6-n8",
+        "comment_id": 74960,
+        "updated_at": "2026-10-22T20:06:54.480272",
+        "saved_text_matches_attachment": true,
+        "graph_unchanged": true
+      },
+      {
+        "hog_id": 57172,
+        "record": "sat-c5-n8",
+        "comment_id": 75133,
+        "updated_at": "2026-10-22T20:08:32.832837",
+        "saved_text_matches_attachment": true,
+        "graph_unchanged": true
+      },
+      {
+        "hog_id": 484,
+        "record": "sat-p4-n6",
+        "comment_id": 70661,
+        "updated_at": "2026-10-22T20:08:58.102257",
+        "saved_text_matches_attachment": true,
+        "graph_unchanged": true
+      },
+      {
+        "hog_id": 56649,
+        "record": "sat-p4-n7",
+        "comment_id": 70672,
+        "updated_at": "2026-10-22T20:09:11.750109",
+        "saved_text_matches_attachment": true,
+        "graph_unchanged": true
+      },
+      {
+        "hog_id": 684,
+        "record": "sat-p4-n8",
+        "comment_id": 70665,
+        "updated_at": "2026-10-22T20:10:09.813439",
+        "saved_text_matches_attachment": true,
+        "graph_unchanged": true
+      },
+      {
+        "hog_id": 57173,
+        "record": "sat-p5-n8",
+        "comment_id": 75134,
+        "updated_at": "2026-10-22T20:10:23.83543",
+        "saved_text_matches_attachment": true,
+        "graph_unchanged": true
+      },
+      {
+        "hog_id": 57174,
+        "record": "sat-p5-n9",
+        "comment_id": 75135,
+        "updated_at": "2026-10-22T20:10:37.657414",
+        "saved_text_matches_attachment": true,
+        "graph_unchanged": true
+      }
+    ],
+    "corrections": {
+      "57145": "Previous text called sat(8,C6)=11 'a new small-case value'; the value is in the Jambulapati-Faudree report (Y38). Uniqueness remains the contribution (Zenodo v3, Section 2.3).",
+      "57172": "Previous text said the value 'agrees with Y.-C. Chen's characterization'; Chen's formula is proved only for n >= 11."
+    }
+  }
+}
