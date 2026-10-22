@@ -62,6 +62,6 @@ All 61 focused research tests passed for this maintenance revision. The audit
 checks new documentation links and source/archive pins; one inherited broken
 `../erdos/` link in the research README was left out of scope. No verification
 logic changed, so no new code-coverage measurement is claimed. The structured
-[audit receipt](../manifests/c6-maintenance-2026-10-21.json) records the final
+[audit receipt](2026-10-21-c6-maintenance.json) records the final
 registry checks and the limited branch-tip exclusion scan; it does not claim
 an exhaustive historical secret scan.

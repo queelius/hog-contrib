@@ -4,7 +4,7 @@
 # deposit candidate. The value-generating computations live in the sibling
 # research repo (open-problems); this repo curates the concrete witness graphs,
 # tracks their House of Graphs status, and re-verifies each witness from its
-# graph6 string with verify.py.
+# graph6 string with two separate checkers (python3 -m hogledger verify).
 #
 # status vocabulary:
 #   deposited : live on House of Graphs with a confirmed graph id (hog_id set)
@@ -32,7 +32,7 @@
 #   count, where the enumeration established it; null when not determined.
 #
 # graph6 strings can contain a literal backtick (ASCII 96). Each is mirrored
-# byte-exact in graphs/<graph_file>; verify.py re-decodes and re-checks it.
+# byte-exact in graphs/<graph_file>; the gate re-decodes and re-checks it.
 
 author:
   given_names: Alexander Richard
@@ -51,6 +51,10 @@ ledger:
     implementations verify its defining property. Every record states its
     claim, the prior art checked for it, and the archived evidence behind it.
   keywords: [House of Graphs, graph saturation, Zarankiewicz problem, extremal graph theory, graph6]
+  version: 1.0.0
+  # Data (registry, witnesses, receipts, docs) is CC-BY-4.0 (LICENSE-DATA);
+  # code (hogledger/, tests/) is MIT (LICENSE). pyproject.toml must agree.
+  license: {data: CC-BY-4.0, code: MIT}
 
 house_of_graphs: https://houseofgraphs.org
 
@@ -530,7 +534,7 @@ graphs:
       witness, both saturation checks, counts and byte round trip pass.
       The existing HoG annotation was updated and read back on 2026-10-21
       with the 24-class result and v6 DOI10.5281/zenodo.23527267. No new
-      graph was deposited; see manifests/c6-v6-publication.json.
+      graph was deposited; see receipts/2026-10-21-c6-v6-publication.json.
 
   - id: sat-c6-n14
     invariant: "sat(14,C6)=19"
@@ -579,7 +583,7 @@ graphs:
       family SHA256 f2aff94b484ed808463dc5028c02e7999e99c5a1fb16222344e0a4e4701400bc.
       This deposited representative belongs to class 55 in that file order.
       The classification is published in v5; the HoG annotation was updated
-      and checked live on 2026-10-18. See manifests/c6-v5-publication.json.
+      and checked live on 2026-10-18. See receipts/2026-10-18-c6-v5-publication.json.
       HoG canonical search
       on 2026-10-18 found no match. The final 2015 paper and the 2025 paper
       were checked; no earlier exact order-14 value was located in the

@@ -1,7 +1,7 @@
 """Each property checker must accept true witnesses and reject near misses.
 
-Every case runs against every checker in verify_witnesses.CHECKERS, so the
-primary (verify.py) and separate (networkx) implementations face one table.
+Every case runs against every checker in hogledger.gate.CHECKERS, so the
+primary (pure-Python) and separate (networkx) implementations face one table.
 """
 
 from pathlib import Path
@@ -9,8 +9,8 @@ import unittest
 
 import networkx as nx
 
-import verify_witnesses as verifier
-from cases import Case, Family, Result
+from hogledger import gate, registry
+from hogledger.model import Case, Family, Result
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -73,17 +73,17 @@ REJECT = {
 
 class PropertyCheckerTests(unittest.TestCase):
     def test_gate_has_a_separate_implementation(self):
-        self.assertGreaterEqual(len(verifier.CHECKERS), 2)
+        self.assertGreaterEqual(len(gate.CHECKERS), 2)
 
     def test_checkers_accept_true_witnesses(self):
-        for checker, check in verifier.CHECKERS.items():
+        for checker, check in gate.CHECKERS.items():
             for label, witness in ACCEPT.items():
                 with self.subTest(checker=checker, case=label):
                     result = check(witness, witness.graph6)
                     self.assertTrue(result.ok, result.detail)
 
     def test_checkers_reject_near_misses(self):
-        for checker, check in verifier.CHECKERS.items():
+        for checker, check in gate.CHECKERS.items():
             for label, witness in REJECT.items():
                 with self.subTest(checker=checker, case=label):
                     self.assertFalse(check(witness, witness.graph6).ok)
@@ -91,24 +91,24 @@ class PropertyCheckerTests(unittest.TestCase):
     def test_crosscheck_rejects_disconnected_bipartite_claims(self):
         graph = nx.disjoint_union(nx.complete_bipartite_graph(2, 2), nx.complete_bipartite_graph(2, 2))
         witness = case(g6(graph), n=8, edges=8, parts=(4, 4), **ZARANKIEWICZ)
-        result = verifier.CHECKERS["networkx"](witness, witness.graph6)
+        result = gate.CHECKERS["networkx"](witness, witness.graph6)
         self.assertFalse(result.ok)
         self.assertIn("disconnected", result.detail)
 
 
 class GateCompositionTests(unittest.TestCase):
     def test_every_registered_witness_passes_every_checker(self):
-        for witness in verifier.load_cases():
-            result = verifier.verify_case(witness)
+        for witness in registry.load_cases(ROOT):
+            result = gate.verify_case(witness, ROOT)
             with self.subTest(witness=witness.path.name):
                 self.assertTrue(result.ok, result.detail)
-                for checker in verifier.CHECKERS:
+                for checker in gate.CHECKERS:
                     self.assertIn(checker, result.detail)
 
     def test_one_dissenting_checker_fails_the_gate(self):
-        witness = next(c for c in verifier.load_cases() if c.path.name == "sat7_C6_10.g6")
-        dissent = dict(verifier.CHECKERS, dissent=lambda case, graph6: Result(False, "disagrees"))
-        result = verifier.verify_case(witness, checkers=dissent)
+        witness = next(c for c in registry.load_cases(ROOT) if c.path.name == "sat7_C6_10.g6")
+        dissent = dict(gate.CHECKERS, dissent=lambda case, graph6: Result(False, "disagrees"))
+        result = gate.verify_case(witness, ROOT, checkers=dissent)
         self.assertFalse(result.ok)
         self.assertIn("disagrees", result.detail)
 

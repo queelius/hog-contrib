@@ -2,14 +2,14 @@
 
 import datetime
 import hashlib
+import json
 from pathlib import Path
 import tempfile
 import unittest
 
 import yaml
 
-import render
-import verify_witnesses as verifier
+from hogledger import render
 
 ROOT = Path(__file__).resolve().parent.parent
 MARKERS = f"intro\n{render.BEGIN}\nold table\n{render.END}\noutro\n"
@@ -23,6 +23,7 @@ class RenderTests(unittest.TestCase):
         (self.root / "graphs").mkdir()
         (self.root / "graphs" / "witness.g6").write_text("FbSko\n")
         (self.root / "README.md").write_text(MARKERS)
+        self.ledger_fields = {}
         self.record = {
             "id": "sat-c6-n7", "invariant": "sat(7,C6)=10", "n": 7, "edges": 10,
             "graph6": "FbSko", "graph_file": "graphs/witness.g6",
@@ -42,7 +43,9 @@ class RenderTests(unittest.TestCase):
                        "orcid": "0000-0001-6443-9897"},
             "ledger": {"title": "House of Graphs witness ledger",
                        "repository": "https://github.com/queelius/hog-contrib",
-                       "abstract": "Witness graphs.", "keywords": ["House of Graphs"]},
+                       "abstract": "Witness graphs.", "keywords": ["House of Graphs"],
+                       "version": "1.0.0", "license": {"data": "CC-BY-4.0", "code": "MIT"},
+                       **self.ledger_fields},
             "house_of_graphs": "https://houseofgraphs.org",
             "papers": {"saturation": {"title": "C6 saturation", "zenodo": "10.5281/zenodo.23527267"}},
             "graphs": records or [self.record],
@@ -75,7 +78,7 @@ class RenderTests(unittest.TestCase):
         self.assertIn(digest, self.page())
 
     def test_page_gives_a_single_record_verify_command(self):
-        self.assertIn("python3 verify_witnesses.py sat-c6-n7", self.page())
+        self.assertIn("python3 -m hogledger verify sat-c6-n7", self.page())
 
     def test_notes_are_escaped_so_backticks_stay_literal(self):
         self.assertIn(r"L???C@\_ECKI\`i\`", self.page())
@@ -104,6 +107,37 @@ class RenderTests(unittest.TestCase):
         self.assertEqual(author["orcid"], "https://orcid.org/0000-0001-6443-9897")
         self.assertEqual([r["doi"] for r in citation["references"]], ["10.5281/zenodo.23527267"])
 
+    def test_citation_states_version_and_licenses(self):
+        citation = yaml.safe_load(self.outputs()[Path("CITATION.cff")])
+        self.assertEqual(citation["version"], "1.0.0")
+        self.assertEqual(citation["license"], ["CC-BY-4.0", "MIT"])
+        self.assertNotIn("doi", citation)
+
+    def test_ledger_doi_reaches_the_citation_and_every_page(self):
+        self.ledger_fields = {"doi": "10.5281/zenodo.1"}
+        self.assertEqual(yaml.safe_load(self.outputs()[Path("CITATION.cff")])["doi"], "10.5281/zenodo.1")
+        self.assertIn("doi:10.5281/zenodo.1", self.page())
+
+    def test_zenodo_metadata_describes_the_dataset(self):
+        metadata = json.loads(self.outputs()[Path(".zenodo.json")])
+        self.assertEqual(metadata["upload_type"], "dataset")
+        self.assertEqual(metadata["version"], "1.0.0")
+        self.assertEqual(metadata["license"], "cc-by-4.0")
+        self.assertEqual(metadata["creators"], [{"name": "Towell, Alexander Richard",
+                                                 "orcid": "0000-0001-6443-9897"}])
+        self.assertEqual(metadata["related_identifiers"], [{
+            "identifier": "10.5281/zenodo.23527267", "relation": "references",
+            "scheme": "doi", "resource_type": "publication"}])
+
+    def test_page_lists_the_receipts_for_its_record(self):
+        (self.root / "receipts").mkdir()
+        (self.root / "receipts" / "2026-10-17-annotate.json").write_text(json.dumps({
+            "schema_version": 2, "date": "2026-10-17", "action": "annotate",
+            "records": ["sat-c6-n7"], "summary": "Annotated the live graph."}))
+        page = self.page()
+        self.assertIn("[2026-10-17-annotate](../../receipts/2026-10-17-annotate.json)", page)
+        self.assertIn("Annotated the live graph.", page)
+
     def test_stale_reports_changed_missing_and_orphaned_files(self):
         self.write_registry()
         render.write(self.root)
@@ -124,21 +158,7 @@ class RenderTests(unittest.TestCase):
 
 class RepositoryDocsTests(unittest.TestCase):
     def test_generated_files_are_current(self):
-        self.assertEqual(render.stale(ROOT), [], "run: python3 render.py")
-
-    def test_check_mode_exits_zero_when_current(self):
-        self.assertEqual(render.main(["--check"]), 0)
-
-    def test_unknown_arguments_are_rejected(self):
-        self.assertEqual(render.main(["--bogus"]), 2)
-
-
-class VerifyByIdTests(unittest.TestCase):
-    def test_named_record_is_verified_alone(self):
-        self.assertEqual(verifier.main(["sat-c6-n15"]), 0)
-
-    def test_unknown_record_id_fails(self):
-        self.assertEqual(verifier.main(["no-such-record"]), 1)
+        self.assertEqual(render.stale(ROOT), [], "run: python3 -m hogledger render")
 
 
 if __name__ == "__main__":

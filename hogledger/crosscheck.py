@@ -1,6 +1,6 @@
 """A separate implementation of every family's defining property.
 
-This module shares no code with verify.py, which was copied from the research
+This module shares no code with primary.py, which was copied from the research
 repository. It decodes and re-encodes graph6 with networkx and uses different
 algorithms: bounded simple-path search instead of permutation enumeration,
 maximal-clique enumeration instead of fixed-size subsets, and neighbourhood
@@ -12,7 +12,7 @@ import itertools
 
 import networkx as nx
 
-from cases import Case, Family, Result
+from .model import Case, Family, Result
 
 
 def _has_path_with_edges(graph, u, v, length):

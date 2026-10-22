@@ -26,7 +26,7 @@ new mathematical result merely because its graph6 is absent from a database.
 
 Use the existing `contributions.yaml` and its structured `verification` fields;
 do not introduce a second witness table in code. Add exact `.g6` files and run
-`python3 verify_witnesses.py` plus the unittest suite. Recheck the exact bytes,
+`python3 -m hogledger verify` plus the unittest suite. Recheck the exact bytes,
 property, and database identity when preparing a deposit. Maintain deposit
 status here and link to the research evidence rather than copying a live
 research-status ledger.

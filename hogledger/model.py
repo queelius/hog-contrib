@@ -1,4 +1,4 @@
-"""Typed verification cases shared by the gate and every property checker."""
+"""Typed ledger records, verification cases and receipts shared by every module."""
 
 from dataclasses import dataclass
 import datetime
@@ -92,13 +92,35 @@ class Paper:
     doi: str
 
 
+class ReceiptAction(Enum):
+    SUBMIT = "submit"
+    ANNOTATE = "annotate"
+    PUBLISH = "publish"
+
+
+@dataclass(frozen=True)
+class Receipt:
+    """A dated record of one external action. Legacy receipts have no action."""
+    path: Path
+    date: datetime.date
+    action: ReceiptAction | None
+    records: tuple[str, ...]
+    summary: str | None = None
+    attachments: tuple[Path, ...] = ()
+
+
 @dataclass(frozen=True)
 class Ledger:
     title: str
     repository: str
     abstract: str
     keywords: tuple[str, ...]
+    version: str
+    data_license: str
+    code_license: str
     author: Author
     house_of_graphs: str
     papers: tuple[Paper, ...]
     records: tuple[Record, ...]
+    receipts: tuple[Receipt, ...] = ()
+    doi: str | None = None

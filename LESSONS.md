@@ -4,6 +4,11 @@ Dated entries. Read before preparing a new House of Graphs deposit. When a
 deposit is corrected, a value is found wrong, or a description is misread, add
 what happened and the rule going forward. Keep entries blunt and specific.
 
+Entries before 2026-10-21 name modules that now live in the `hogledger/`
+package: `verify.py` is `hogledger/primary.py`, `verify_witnesses.py` is
+`hogledger/registry.py` plus `hogledger/gate.py` (run `python3 -m hogledger
+verify`), and `manifests/` became `receipts/` and `provenance/`.
+
 ## 2026-06-30 -- Never call a Zarankiewicz witness "K_(3,4)-free"
 
 **What:** The May 2 2026 House of Graphs deposits for the Zarankiewicz witnesses

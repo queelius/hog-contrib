@@ -1,0 +1,34 @@
+{
+  "upload_type": "dataset",
+  "title": "House of Graphs witness ledger",
+  "version": "1.0.0",
+  "description": "Extremal and saturated graphs deposited on House of Graphs, each stored as a byte-exact graph6 witness and accepted only when two separate implementations verify its defining property. Every record states its claim, the prior art checked for it, and the archived evidence behind it.",
+  "creators": [
+    {
+      "name": "Towell, Alexander Richard",
+      "orcid": "0000-0001-6443-9897"
+    }
+  ],
+  "keywords": [
+    "House of Graphs",
+    "graph saturation",
+    "Zarankiewicz problem",
+    "extremal graph theory",
+    "graph6"
+  ],
+  "license": "cc-by-4.0",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23527267",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication"
+    },
+    {
+      "identifier": "10.5281/zenodo.19985042",
+      "relation": "references",
+      "scheme": "doi",
+      "resource_type": "publication"
+    }
+  ]
+}

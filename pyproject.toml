@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hogledger"
+version = "1.0.0"
+description = "House of Graphs witness ledger: registry, two-implementation gate and renderer"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Alexander Richard Towell", email = "lex@metafunctor.com" }]
+dependencies = ["PyYAML>=6.0.1,<7", "networkx>=3.0,<4"]
+
+[project.optional-dependencies]
+dev = ["coverage>=7"]
+
+[project.scripts]
+hogledger = "hogledger.cli:main"
+
+[project.urls]
+Repository = "https://github.com/queelius/hog-contrib"
+
+[tool.setuptools]
+packages = ["hogledger"]
+
+[tool.coverage.run]
+source = ["hogledger"]

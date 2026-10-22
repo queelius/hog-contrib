@@ -106,20 +106,33 @@ differs from a fresh render. The README keeps purpose, verify, table, cite;
 C6 history moves to `docs/families/c6-saturation.md`. CLAUDE.md imports
 AGENTS.md instead of repeating it.
 
-### Step 3: citation (decisions pending)
+### Step 3: citation (decided 2026-10-21)
 
-LICENSE (proposed: CC-BY-4.0 for data, MIT for code), public visibility after
-a history audit, GitHub-Zenodo integration for a concept DOI, a
-`hog-witness-ledger` record in research-records, and optionally HoG
-annotations citing "ledger DOI, record id". Visibility, license and
-annotation edits are the author's decisions.
+Data is CC-BY-4.0 (`LICENSE-DATA`) and code MIT (`LICENSE`), recorded in the
+registry's `ledger.license` and checked against `pyproject.toml`. The repo is
+made public after a whole-history audit. Each tagged release is archived as a
+version of one Zenodo concept record; its metadata is the generated
+`.zenodo.json`, and the concept DOI is `ledger.doi`, which reaches
+CITATION.cff and every page's citation. A `hog-witness-ledger` record in
+research-records indexes it. Editing live HoG annotations to cite the ledger
+is a separate decision, taken after the DOI exists.
 
-### Step 4: layout
+### Step 4: layout (done 2026-10-21)
 
-Package `hogledger/` (registry, checkers, render, CLI) with a pyproject entry
-point; remove the unused `verify.zarankiewicz_report`; receipts under
-`receipts/YYYY-MM-DD-<action>.json` with one schema; deposit-prep JSON under
-`provenance/`; dated operations docs under `docs/history/`.
+Package `hogledger/` with a pyproject entry point and `python3 -m hogledger
+{verify,render}`; every function takes the ledger root instead of a module
+constant. Modules: `model` (types), `registry` (loading), `primary` and
+`crosscheck` (the two checkers), `gate`, `receipts`, `render`, `cli`. The
+unused `verify.zarankiewicz_report` (pair-based, so wrong for 3x4) and the
+other helpers the gate never called were removed. Dependencies live only in
+`pyproject.toml`.
+
+Receipts are `receipts/YYYY-MM-DD-<slug>.json` with schema version 2 (date,
+action, record ids, summary, attachments, free-form details). The three
+earlier publication receipts keep their bytes as legacy `schema_version
+"1.0"`; their records derive from HoG ids. Record pages list their receipts.
+Deposit-prep JSON is in `provenance/`; the branch-maintenance note and its
+JSON are operations history in `docs/history/`, not receipts.
 
 ## Left to the builder
 
