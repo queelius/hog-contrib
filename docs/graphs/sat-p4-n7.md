@@ -45,6 +45,10 @@ Witness: House of Graphs graph 56649, https://houseofgraphs.org/graphs/56649
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 P\_4-saturation directly re-verified. Canonical duplicate-check matched existing HoG #56649; saturation-context comment added 2026-05-02.

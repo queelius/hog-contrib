@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "date": "2026-10-22",
+  "action": "publish",
+  "records": [
+    "sat-c6-n7",
+    "sat-c6-n8",
+    "sat-c6-n9",
+    "sat-c6-n9-class2",
+    "sat-c6-n9-class3",
+    "sat-c6-n9-class4",
+    "sat-c6-n9-class5",
+    "sat-c6-n10",
+    "sat-c6-n10-alt",
+    "sat-c6-n11",
+    "sat-c6-n12",
+    "sat-c6-n13",
+    "sat-c6-n15",
+    "sat-c6-n14",
+    "sat-c5-n8",
+    "sat-k4-n8",
+    "sat-k4-n9",
+    "sat-k4-n10",
+    "sat-p4-n6",
+    "sat-p4-n7",
+    "sat-p4-n8",
+    "sat-p5-n8",
+    "sat-p5-n9",
+    "z-10-10-3-4",
+    "z-9-10-3-4",
+    "z-9-11-3-4"
+  ],
+  "summary": "Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.",
+  "details": {
+    "zenodo": {
+      "record_url": "https://zenodo.org/records/23550688",
+      "doi": "10.5281/zenodo.23550688",
+      "concept_doi": "10.5281/zenodo.23550687",
+      "version": "1.0.0",
+      "upload_type": "dataset",
+      "license": "cc-by-4.0",
+      "archive": "hog-contrib-1.0.0.zip",
+      "archive_sha256": "2478507ea2e796a304f631c93bfc380bf2fa36471d96e1aac0e16d7afbc91c4c",
+      "archive_md5": "f53417a45230bcf9cd5c66ad59a92a85",
+      "archive_bytes": 111816,
+      "archive_entries": 102,
+      "doi_prereserved_before_tag": true,
+      "public_download_byte_identical": true,
+      "dois_resolve": true,
+      "duplicate_search": "all 133 account depositions paginated; no prior ledger record"
+    },
+    "source": {
+      "tag": "v1.0.0",
+      "commit": "56220686bf69e720cc790bf90c5d46362228aef2",
+      "archive_command": "git archive --format=zip --prefix=hog-contrib-1.0.0/ v1.0.0",
+      "deterministic_rebuild": true,
+      "github_release": "https://github.com/queelius/hog-contrib/releases/tag/v1.0.0"
+    },
+    "verification": {
+      "environment": "fresh venv, package installed from the extracted archive",
+      "witnesses_verified": 26,
+      "checkers": [
+        "pure-python",
+        "networkx"
+      ],
+      "render_check_clean": true,
+      "tests_passed": 65,
+      "tests_failed": 0
+    },
+    "repository_visibility": "made public 2026-10-21 after a whole-history audit for secrets, local paths and venue names"
+  }
+}

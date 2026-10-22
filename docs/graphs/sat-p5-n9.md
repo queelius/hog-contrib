@@ -45,6 +45,10 @@ Witness: House of Graphs graph 57174, https://houseofgraphs.org/graphs/57174
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 P5-free and P5-saturated (re-verified from graph6). A 7-vertex double-star component plus a disjoint edge; degree sequence \[4,3,1,1,1,1,1,1,1\]. Realizes sat(9,P5)=7 after the n=7,8 plateau. Deposited 2026-07-14 as HoG #57174.

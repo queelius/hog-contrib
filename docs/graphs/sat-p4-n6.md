@@ -45,6 +45,10 @@ Witness: House of Graphs graph 484, https://houseofgraphs.org/graphs/484
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 Three disjoint edges (a perfect matching on 6 vertices). P\_4-saturation directly re-verified here. Canonical duplicate-check matched existing HoG #484; saturation-context comment added 2026-05-02.

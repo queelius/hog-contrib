@@ -46,6 +46,10 @@ Witness: House of Graphs graph 57145, https://houseofgraphs.org/graphs/57145
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 Unique minimum C6-saturated graph on 8 vertices (degrees \[4,4,3,3,3,2,2,1\], 2 triangles, non-bipartite). Deposited 2026-07-01 after a from-scratch re-verification and a HoG canonical-form duplicate-check (no prior match). graph6 contains a literal backtick as its 3rd character.

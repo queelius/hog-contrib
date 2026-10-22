@@ -45,6 +45,10 @@ Witness: House of Graphs graph 684, https://houseofgraphs.org/graphs/684
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 Illustrates the P\_4 series non-monotonicity, sat(8,P\_4)=4 \< sat(7,P\_4)=5. P\_4-saturation directly re-verified. graph6 contains a literal backtick as its 3rd character. Canonical duplicate-check matched existing HoG #684; saturation-context comment added 2026-05-02.

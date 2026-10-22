@@ -45,6 +45,10 @@ Witness: House of Graphs graph 57166, https://houseofgraphs.org/graphs/57166
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 The second of the two non-isomorphic minima for sat(10,C6)=13. Its near-cubic degree sequence makes it the more structurally distinctive of the pair and the preferred deposit representative. C6-free and C6-saturated (re-verified). bytes 73 123 83 95 95 79 67 63 119. Deposited 2026-07-14 as HoG #57166.

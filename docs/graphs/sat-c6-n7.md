@@ -45,6 +45,10 @@ Witness: House of Graphs graph 868, https://houseofgraphs.org/graphs/868
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 C6-free and C6-saturated (re-verified from the graph6). The canonical HoG duplicate-check matched the existing McCuaig/Shepherd H\_7, HoG #868. Added a saturation-context comment to that graph on 2026-07-14.

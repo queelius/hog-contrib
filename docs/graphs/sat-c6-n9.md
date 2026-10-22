@@ -45,6 +45,10 @@ Witness: House of Graphs graph 21054, https://houseofgraphs.org/graphs/21054
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 Independently reproduced exact value (9+3=12). Lower bound by complete exhaustive enumeration (per-edge non-iso counts match OEIS A008406, so completeness is certified) plus decision-SAT UNSAT at 11 edges on two solvers (cadical195, kissat). Exactly 5 non-isomorphic minima at 12 edges. graph6 ends in a literal backtick (ASCII 96); bytes 72 121 79 107 99 63 96. Its isomorphism class matched existing HoG #21054; added the saturation result and links to the other four classes as a comment on 2026-07-14.

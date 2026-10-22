@@ -45,6 +45,10 @@ Witness: House of Graphs graph 57170, https://houseofgraphs.org/graphs/57170
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 Fourth isomorphism class and the first triangle-free minimum at n=9. C6-free and C6-saturated (re-verified). graph6 bytes: 72 115 96 97 65 63 90. Deposited 2026-07-14 as HoG #57170.

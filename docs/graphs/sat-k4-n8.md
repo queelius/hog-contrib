@@ -43,6 +43,10 @@ Witness: House of Graphs graph 664, https://houseofgraphs.org/graphs/664
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 K\_4-free and K\_4-saturated (re-verified from the graph6). Matches the Erdos-Hajnal-Moon formula sat(n,K\_4)=2n-3=13. Canonical duplicate-check matched the existing graph K\_2 + 6K\_1, HoG #664.

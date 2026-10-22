@@ -45,6 +45,10 @@ Witness: House of Graphs graph 57169, https://houseofgraphs.org/graphs/57169
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 Third isomorphism class among the five minimum C6-saturated graphs on 9 vertices. C6-free and C6-saturated (re-verified). graph6 bytes: 72 123 96 80 79 95 72. Deposited 2026-07-14 as HoG #57169.

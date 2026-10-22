@@ -45,6 +45,10 @@ Witness: House of Graphs graph 57167, https://houseofgraphs.org/graphs/57167
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 Independently reproduced exact value (10+3=13). Lower bound by complete exhaustive enumeration (per-edge counts match OEIS A008406, re-derived by Polya/Burnside as a second method), so no C6-saturated graph on 10 vertices has 12 or fewer edges. Upper bound by this re-verified witness. Exactly 2 non-isomorphic minima at 13 edges. graph6 has a literal backtick as its 3rd character; bytes 73 123 96 81 95 95 72 64 63. Deposited 2026-07-14 as HoG #57167.

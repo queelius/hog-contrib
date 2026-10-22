@@ -45,6 +45,10 @@ Witness: House of Graphs graph 57172, https://houseofgraphs.org/graphs/57172
 Evidence: doi:10.5281/zenodo.21350167
 ```
 
+## Receipts
+
+- [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+
 ## History
 
 C5-free and C5-saturated (re-verified from the byte-exact graph6). Matches the known value sat(8,C5)=10 and the project's independent SAT computation. Degree sequence \[4,4,3,3,3,1,1,1\], 3 triangles, connected and non-bipartite. graph6 contains a literal backtick; bytes 71 96 64 106 87 79. Deposited 2026-07-14 as HoG #57172.
