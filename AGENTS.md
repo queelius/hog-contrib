@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-`contributions.yaml` is the source of truth for every House of Graphs deposit or candidate. Byte-exact graph6 witnesses live in `graphs/`, while `manifests/` preserves the original JSON deposit-preparation records. `verify.py` contains the pure-Python graph6 codec and graph-property checks; `verify_witnesses.py` is the repository-wide verification gate. Read `LESSONS.md` before preparing deposits, and keep the human-facing summary in `README.md` aligned with material status changes.
+`contributions.yaml` is the source of truth for every House of Graphs deposit or candidate. Byte-exact graph6 witnesses live in `graphs/`, while `manifests/` preserves the original JSON deposit-preparation records. `verify.py` contains the pure-Python graph6 codec and graph-property checks; `verify_witnesses.py` is the repository-wide verification gate. Read `LESSONS.md` before preparing deposits. `render.py` generates the record pages in `docs/graphs/`, the README deposit table and `CITATION.cff` from the registry; run `python3 render.py` after any registry change rather than editing them by hand.
 
 ## Research Ownership
 
@@ -22,6 +22,7 @@ networkx-based `crosscheck.py`, which share no code. Run from the repository roo
 ```bash
 python3 -m pip install -r requirements.txt
 python3 verify_witnesses.py
+python3 render.py --check
 python3 -m unittest discover -s tests -v
 python3 -m py_compile verify.py verify_witnesses.py
 ```

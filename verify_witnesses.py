@@ -9,7 +9,7 @@ import sys
 
 import yaml
 
-from cases import Case, Claim, ClaimKind, Family, PriorArt, Result
+from cases import Author, Case, Claim, ClaimKind, Family, Ledger, Paper, PriorArt, Record, Result, Status
 import crosscheck
 import verify as V
 
@@ -61,14 +61,49 @@ def _claim(specification):
     return Claim(kind, _text(specification.get("statement"), "claim statement"), prior_art)
 
 
-def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
-    """Load typed cases and reject omitted files or inconsistent metadata."""
-    registry = Path(registry)
-    root = registry.parent.resolve()
-    data = yaml.safe_load(registry.read_text())
+def _optional(value, parse, *args):
+    return None if value is None else parse(value, *args)
+
+
+def _read(registry):
+    data = yaml.safe_load(Path(registry).read_text())
     if not isinstance(data, dict) or not isinstance(data.get("graphs"), list):
         raise ValueError("registry must contain a graphs list")
-    cases = []
+    return data
+
+
+def load_records(registry: Path = ROOT / "contributions.yaml") -> list[Record]:
+    """Load typed records and reject omitted files or inconsistent metadata."""
+    registry = Path(registry)
+    return _records(_read(registry), registry.parent.resolve())
+
+
+def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
+    return [record.case for record in load_records(registry)]
+
+
+def load_ledger(registry: Path = ROOT / "contributions.yaml") -> Ledger:
+    """Load the registry with the ledger metadata used for documentation."""
+    registry = Path(registry)
+    data = _read(registry)
+    author, ledger = data["author"], data["ledger"]
+    keywords = ledger.get("keywords", [])
+    if not isinstance(keywords, list):
+        raise ValueError("ledger keywords must be a list")
+    return Ledger(
+        _text(ledger["title"], "ledger title"), _text(ledger["repository"], "ledger repository"),
+        _text(ledger["abstract"], "ledger abstract"), tuple(_text(k, "keyword") for k in keywords),
+        Author(*(_text(author[field], f"author {field}")
+                 for field in ("given_names", "family_names", "handle", "email", "orcid"))),
+        _text(data["house_of_graphs"], "house_of_graphs"),
+        tuple(Paper(key, _text(paper["title"], "paper title"), _text(paper["zenodo"], "paper zenodo"))
+              for key, paper in data.get("papers", {}).items()),
+        tuple(_records(data, registry.parent.resolve())),
+    )
+
+
+def _records(data, root):
+    records = []
     paths = set()
     ids = set()
     for record in data["graphs"]:
@@ -87,7 +122,8 @@ def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
             raise ValueError(f"duplicate id: {record_id}")
         ids.add(record_id)
         claim = _claim(record.get("claim"))
-        if record.get("status") == "deposited":
+        status = Status(record.get("status"))
+        if status is Status.DEPOSITED:
             _integer(record.get("hog_id"), "confirmed HoG ID", 1)
         n = _integer(record["n"], "vertex count")
         edges = _integer(record["edges"], "edge count")
@@ -115,14 +151,22 @@ def load_cases(registry: Path = ROOT / "contributions.yaml") -> list[Case]:
         abstract_free = record.get("k34_free")
         if abstract_free is not None and type(abstract_free) is not bool:
             raise ValueError("abstract freeness flag must be boolean")
-        cases.append(Case(path, graph6, n, edges, family, order, parts, forbidden, abstract_free,
-                          record_id, claim))
+        case = Case(path, graph6, n, edges, family, order, parts, forbidden, abstract_free,
+                    record_id, claim)
+        records.append(Record(
+            case, _text(record.get("invariant"), "invariant"), status,
+            _text(record.get("certificates"), "certificates"),
+            _optional(record.get("hog_id"), _integer, "HoG ID", 1),
+            _optional(record.get("zenodo"), _text, "zenodo"),
+            _optional(record.get("non_iso_minima"), _integer, "non_iso_minima", 1),
+            _optional(record.get("notes"), _text, "notes") or "",
+        ))
     files = {path.relative_to(root) for path in (root / "graphs").rglob("*.g6")}
     if files - paths:
         raise ValueError(f"unregistered graph files: {sorted(map(str, files - paths))}")
     if paths - files:
         raise ValueError(f"missing graph files: {sorted(map(str, paths - files))}")
-    return cases
+    return records
 
 
 def max_common_neighbours(adj, side, other, subset_size):
@@ -186,15 +230,22 @@ def verify_case(case: Case, root: Path = ROOT, checkers=CHECKERS) -> Result:
     return Result(all(result.ok for result in results.values()), detail)
 
 
-def main():
+def main(argv=None):
+    """Verify every witness, or only the records whose ids are given."""
+    ids = set(sys.argv[1:] if argv is None else argv)
     try:
         cases = load_cases()
     except (OSError, ValueError, KeyError, TypeError, yaml.YAMLError) as error:
         print(f"REGISTRY ERROR: {error}", file=sys.stderr)
         return 1
+    unknown = ids - {case.id for case in cases}
+    if unknown:
+        print(f"UNKNOWN RECORD ID: {', '.join(sorted(unknown))}", file=sys.stderr)
+        return 1
+    cases = [case for case in cases if not ids or case.id in ids]
     results = [(case, verify_case(case)) for case in cases]
     for case, result in results:
-        print(f"[{'OK' if result.ok else 'FAIL'}] {case.path.name}: {result.detail}")
+        print(f"[{'OK' if result.ok else 'FAIL'}] {case.id}: {result.detail}")
     ok = all(result.ok for _, result in results)
     print("ALL WITNESSES VERIFIED" if ok else "VERIFICATION FAILED")
     return 0 if ok else 1

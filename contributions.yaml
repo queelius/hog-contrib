@@ -35,10 +35,22 @@
 # byte-exact in graphs/<graph_file>; verify.py re-decodes and re-checks it.
 
 author:
-  name: Alexander Richard Towell
+  given_names: Alexander Richard
+  family_names: Towell
   handle: queelius
   email: lex@metafunctor.com
   orcid: 0000-0001-6443-9897
+
+# Citation metadata for the ledger as a whole (rendered into CITATION.cff).
+ledger:
+  title: House of Graphs witness ledger
+  repository: https://github.com/queelius/hog-contrib
+  abstract: >-
+    Extremal and saturated graphs deposited on House of Graphs, each stored as
+    a byte-exact graph6 witness and accepted only when two separate
+    implementations verify its defining property. Every record states its
+    claim, the prior art checked for it, and the archived evidence behind it.
+  keywords: [House of Graphs, graph saturation, Zarankiewicz problem, extremal graph theory, graph6]
 
 house_of_graphs: https://houseofgraphs.org
 

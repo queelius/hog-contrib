@@ -1,181 +1,118 @@
-# hog-contrib
+# House of Graphs witness ledger
 
-A tracker and portfolio for Alexander Towell's House of Graphs (HoG) deposits:
-the concrete extremal graphs, their deposit status, the certificate behind each
-value, and the lessons that shape how they get deposited.
+Alexander Richard Towell's extremal and saturated graphs on
+[House of Graphs](https://houseofgraphs.org) (HoG). Each graph is stored as a
+byte-exact graph6 witness and counts as checked only when two separate
+implementations verify its defining property. Each record states what is
+claimed, what prior art was checked, and which archived evidence backs it.
 
-Each graph gets a record in `contributions.yaml` (the invariant it realizes, its
-graph6 string, its House of Graphs id if live, the certificate, and whether it
-has been re-verified), a byte-exact witness file in `graphs/`, and a place in the
-verification gate. The witnesses come from the sibling research repo
-([open-problems](https://github.com/queelius/open-problems)); this repo curates
-them, tracks their HoG status, and re-checks each one from its graph6 string. Over
-time this becomes a base to grow from: new extremal families, new deposits, a
-record of what was verified and when.
+The witnesses come from the research repository
+[open-problems](https://github.com/queelius/open-problems), which holds the
+proofs, exhaustive lower-bound searches and manuscripts. This ledger curates
+the witnesses, tracks their HoG status and re-checks each one.
 
-## Research boundary
+## Records
 
-Maintain graph deposits, annotations, registry metadata, and independent witness
-checks here. Proof development, exhaustive lower-bound computations, complete
-minimum families, and manuscripts remain in `open-problems`. See the shared
-[repository ownership guide](../open-problems/docs/repository-roles.md) and the
-local [research handoff](docs/research-handoff.md).
+Every record has a permanent id and a page under [`docs/graphs/`](docs/graphs/)
+with its claim, prior art, witness hash, verify command and citation. A claim
+is one of: *known value* (already published, reproduced here), *new value*,
+*new classification* (value known, complete minimum family new),
+*correction* (contradicts a specific published value), or *unassessed*
+(prior art not yet checked; no novelty claimed).
 
-The C6 evidence is on `open-problems` `master` (merged from branch
-`work/c6-contributions` on 2026-10-21); start from its
-`docs/c6-current-status.md` before repeating an experiment. A verified witness here does not replace that branch's lower-bound
-evidence or establish novelty/publication.
+<!-- BEGIN GENERATED: deposits -->
+26 records: 26 deposited. Claims: 10 known value, 6 new value, 1 new classification, 1 correction, 8 unassessed.
 
-## Why these
+| Record | Invariant | n | Edges | Claim | House of Graphs | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| [sat-c6-n7](docs/graphs/sat-c6-n7.md) | sat(7,C6)=10 | 7 | 10 | unassessed | [868](https://houseofgraphs.org/graphs/868) | deposited |
+| [sat-c6-n8](docs/graphs/sat-c6-n8.md) | sat(8,C6)=11 | 8 | 11 | unassessed | [57145](https://houseofgraphs.org/graphs/57145) | deposited |
+| [sat-c6-n9](docs/graphs/sat-c6-n9.md) | sat(9,C6)=12 | 9 | 12 | known value | [21054](https://houseofgraphs.org/graphs/21054) | deposited |
+| [sat-c6-n9-class2](docs/graphs/sat-c6-n9-class2.md) | sat(9,C6)=12 | 9 | 12 | known value | [57168](https://houseofgraphs.org/graphs/57168) | deposited |
+| [sat-c6-n9-class3](docs/graphs/sat-c6-n9-class3.md) | sat(9,C6)=12 | 9 | 12 | known value | [57169](https://houseofgraphs.org/graphs/57169) | deposited |
+| [sat-c6-n9-class4](docs/graphs/sat-c6-n9-class4.md) | sat(9,C6)=12 | 9 | 12 | known value | [57170](https://houseofgraphs.org/graphs/57170) | deposited |
+| [sat-c6-n9-class5](docs/graphs/sat-c6-n9-class5.md) | sat(9,C6)=12 | 9 | 12 | known value | [57171](https://houseofgraphs.org/graphs/57171) | deposited |
+| [sat-c6-n10](docs/graphs/sat-c6-n10.md) | sat(10,C6)=13 | 10 | 13 | known value | [57167](https://houseofgraphs.org/graphs/57167) | deposited |
+| [sat-c6-n10-alt](docs/graphs/sat-c6-n10-alt.md) | sat(10,C6)=13 | 10 | 13 | known value | [57166](https://houseofgraphs.org/graphs/57166) | deposited |
+| [sat-c6-n11](docs/graphs/sat-c6-n11.md) | sat(11,C6)=14 | 11 | 14 | correction | [58088](https://houseofgraphs.org/graphs/58088) | deposited |
+| [sat-c6-n12](docs/graphs/sat-c6-n12.md) | sat(12,C6)=16 | 12 | 16 | new classification | [58089](https://houseofgraphs.org/graphs/58089) | deposited |
+| [sat-c6-n13](docs/graphs/sat-c6-n13.md) | sat(13,C6)=17 | 13 | 17 | new value | [58090](https://houseofgraphs.org/graphs/58090) | deposited |
+| [sat-c6-n15](docs/graphs/sat-c6-n15.md) | sat(15,C6)=20 | 15 | 20 | new value | [58092](https://houseofgraphs.org/graphs/58092) | deposited |
+| [sat-c6-n14](docs/graphs/sat-c6-n14.md) | sat(14,C6)=19 | 14 | 19 | new value | [58091](https://houseofgraphs.org/graphs/58091) | deposited |
+| [sat-c5-n8](docs/graphs/sat-c5-n8.md) | sat(8,C5)=10 | 8 | 10 | unassessed | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
+| [sat-k4-n8](docs/graphs/sat-k4-n8.md) | sat(8,K\_4)=13 | 8 | 13 | known value | [664](https://houseofgraphs.org/graphs/664) | deposited |
+| [sat-k4-n9](docs/graphs/sat-k4-n9.md) | sat(9,K\_4)=15 | 9 | 15 | known value | [182](https://houseofgraphs.org/graphs/182) | deposited |
+| [sat-k4-n10](docs/graphs/sat-k4-n10.md) | sat(10,K\_4)=17 | 10 | 17 | known value | [250](https://houseofgraphs.org/graphs/250) | deposited |
+| [sat-p4-n6](docs/graphs/sat-p4-n6.md) | sat(6,P\_4)=3 | 6 | 3 | unassessed | [484](https://houseofgraphs.org/graphs/484) | deposited |
+| [sat-p4-n7](docs/graphs/sat-p4-n7.md) | sat(7,P\_4)=5 | 7 | 5 | unassessed | [56649](https://houseofgraphs.org/graphs/56649) | deposited |
+| [sat-p4-n8](docs/graphs/sat-p4-n8.md) | sat(8,P\_4)=4 | 8 | 4 | unassessed | [684](https://houseofgraphs.org/graphs/684) | deposited |
+| [sat-p5-n8](docs/graphs/sat-p5-n8.md) | sat(8,P\_5)=6 | 8 | 6 | unassessed | [57173](https://houseofgraphs.org/graphs/57173) | deposited |
+| [sat-p5-n9](docs/graphs/sat-p5-n9.md) | sat(9,P\_5)=7 | 9 | 7 | unassessed | [57174](https://houseofgraphs.org/graphs/57174) | deposited |
+| [z-10-10-3-4](docs/graphs/z-10-10-3-4.md) | z(10,10;3,4)=66 | 20 | 66 | new value | [56650](https://houseofgraphs.org/graphs/56650) | deposited |
+| [z-9-10-3-4](docs/graphs/z-9-10-3-4.md) | z(9,10;3,4)=60 | 19 | 60 | new value | [56652](https://houseofgraphs.org/graphs/56652) | deposited |
+| [z-9-11-3-4](docs/graphs/z-9-11-3-4.md) | z(9,11;3,4)=66 | 20 | 66 | new value | [56651](https://houseofgraphs.org/graphs/56651) | deposited |
+<!-- END GENERATED: deposits -->
 
-These graphs provide concrete, independently checkable witnesses for cycle,
-path, clique, and ordered bipartite extremal problems. Known values are useful
-validation cases and are distinguished from new results. In particular,
-`sat(9,C6)=12`, `sat(10,C6)=13`, and their minimum families already appear in
-Remark 1 of the Zhang-Luo-Shigeno preprint (2012); our earlier novelty claims
-for those cases were incorrect.
-
-The October 2026 release publishes `sat(11,C6)=14` (a unique minimum class),
-the complete minimum classification for `sat(12,C6)=16`,
-`sat(13,C6)=17`, and `sat(14,C6)=19`. The n=12 value breaks
-the `n+3` pattern. See the sibling research repository for exhaustive count
-logs and independent witness checks. Publication status is recorded below.
-
-The final Zhang-Luo-Shigeno paper (2015), Remark 1, page 1089, also already
-records `sat(12,C6)=16`. The contribution at order 12 is the complete
-35-class classification. Its reported order-11 value 15 is contradicted
-by our byte-verified 14-edge witness.
-
-The complete minimum families at orders 12 and 13 have 35 and four classes.
-All family witnesses and independent verification logs are preserved in the
-research repository; this deposit ledger tracks one representative per new
-order rather than treating additional representatives as separate contributions.
-
-Published v5 classifies all **205** order-14 minima, with two
-complete census implementations and independent checks of every witness.
-The live HoG annotation links the complete archive;
-the full family remains in `open-problems`. The existing HoG 58091 witness
-is class 55 in the archived family order. No duplicate deposit is needed.
-
-Published v5 proves `sat(15,C6)=20`: both complete checkers reject all
-784,526,109 graphs through 19 edges, and a 20-edge witness passes independent
-checks. The witness is live as
-[HoG 58092](https://houseofgraphs.org/graphs/58092), backed by
-[Zenodo v5](https://doi.org/10.5281/zenodo.23447722).
-
-[Zenodo v6](https://doi.org/10.5281/zenodo.23527267) completes the order-15
-minimum classification: **24 classes, 12 with leaves and 12 leaf-free**.
-The archive retains the full family, complete census, leaf attachments,
-weighted-kernel recovery, rejection certificates, code and verification logs.
-The existing HoG 58092 annotation now links this classification; its source
-witness is class 4 in the archived order. Detailed research remains in
-`open-problems`; the public source is in Zenodo because the development
-repositories are private. The curated public index is
-[research-records](https://github.com/queelius/research-records/tree/main/records/small-order-c6-saturation).
-
-For the canonical checkout, branch pointers and paused research boundary, read
-the [C6 maintenance handoff](docs/c6-maintenance-2026-10-21.md).
-
-## Layout
-
-- `contributions.yaml` : single source of truth. One record per graph deposit or
-  candidate (invariant, n, edges, graph6, hog_id, status, certificates,
-  non_iso_minima, zenodo, verified).
-- `graphs/` : byte-exact graph6 witness files, one per record. Some contain a
-  literal backtick (ASCII 96); they are written from byte values, not prose.
-- `verify.py` : the graph6 toolkit and property checkers (decode/encode, edge
-  count, roundtrip, cycle/path/K_4 saturation, bipartite report).
-- `verify_witnesses.py` : the verification gate. Re-decodes every witness in
-  `graphs/`, checks n, edges, roundtrip, and the defining property.
-- `manifests/` : `saturation-graphs.json` and `zarankiewicz-graphs.json`, the
-  original deposit-prep records (edge lists, matrices, descriptions) for
-  provenance.
-- `LESSONS.md` : dated lessons-learned log. Read before preparing a deposit.
-- `CLAUDE.md` : repo instructions.
+Some witnesses were submitted as new graphs; others matched existing
+canonical forms and were annotated with their saturation interpretation.
+External actions have receipts in [`manifests/`](manifests/), for example the
+[order-15 v6 publication](manifests/c6-v6-publication.json). Background and
+publication history by family: [C6 saturation](docs/families/c6-saturation.md).
 
 ## Verify
 
 ```
 python3 -m pip install -r requirements.txt
-python3 verify_witnesses.py     # re-decode and re-check every witness in graphs/
+python3 verify_witnesses.py              # every witness
+python3 verify_witnesses.py sat-c6-n15   # named records only
 python3 -m unittest discover -s tests -v
 ```
 
-The verification gate reads structured `verification` fields directly from
-`contributions.yaml`; no separate per-file lookup table is maintained. It
-rejects missing or unregistered graph files, mismatched graph6 mirrors, and
-deposited records without a positive HoG ID.
+`verify.py`, a pure-Python checker inherited from the research repository,
+and `crosscheck.py`, built on networkx with its own graph6 codec and
+algorithms, share no code; the gate passes a witness only when both accept it.
+The gate also rejects unregistered or missing graph files, graph6 files that
+differ from the registry, deposited records without a HoG id, and assessed
+claims without dated prior art.
 
-Each witness must pass two separate implementations. `verify.py`, a pure-Python
-checker inherited from the research repository, and `crosscheck.py`, built on
-networkx with its own graph6 codec and different algorithms, share no code.
-A witness counts as checked only when both agree. PyYAML parses the registry.
+## Cite
 
-Each record also carries a permanent `id` and a structured `claim`: its kind
-(known value, new value, new classification, correction, or unassessed), a
-one-sentence statement, and the dated prior-art sources checked for it. The
-gate rejects any assessed claim without prior art.
+- **One graph:** cite its House of Graphs entry and the archived evidence
+  listed on its record page, which also gives a ready-made citation.
+- **The ledger:** see [`CITATION.cff`](CITATION.cff).
+- **Papers:** A. R. Towell, "Small-order C6 saturation: exact values, minimum
+  graphs, and a correction", Zenodo v6
+  [10.5281/zenodo.23527267](https://doi.org/10.5281/zenodo.23527267);
+  A. R. Towell, "Three new Zarankiewicz numbers z(m,n;3,4)", Zenodo
+  [10.5281/zenodo.19985042](https://doi.org/10.5281/zenodo.19985042). The
+  Zarankiewicz values are also on OEIS (A006615, A006622, A006625).
 
-Latest run (2026-10-21): all 26 stored witnesses verified by both
-implementations. All 23 tests pass.
+## Layout
+
+- `contributions.yaml`: the single source of truth, one record per graph.
+- `graphs/`: byte-exact graph6 witnesses. Some contain a literal backtick
+  (ASCII 96); they are written from byte values, not prose.
+- `verify_witnesses.py`: the gate. `verify.py` and `crosscheck.py` are its two
+  property checkers; `cases.py` holds the shared types.
+- `render.py`: generates the record pages, the table above and
+  `CITATION.cff`. A test fails when any of them is stale.
+- `manifests/`: original deposit-prep JSON and dated receipts for external
+  actions.
+- `docs/`: record pages, family histories, and research handoffs.
+- `LESSONS.md`: dated lessons. Read before preparing a deposit.
+
+## Research boundary
+
+Deposits, annotations, registry metadata and independent witness checks
+belong here; proofs, exhaustive computations, complete minimum families and
+manuscripts stay in `open-problems`. See the
+[repository ownership guide](../open-problems/docs/repository-roles.md) and
+the [research handoff](docs/research-handoff.md). A verified witness
+establishes attainment only; an exact value also needs the research
+repository's lower-bound evidence.
 
 ## Status vocabulary
 
-`candidate` (worth a deposit, pending a HoG duplicate-check), `ready` (verified,
-both certificates, not yet deposited), `deposited` (live on House of Graphs with a
-confirmed id). The current contribution goal authorizes publication and deposit
-after verification; login is a user handoff when needed.
-
-## Deposits and canonical matches
-
-| Invariant | n | edges | HoG id | status |
-|-----------|---|-------|--------|--------|
-| sat(7,C6)=10 | 7 | 10 | [868](https://houseofgraphs.org/graphs/868) | deposited |
-| sat(8,C6)=11 | 8 | 11 | [57145](https://houseofgraphs.org/graphs/57145) | deposited |
-| sat(9,C6)=12 (classes 1–5) | 9 | 12 | [21054](https://houseofgraphs.org/graphs/21054), [57168](https://houseofgraphs.org/graphs/57168)–[57171](https://houseofgraphs.org/graphs/57171) | deposited |
-| sat(10,C6)=13 (near-cubic) | 10 | 13 | [57166](https://houseofgraphs.org/graphs/57166) | deposited |
-| sat(10,C6)=13 (cut-vertex) | 10 | 13 | [57167](https://houseofgraphs.org/graphs/57167) | deposited |
-| sat(11,C6)=14 | 11 | 14 | [58088](https://houseofgraphs.org/graphs/58088) | deposited |
-| sat(12,C6)=16 | 12 | 16 | [58089](https://houseofgraphs.org/graphs/58089) | deposited |
-| sat(13,C6)=17 | 13 | 17 | [58090](https://houseofgraphs.org/graphs/58090) | deposited |
-| sat(14,C6)=19 | 14 | 19 | [58091](https://houseofgraphs.org/graphs/58091) | deposited |
-| sat(15,C6)=20 | 15 | 20 | [58092](https://houseofgraphs.org/graphs/58092) | deposited |
-| sat(8,C5)=10 | 8 | 10 | [57172](https://houseofgraphs.org/graphs/57172) | deposited |
-| sat(8,K_4)=13 | 8 | 13 | [664](https://houseofgraphs.org/graphs/664) | deposited |
-| sat(9,K_4)=15 | 9 | 15 | [182](https://houseofgraphs.org/graphs/182) | deposited |
-| sat(10,K_4)=17 | 10 | 17 | [250](https://houseofgraphs.org/graphs/250) | deposited |
-| sat(6,P_4)=3 | 6 | 3 | [484](https://houseofgraphs.org/graphs/484) | deposited |
-| sat(7,P_4)=5 | 7 | 5 | [56649](https://houseofgraphs.org/graphs/56649) | deposited |
-| sat(8,P_4)=4 | 8 | 4 | [684](https://houseofgraphs.org/graphs/684) | deposited |
-| sat(8,P_5)=6 | 8 | 6 | [57173](https://houseofgraphs.org/graphs/57173) | deposited |
-| sat(9,P_5)=7 | 9 | 7 | [57174](https://houseofgraphs.org/graphs/57174) | deposited |
-| z(10,10;3,4)=66 | 20 | 66 | [56650](https://houseofgraphs.org/graphs/56650) | deposited |
-| z(9,10;3,4)=60 | 19 | 60 | [56652](https://houseofgraphs.org/graphs/56652) | deposited |
-| z(9,11;3,4)=66 | 20 | 66 | [56651](https://houseofgraphs.org/graphs/56651) | deposited |
-
-All 26 tracked witnesses are live on House of Graphs. The four earlier October 18
-deposits and their downloaded canonical graphs were checked against the source
-witnesses; see [publication verification](manifests/c6-publication-2026-10-18.json).
-The v5 classification annotation and order-15 deposit have separate
-[live verification evidence](manifests/c6-v5-publication.json).
-The order-15 classification update has its own
-[v6 publication receipt](manifests/c6-v6-publication.json).
-Some live witnesses were submitted as new graphs;
-others matched existing canonical forms and were annotated with their
-saturation interpretation where useful.
-
-## Papers
-
-- Saturation: Alexander Richard Towell, "Small-order C6 saturation: exact
-  values, minimum graphs, and a correction", Zenodo v6
-  [10.5281/zenodo.23527267](https://doi.org/10.5281/zenodo.23527267).
-- Zarankiewicz: A. Towell, "Three new Zarankiewicz numbers z(m,n;3,4)", Zenodo
-  [10.5281/zenodo.19985042](https://doi.org/10.5281/zenodo.19985042).
-
-The Zarankiewicz values are also on OEIS (A006615, A006622, A006625).
-
----
-
-House of Graphs is a shared database of graphs with computed invariants. Adding a
-concrete extremal witness makes a value citable and checkable by anyone: a graph
-that realized a bound is now stored, named, and searchable.
+`deposited`: live on House of Graphs with a confirmed id. `ready`: verified,
+both certificates in hand, not yet deposited. `candidate`: worth a deposit,
+pending a HoG duplicate-check.

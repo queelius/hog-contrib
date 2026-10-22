@@ -37,13 +37,17 @@ Then, from the repo root:
 
 ```
 python3 verify_witnesses.py                    # the gate: exit 0 iff every witness passes
+python3 verify_witnesses.py sat-c6-n15         # only the named record ids
+python3 render.py                              # regenerate docs/graphs/, README table, CITATION.cff
+python3 render.py --check                      # list stale generated files; exit 1 if any
 python3 -m unittest discover -s tests -v       # registry/gate regression tests
 python3 -m unittest tests.test_registry_verification.RegistryVerificationTests.test_deposited_requires_confirmed_id
 python3 -m coverage run -m unittest discover -s tests && python3 -m coverage report
 ```
 
 Run the gate and the tests before adding, editing, or preparing to deposit any
-graph. Both must pass before graph data is committed.
+graph. Both must pass before graph data is committed. After any registry or
+witness change, run `python3 render.py`; the test suite fails on stale output.
 
 ## Architecture
 
@@ -82,7 +86,9 @@ graph. Both must pass before graph data is committed.
     enumeration) and shares no code with `verify.py`. It rejects disconnected
     ordered-bipartite witnesses, whose bipartition is ambiguous.
   "Independently checked" means both pass; never weaken this to one checker.
-- Shared types (`Family`, `Case`, `Result`) live in `cases.py`.
+- Shared types live in `cases.py`: `Case`/`Result` for checking, `Claim`/`PriorArt`,
+  and `Record`/`Ledger` (a `Case` plus what readers see). `load_records` and
+  `load_ledger` in `verify_witnesses.py` build them; `load_cases` derives from them.
 - Adding a witness is a data-only change: one registry record plus the exact `.g6`
   file. A new invariant family needs: a `Family` value, a branch in *both*
   checkers, and accept/reject fixtures in `tests/test_property_checkers.py`.
@@ -92,8 +98,12 @@ graph. Both must pass before graph data is committed.
 - `manifests/` holds the original deposit-prep JSON (`saturation-graphs.json`,
   `zarankiewicz-graphs.json`) and dated publication and maintenance receipts
   (`c6-*.json`, `c6-v6-annotation.md`) recording live HoG checks.
-- `README.md` carries the human-facing deposit table and the "Latest run" line.
-  Keep both aligned with any status change.
+- `render.py` generates `docs/graphs/<id>.md` (one page per record: claim, prior
+  art, witness SHA-256 computed from the file, verify command, citation), the
+  README block between the `BEGIN/END GENERATED: deposits` markers, and
+  `CITATION.cff` (from the registry's `author` and `ledger` blocks). Never hand-edit
+  these; change the registry and re-render. Family narratives live in
+  `docs/families/` and are hand-written.
 
 ## Status vocabulary
 

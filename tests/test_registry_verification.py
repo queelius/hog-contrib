@@ -23,6 +23,7 @@ class RegistryVerificationTests(unittest.TestCase):
         self.record = {
             "graph_file": "graphs/witness.g6", "graph6": "FbSko", "n": 7,
             "edges": 10, "status": "ready", "hog_id": None,
+            "invariant": "sat(7,C6)=10", "certificates": "both",
             "verification": {"family": "cycle_saturation", "order": 6},
             "id": "sat-c6-n7",
             "claim": {"kind": "unassessed", "statement": "A 10-edge C6-saturated graph on 7 vertices."},
