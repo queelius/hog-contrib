@@ -133,6 +133,19 @@ edge count that lies outside a published "all minima" family is evidence
 against that family. Unrefereed reports and computational tables count as
 prior art; search them before calling a small value new.
 
+## 2026-10-22 -- Sibling repositories load hog-contrib files by path
+
+**What:** Moving `verify.py` into `hogledger/` broke four open-problems tests
+and silently skipped its 254-case independent C6 family check. Its C6
+scripts and certificates load `../hog-contrib/verify.py` by file path and pin
+its SHA-256. open-problems now recovers the pinned bytes from this
+repository's git history (commit 3322013 there).
+
+**Rule:** Before moving, renaming or editing a file here, search the
+siblings (`grep -rn hog-contrib ../open-problems ../oeis`) and run the
+affected tests. Never rewrite history that removes a pinned revision of a
+file another repository's certificate depends on.
+
 ## Standing verification rules
 
 - The final 2015 Zhang-Luo-Shigeno text was accessed on 2026-10-17. Remark 1,
