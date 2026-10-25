@@ -96,7 +96,13 @@
       "depositions_checked": 142,
       "nonempty_pages": 2,
       "complete": true,
-      "reused_concept": 23550687
+      "reused_concept": 23550687,
+      "scope": "Complete default latest-version listing; it does not enumerate historical versions of each concept.",
+      "post_release_default_listing_checked": 142,
+      "versions_endpoint": "https://zenodo.org/api/records/23633619/versions",
+      "published_family_versions_verified": ["1.0.0", "1.0.1"],
+      "family_versions_total": 2,
+      "no_duplicate_concept": true
     }
   }
 }

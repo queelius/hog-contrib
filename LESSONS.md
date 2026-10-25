@@ -146,6 +146,16 @@ siblings (`grep -rn hog-contrib ../open-problems ../oeis`) and run the
 affected tests. Never rewrite history that removes a pinned revision of a
 file another repository's certificate depends on.
 
+## 2026-10-25 — distinguish account pagination from version coverage
+
+For the 1.0.1 ledger release, the fully paginated Zenodo deposition listing
+returned 142 latest records and only the newest ledger version. Both the
+historical and current deposits remained public. Do not require one account
+listing entry per historical version, or call pagination a complete version
+audit. Follow the public record's `links.versions` endpoint and check its
+total and identifiers separately; this family had exactly 1.0.0 and 1.0.1.
+Record the listing scope and version-family check in the publication receipt.
+
 ## Standing verification rules
 
 - The final 2015 Zhang-Luo-Shigeno text was accessed on 2026-10-17. Remark 1,
