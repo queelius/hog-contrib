@@ -49,6 +49,7 @@ Evidence: doi:10.5281/zenodo.23434720
 
 - [2026-10-18-c6-v4-publication](../../receipts/2026-10-18-c6-v4-publication.json)
 - [2026-10-22-ledger-v1.0.0-publication](../../receipts/2026-10-22-ledger-v1.0.0-publication.json): Published ledger release 1.0.0 on Zenodo as doi:10.5281/zenodo.23550688 (concept 10.5281/zenodo.23550687) and as GitHub release v1.0.0.
+- [2026-10-25-ledger-v1.0.1-publication](../../receipts/2026-10-25-ledger-v1.0.1-publication.json): Published ledger 1.0.1 as doi:10.5281/zenodo.23633619 in the existing Zenodo family, with GitHub release v1.0.1; completed prior-art and annotation corrections, no new graph research.
 
 ## History
 

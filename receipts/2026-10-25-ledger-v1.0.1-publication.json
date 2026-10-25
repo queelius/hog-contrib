@@ -1,0 +1,102 @@
+{
+  "schema_version": 2,
+  "date": "2026-10-25",
+  "action": "publish",
+  "records": [
+    "sat-c6-n7",
+    "sat-c6-n8",
+    "sat-c6-n9",
+    "sat-c6-n9-class2",
+    "sat-c6-n9-class3",
+    "sat-c6-n9-class4",
+    "sat-c6-n9-class5",
+    "sat-c6-n10",
+    "sat-c6-n10-alt",
+    "sat-c6-n11",
+    "sat-c6-n12",
+    "sat-c6-n13",
+    "sat-c6-n15",
+    "sat-c6-n14",
+    "sat-c5-n8",
+    "sat-k4-n8",
+    "sat-k4-n9",
+    "sat-k4-n10",
+    "sat-p4-n6",
+    "sat-p4-n7",
+    "sat-p4-n8",
+    "sat-p5-n8",
+    "sat-p5-n9",
+    "z-10-10-3-4",
+    "z-9-10-3-4",
+    "z-9-11-3-4"
+  ],
+  "summary": "Published ledger 1.0.1 as doi:10.5281/zenodo.23633619 in the existing Zenodo family, with GitHub release v1.0.1; completed prior-art and annotation corrections, no new graph research.",
+  "details": {
+    "zenodo": {
+      "record_url": "https://zenodo.org/records/23633619",
+      "doi": "10.5281/zenodo.23633619",
+      "concept_doi": "10.5281/zenodo.23550687",
+      "version": "1.0.1",
+      "publication_date": "2026-10-25",
+      "upload_type": "dataset",
+      "license": "cc-by-4.0",
+      "archive": "hog-contrib-1.0.1.zip",
+      "archive_sha256": "949de3b0b93327f1eff414194017eaf511686541113bc7a9acd7bf174a6a9f58",
+      "archive_md5": "9e9923299eadb66f260e083ac5c037a6",
+      "archive_bytes": 131396,
+      "archive_entries": 107,
+      "regular_files": 95,
+      "public_download_byte_identical": true,
+      "dois_resolve": true,
+      "observed_at": "2026-10-25T05:04:50.119571+00:00"
+    },
+    "source": {
+      "tag": "v1.0.1",
+      "commit": "3ce5212f7e9f0a0e3bdda187e60d0edb37348b48",
+      "archive_command": "git archive --format=zip --prefix=hog-contrib-1.0.1/ v1.0.1",
+      "deterministic_rebuild": true,
+      "github_release": "https://github.com/queelius/hog-contrib/releases/tag/v1.0.1",
+      "github_asset_digest": "sha256:949de3b0b93327f1eff414194017eaf511686541113bc7a9acd7bf174a6a9f58"
+    },
+    "verification": {
+      "environment": "Fresh venv, package built and installed from the extracted archive; imported from that venv, not the source checkout.",
+      "witnesses_verified": 26,
+      "checkers": [
+        "pure-python",
+        "networkx"
+      ],
+      "render_check_clean": true,
+      "tests_passed": 65,
+      "tests_failed": 0,
+      "source_statement_coverage": {
+        "covered": 631,
+        "total": 662,
+        "percent": 95.31722054380664,
+        "branch_coverage_measured": false
+      },
+      "coverage_report": "docs/history/2026-10-25-ledger-1.0.1-coverage.json"
+    },
+    "preservation": {
+      "previous_version_doi": "10.5281/zenodo.23550688",
+      "previous_public_archive_unchanged": true,
+      "witnesses_unchanged": true,
+      "evidence_dois_unchanged": true,
+      "checker_code_unchanged": true,
+      "no_new_hog_action": true,
+      "no_new_research": true
+    },
+    "claims": {
+      "known_value": 17,
+      "new_value": 6,
+      "new_classification": 2,
+      "correction": 1,
+      "unassessed": 0
+    },
+    "pagination_audit": {
+      "depositions_checked": 142,
+      "nonempty_pages": 2,
+      "complete": true,
+      "reused_concept": 23550687
+    }
+  }
+}
