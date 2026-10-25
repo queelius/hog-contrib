@@ -41,7 +41,7 @@ Two separate implementations must both accept the witness.
 ## Cite
 
 ```text
-Towell, Alexander Richard. House of Graphs witness ledger, version 1.0.0, record sat-p5-n8. doi:10.5281/zenodo.23550687
+Towell, Alexander Richard. House of Graphs witness ledger, version 1.0.1, record sat-p5-n8. doi:10.5281/zenodo.23550687
 Witness: House of Graphs graph 57173, https://houseofgraphs.org/graphs/57173
 Evidence: doi:10.5281/zenodo.21350167
 ```

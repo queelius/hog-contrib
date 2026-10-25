@@ -80,6 +80,10 @@ without a HoG id, and assessed claims without dated prior art.
 
 ## Cite
 
+The [1.0.1 correction release notes](docs/history/2026-10-25-ledger-1.0.1.md)
+describe the completed prior-art and annotation updates. No witness or
+backing evidence DOI changed.
+
 - **One graph:** cite its House of Graphs entry and the archived evidence
   listed on its record page, which also gives a ready-made citation.
 - **The ledger:** see [`CITATION.cff`](CITATION.cff). Each tagged release is

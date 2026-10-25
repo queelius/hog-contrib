@@ -1,7 +1,7 @@
 {
   "upload_type": "dataset",
   "title": "House of Graphs witness ledger",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Extremal and saturated graphs deposited on House of Graphs, each stored as a byte-exact graph6 witness and accepted only when two separate implementations verify its defining property. Every record states its claim, the prior art checked for it, and the archived evidence behind it. Prepared with substantial AI assistance (Claude Code, OpenAI Codex). The checks are computational; they are not human peer review.",
   "creators": [
     {
@@ -19,7 +19,7 @@
   "license": "cc-by-4.0",
   "related_identifiers": [
     {
-      "identifier": "https://github.com/queelius/hog-contrib/tree/v1.0.0",
+      "identifier": "https://github.com/queelius/hog-contrib/tree/v1.0.1",
       "relation": "isSupplementTo",
       "scheme": "url"
     },

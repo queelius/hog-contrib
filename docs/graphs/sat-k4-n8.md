@@ -38,7 +38,7 @@ Two separate implementations must both accept the witness.
 ## Cite
 
 ```text
-Towell, Alexander Richard. House of Graphs witness ledger, version 1.0.0, record sat-k4-n8. doi:10.5281/zenodo.23550687
+Towell, Alexander Richard. House of Graphs witness ledger, version 1.0.1, record sat-k4-n8. doi:10.5281/zenodo.23550687
 Witness: House of Graphs graph 664, https://houseofgraphs.org/graphs/664
 Evidence: doi:10.5281/zenodo.21350167
 ```

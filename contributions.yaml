@@ -53,7 +53,7 @@ ledger:
     Prepared with substantial AI assistance (Claude Code, OpenAI Codex). The
     checks are computational; they are not human peer review.
   keywords: [House of Graphs, graph saturation, Zarankiewicz problem, extremal graph theory, graph6]
-  version: 1.0.0
+  version: 1.0.1
   # Zenodo concept DOI: resolves to the latest archived release.
   doi: 10.5281/zenodo.23550687
   # Data (registry, witnesses, receipts, docs) is CC-BY-4.0 (LICENSE-DATA);
